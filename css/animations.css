@@ -1,0 +1,61 @@
+/*
+  animations.css
+  --------------
+  Minimal, purposeful motion: view transitions + interactive feedback.
+  Flashcard flip animation will be added in the Flashcards step, once
+  that markup exists.
+*/
+
+/* ---------- VIEW TRANSITIONS ---------- */
+/* Applied via JS when a view becomes visible, so switching pages feels smooth */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view:not(.view--hidden) {
+  animation: fade-in var(--transition-base) ease;
+}
+
+/* ---------- FLASHCARDS: 3D flip ---------- */
+/*
+  The card has two faces stacked on top of each other. Rotating the
+  .flashcard__inner container by 180deg on the Y axis, combined with
+  backface-visibility: hidden on each face, creates the flip illusion —
+  no JS animation library needed, just native CSS 3D transforms.
+*/
+.flashcard {
+  perspective: 1000px; /* how "deep" the 3D effect looks */
+}
+
+.flashcard__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-base);
+  transform-style: preserve-3d;
+}
+
+.flashcard__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard__face--back {
+  transform: rotateY(180deg);
+}
+/* Some users disable motion at the OS level (iOS/Android both support this).
+   We honor that by removing animations entirely for them. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

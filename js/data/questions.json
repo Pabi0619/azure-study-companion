@@ -1,0 +1,100 @@
+{
+  "cloud-concepts": {
+    "title": "Cloud Concepts",
+    "questions": [
+      {
+        "id": "cc-1",
+        "question": "Which cloud service model gives you the most control over the operating system and installed software?",
+        "options": ["SaaS", "PaaS", "IaaS", "FaaS"],
+        "correctIndex": 2,
+        "explanation": "IaaS (Infrastructure as a Service) gives you virtual machines where you manage the OS and installed software yourself, unlike PaaS or SaaS where more is managed for you."
+      },
+      {
+        "id": "cc-2",
+        "question": "What is the main benefit of 'elasticity' in cloud computing?",
+        "options": [
+          "Data is automatically encrypted",
+          "Resources can scale up or down automatically based on demand",
+          "Servers never go offline",
+          "Costs are always fixed monthly"
+        ],
+        "correctIndex": 1,
+        "explanation": "Elasticity means resources automatically scale to match current demand, so you're not stuck with either too little or too much capacity."
+      },
+      {
+        "id": "cc-3",
+        "question": "Which pricing model charges you only for the resources you actually use?",
+        "options": ["Capital expenditure (CapEx)", "Fixed licensing", "Consumption-based (OpEx)", "Perpetual license"],
+        "correctIndex": 2,
+        "explanation": "Cloud computing typically uses a consumption-based (OpEx) model — you pay for what you use, rather than large upfront capital investment (CapEx)."
+      },
+      {
+        "id": "cc-4",
+        "question": "A company wants to keep some workloads on their own servers and some in Azure. What is this called?",
+        "options": ["Public cloud", "Private cloud", "Hybrid cloud", "Multi-cloud"],
+        "correctIndex": 2,
+        "explanation": "Hybrid cloud combines on-premises (private) infrastructure with public cloud services, allowing workloads to run in whichever environment suits them best."
+      },
+      {
+        "id": "cc-5",
+        "question": "Which of these is an example of high availability?",
+        "options": [
+          "Running a single VM with no backup",
+          "Distributing an app across multiple servers so it stays online if one fails",
+          "Storing data on one hard drive",
+          "Manually restarting a crashed server"
+        ],
+        "correctIndex": 1,
+        "explanation": "High availability means designing systems so they keep running even if individual components fail — typically through redundancy across multiple servers or regions."
+      }
+    ]
+  },
+  "azure-architecture": {
+    "title": "Azure Architecture",
+    "questions": [
+      {
+        "id": "aa-1",
+        "question": "What is the relationship between Azure regions and availability zones?",
+        "options": [
+          "Availability zones contain multiple regions",
+          "A region can contain multiple availability zones, each a physically separate location",
+          "They are the same thing",
+          "Availability zones are only for storage"
+        ],
+        "correctIndex": 1,
+        "explanation": "An Azure region is a geographic area containing one or more datacenters. Availability zones are physically separate locations within a region, each with independent power, cooling, and networking."
+      },
+      {
+        "id": "aa-2",
+        "question": "What is an Azure Resource Group used for?",
+        "options": [
+          "A billing currency setting",
+          "A logical container for grouping related Azure resources",
+          "A type of virtual machine",
+          "A security certificate"
+        ],
+        "correctIndex": 1,
+        "explanation": "A resource group is a logical container that holds related resources for an Azure solution, making them easier to manage, monitor, and delete together."
+      },
+      {
+        "id": "aa-3",
+        "question": "What is the top-level container for billing and resources in Azure, above resource groups?",
+        "options": ["Management group", "Subscription", "Tenant", "Availability set"],
+        "correctIndex": 1,
+        "explanation": "A subscription is the billing boundary and container that holds resource groups. Management groups sit above subscriptions for organizing multiple subscriptions."
+      },
+      {
+        "id": "aa-4",
+        "question": "Why might a company choose a paired region for disaster recovery?",
+        "options": [
+          "Paired regions are always cheaper",
+          "Azure coordinates updates and prioritizes recovery between paired regions to reduce simultaneous outages",
+          "Paired regions share the same physical datacenter",
+          "It's required by law in all countries"
+        ],
+        "correctIndex": 1,
+        "explanation": "Azure pairs regions within the same geography and coordinates platform updates and recovery efforts between them, reducing the chance both regions are affected at once."
+      }
+    ]
+  }
+}

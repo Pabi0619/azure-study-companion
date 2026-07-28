@@ -1,0 +1,57 @@
+{
+  "cloud-concepts": {
+    "title": "Cloud Concepts",
+    "cards": [
+      {
+        "id": "cc-fc-1",
+        "front": "What is IaaS?",
+        "back": "Infrastructure as a Service — Azure provides the virtual machines and networking; you manage the OS, runtime, and applications yourself."
+      },
+      {
+        "id": "cc-fc-2",
+        "front": "What is PaaS?",
+        "back": "Platform as a Service — Azure manages the OS and infrastructure; you focus on deploying and managing your application code."
+      },
+      {
+        "id": "cc-fc-3",
+        "front": "What is SaaS?",
+        "back": "Software as a Service — a fully managed application you just use, like Microsoft 365. Azure/the vendor manages everything underneath."
+      },
+      {
+        "id": "cc-fc-4",
+        "front": "What does 'elasticity' mean in the cloud?",
+        "back": "The ability for resources to automatically scale up or down to match current demand, so you're never stuck over- or under-provisioned."
+      },
+      {
+        "id": "cc-fc-5",
+        "front": "CapEx vs OpEx — which model does cloud computing typically use?",
+        "back": "OpEx (operational expenditure) — you pay for what you consume, rather than a large upfront capital investment (CapEx) in physical hardware."
+      }
+    ]
+  },
+  "azure-architecture": {
+    "title": "Azure Architecture",
+    "cards": [
+      {
+        "id": "aa-fc-1",
+        "front": "What is an Azure region?",
+        "back": "A geographic area containing one or more datacenters, networked together with low-latency connections."
+      },
+      {
+        "id": "aa-fc-2",
+        "front": "What is an availability zone?",
+        "back": "A physically separate location within an Azure region, with its own independent power, cooling, and networking — used for high availability."
+      },
+      {
+        "id": "aa-fc-3",
+        "front": "What is a resource group?",
+        "back": "A logical container that holds related Azure resources together, so they can be managed, monitored, and deleted as a unit."
+      },
+      {
+        "id": "aa-fc-4",
+        "front": "What sits above subscriptions in Azure's hierarchy?",
+        "back": "Management groups — they let you organize and apply governance across multiple subscriptions at once."
+      }
+    ]
+  }
+}

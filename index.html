@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Study Companion</title>
+
+  <!-- CSS load order matters: variables first (design tokens), then base, then components, then animations -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR NAVIGATION ================= -->
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar__brand">
+        <span class="sidebar__logo">☁️</span>
+        <span class="sidebar__title">Azure Study Companion</span>
+      </div>
+
+      <ul class="sidebar__nav-list">
+        <li>
+          <button class="sidebar__nav-item is-active" data-nav-target="dashboard">
+            <span class="sidebar__icon">🏠</span>
+            <span>Dashboard</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="study">
+            <span class="sidebar__icon">📘</span>
+            <span>Study</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="flashcards">
+            <span class="sidebar__icon">🗂️</span>
+            <span>Flashcards</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="quiz">
+            <span class="sidebar__icon">❓</span>
+            <span>Quiz</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="exam">
+            <span class="sidebar__icon">⏱️</span>
+            <span>Practice Exam</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="notes">
+            <span class="sidebar__icon">📝</span>
+            <span>Notes</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="settings">
+            <span class="sidebar__icon">⚙️</span>
+            <span>Settings</span>
+          </button>
+        </li>
+        <li>
+          <button class="sidebar__nav-item" data-nav-target="about">
+            <span class="sidebar__icon">ℹ️</span>
+            <span>About</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ================= MAIN CONTENT AREA ================= -->
+    <main class="main-content">
+
+      <!-- ---------- DASHBOARD VIEW ---------- -->
+      <section id="view-dashboard" data-view="dashboard" class="view">
+        <header class="view__header">
+          <h1>Welcome back 👋</h1>
+          <p class="view__subtitle">Here's where you stand on your AZ-900 journey.</p>
+        </header>
+
+        <!-- Top stats row: overall progress -->
+        <div class="card card--progress">
+          <div class="card__header">
+            <h2>Overall Progress</h2>
+            <span class="progress-percent" id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Overall study progress">
+            <div class="progress-bar__fill" id="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Stats grid: streak, quizzes completed, weak topics -->
+        <div class="stats-grid">
+          <div class="card card--stat">
+            <span class="card__label">Study Streak</span>
+            <span class="card__value" id="stat-streak">0 days</span>
+          </div>
+          <div class="card card--stat">
+            <span class="card__label">Quizzes Completed</span>
+            <span class="card__value" id="stat-quizzes">0</span>
+          </div>
+          <div class="card card--stat">
+            <span class="card__label">Weakest Topic</span>
+            <span class="card__value" id="stat-weak-topic">—</span>
+          </div>
+        </div>
+
+        <!-- Quick action buttons -->
+        <div class="action-grid">
+          <button class="btn btn--primary" data-nav-target="study">Continue Learning</button>
+          <button class="btn btn--secondary" data-nav-target="exam">Practice Exam</button>
+          <button class="btn btn--secondary" data-nav-target="flashcards">Flashcards</button>
+          <button class="btn btn--secondary" data-nav-target="notes">Notes</button>
+        </div>
+      </section>
+
+      <!-- ---------- STUDY VIEW (placeholder, built in a future step) ---------- -->
+      <section id="view-study" data-view="study" class="view view--hidden">
+        <header class="view__header">
+          <h1>Study Modules</h1>
+        </header>
+        <p>Module list will go here.</p>
+      </section>
+
+      <!-- ---------- FLASHCARDS VIEW ---------- -->
+      <section id="view-flashcards" data-view="flashcards" class="view view--hidden">
+        <header class="view__header">
+          <h1>Flashcards</h1>
+          <p class="view__subtitle">Click a card to flip it.</p>
+        </header>
+
+        <!-- Controls: topic filter + shuffle -->
+        <div class="flashcard-controls">
+          <label for="flashcard-topic-filter" class="flashcard-controls__label">Topic</label>
+          <select id="flashcard-topic-filter" class="flashcard-controls__select"></select>
+          <button id="flashcard-shuffle-btn" class="btn btn--secondary">🔀 Shuffle</button>
+        </div>
+
+        <p class="quiz-progress" id="flashcard-progress"></p>
+
+        <!-- The flip card itself -->
+        <div class="flashcard" id="flashcard">
+          <div class="flashcard__inner" id="flashcard-inner">
+            <div class="flashcard__face flashcard__face--front">
+              <p id="flashcard-front-text"></p>
+              <span class="flashcard__hint">Click to flip</span>
+            </div>
+            <div class="flashcard__face flashcard__face--back">
+              <p id="flashcard-back-text"></p>
+              <span class="flashcard__hint">Click to flip back</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mastered / bookmark toggles for the current card -->
+        <div class="flashcard-actions">
+          <button id="flashcard-mastered-btn" class="btn btn--secondary">☆ Mark as Mastered</button>
+          <button id="flashcard-bookmark-btn" class="btn btn--secondary">🔖 Bookmark</button>
+        </div>
+
+        <!-- Prev / Next navigation -->
+        <div class="flashcard-nav">
+          <button id="flashcard-prev-btn" class="btn btn--secondary">← Previous</button>
+          <button id="flashcard-next-btn" class="btn btn--secondary">Next →</button>
+        </div>
+      </section>
+
+      <!-- ---------- QUIZ VIEW ---------- -->
+      <section id="view-quiz" data-view="quiz" class="view view--hidden">
+        <header class="view__header">
+          <h1>Quiz</h1>
+          <p class="view__subtitle">Pick a module to test yourself.</p>
+        </header>
+
+        <!-- Screen 1: choose which module's quiz to take -->
+        <div id="quiz-module-select" class="module-grid" aria-label="Select a quiz module"></div>
+
+        <!-- Screen 2: the active quiz (hidden until a module is chosen) -->
+        <div id="quiz-active" class="quiz-active view--hidden">
+          <p class="quiz-progress" id="quiz-progress">Question 1 of 5</p>
+
+          <div class="card quiz-question-card">
+            <h2 id="quiz-question-text"></h2>
+            <div id="quiz-options" class="quiz-options" role="radiogroup" aria-label="Answer options"></div>
+
+            <!-- Feedback appears after an answer is selected -->
+            <div id="quiz-feedback" class="quiz-feedback view--hidden">
+              <p id="quiz-feedback-status" class="quiz-feedback__status"></p>
+              <p id="quiz-feedback-explanation" class="quiz-feedback__explanation"></p>
+            </div>
+          </div>
+
+          <button id="quiz-next-btn" class="btn btn--primary quiz-next-btn view--hidden">Next Question</button>
+        </div>
+
+        <!-- Screen 3: results, shown after the last question -->
+        <div id="quiz-results" class="quiz-results view--hidden">
+          <div class="card">
+            <h2>Quiz Complete</h2>
+            <p class="quiz-score" id="quiz-score-text"></p>
+            <div class="action-grid">
+              <button id="quiz-retry-incorrect-btn" class="btn btn--secondary">Retry Incorrect Questions</button>
+              <button id="quiz-back-to-modules-btn" class="btn btn--secondary">Back to Modules</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- PRACTICE EXAM VIEW (placeholder) ---------- -->
+      <section id="view-exam" data-view="exam" class="view view--hidden">
+        <header class="view__header">
+          <h1>Practice Exam</h1>
+        </header>
+        <p>Timed exam mode will go here.</p>
+      </section>
+
+      <!-- ---------- NOTES VIEW (placeholder) ---------- -->
+      <section id="view-notes" data-view="notes" class="view view--hidden">
+        <header class="view__header">
+          <h1>Notes</h1>
+        </header>
+        <p>Your notes will go here.</p>
+      </section>
+
+      <!-- ---------- SETTINGS VIEW (placeholder) ---------- -->
+      <section id="view-settings" data-view="settings" class="view view--hidden">
+        <header class="view__header">
+          <h1>Settings</h1>
+        </header>
+        <p>App settings will go here.</p>
+      </section>
+
+      <!-- ---------- ABOUT VIEW (placeholder) ---------- -->
+      <section id="view-about" data-view="about" class="view view--hidden">
+        <header class="view__header">
+          <h1>About</h1>
+        </header>
+        <p>Built by Pabi as a portfolio project while studying for AZ-900.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Entry point script, loaded as a module so we can use import/export -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
