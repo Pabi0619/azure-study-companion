@@ -14,6 +14,7 @@ import { renderDashboardStats, startSessionTimer } from "./progress.js";
 import { initExamStartScreen, initExamControls } from "./exam.js";
 import { renderStudyModules } from "./study.js";
 import { applyStoredTheme, initSettingsControls } from "./settings.js";
+import { initNotes } from "./notes.js";
 
 /**
  * Sets up a single click listener on the whole document (event delegation)
@@ -62,6 +63,7 @@ function initApp() {
   initExamStartScreen();
   initExamControls();
   initSettingsControls();
+  initNotes();
   renderStudyModules();
   navigateTo("dashboard");
 }

@@ -7,7 +7,7 @@
   the course is complete, how to display the streak.
 */
 
-import { getProgress, incrementTimeSpent } from "./storage.js";
+import { getProgress, incrementTimeSpent, getSettings, getTodayMinutesStudied } from "./storage.js";
 
 let totalModuleCount = null; // cached after first calculation
 
@@ -98,6 +98,33 @@ export async function renderDashboardStats() {
   // Keep the ARIA value in sync with the visual width — screen readers
   // rely on aria-valuenow, not the CSS width, to announce progress.
   fillEl.closest(".progress-bar").setAttribute("aria-valuenow", percent);
+
+  renderDailyGoalBanner();
+}
+
+/**
+ * Compares today's studied minutes against the saved daily goal and
+ * shows an encouraging, always-visible nudge on the Dashboard — the
+ * closest thing to a "reminder" a purely static, backend-less app can
+ * offer, since real push notifications would need a server to deliver
+ * them even when the app isn't open.
+ */
+function renderDailyGoalBanner() {
+  const { dailyGoalMinutes } = getSettings();
+  const minutesToday = getTodayMinutesStudied();
+  const bannerEl = document.getElementById("daily-goal-banner");
+
+  if (minutesToday >= dailyGoalMinutes) {
+    bannerEl.textContent = `🎉 Nice work — you've hit today's ${dailyGoalMinutes}-minute study goal!`;
+    bannerEl.classList.add("is-complete");
+  } else if (minutesToday === 0) {
+    bannerEl.textContent = `You haven't studied yet today. Aim for ${dailyGoalMinutes} minutes — jump into a quiz or flashcards to get started.`;
+    bannerEl.classList.remove("is-complete");
+  } else {
+    const remaining = dailyGoalMinutes - minutesToday;
+    bannerEl.textContent = `You're ${minutesToday}/${dailyGoalMinutes} minutes into today's goal — ${remaining} to go.`;
+    bannerEl.classList.remove("is-complete");
+  }
 }
 
 /**

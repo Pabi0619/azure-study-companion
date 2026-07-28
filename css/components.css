@@ -37,6 +37,26 @@
   color: var(--color-accent);
 }
 
+/* ---------- DASHBOARD: daily goal banner ---------- */
+.daily-goal-banner {
+  background-color: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-sm);
+}
+
+.daily-goal-banner:empty {
+  display: none;
+}
+
+.daily-goal-banner.is-complete {
+  background-color: rgba(63, 185, 80, 0.12);
+  border-color: var(--color-success);
+}
+
 /* ---------- PROGRESS BAR ---------- */
 /* Built with nested divs (not native <progress>) for consistent cross-browser styling */
 .progress-bar {
@@ -415,4 +435,20 @@
 .settings-danger-btn {
   border-color: var(--color-error);
   color: var(--color-error);
+}
+
+/* ---------- NOTES ---------- */
+.notes-textarea {
+  width: 100%;
+  min-height: 400px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: var(--space-lg);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  resize: vertical;
+  margin-bottom: var(--space-sm);
 }

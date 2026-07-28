@@ -12,6 +12,7 @@
 
 const STORAGE_KEY = "azureStudyCompanion.progress";
 const SETTINGS_STORAGE_KEY = "azureStudyCompanion.settings";
+const NOTES_STORAGE_KEY = "azureStudyCompanion.notes";
 
 /**
  * Defines the shape of progress data. This is the single source of truth
@@ -33,6 +34,10 @@ function getDefaultProgress() {
     flashcards: {
       masteredIds: [],   // array of card IDs the user has marked as mastered
       bookmarkedIds: [], // array of card IDs the user has bookmarked
+    },
+    dailyActivity: {
+      date: null,   // ISO date string this count applies to, e.g. "2026-07-28"
+      minutes: 0,   // minutes studied on that date, reset whenever the date rolls over
     },
   };
 }
@@ -79,6 +84,7 @@ function mergeWithDefaults(stored) {
     ...stored,
     streak: { ...defaults.streak, ...stored.streak },
     flashcards: { ...defaults.flashcards, ...stored.flashcards },
+    dailyActivity: { ...defaults.dailyActivity, ...stored.dailyActivity },
   };
 }
 
@@ -190,14 +196,35 @@ export function recordExamAttempt(moduleBreakdown) {
 }
 
 /**
- * Adds to the running total of minutes spent studying. Called periodically
+ * Adds to the running total of minutes spent studying, and to today's
+ * activity count used for the daily goal banner. Called periodically
  * while the app is open (see progress.js's session timer).
  * @param {number} minutes
  */
 export function incrementTimeSpent(minutes) {
   const progress = getProgress();
   progress.timeSpentMinutes += minutes;
+
+  const today = new Date().toISOString().split("T")[0];
+  if (progress.dailyActivity.date !== today) {
+    progress.dailyActivity.date = today;
+    progress.dailyActivity.minutes = 0;
+  }
+  progress.dailyActivity.minutes += minutes;
+
   saveProgress(progress);
+}
+
+/**
+ * Returns how many minutes have been studied today, or 0 if no activity
+ * has been recorded yet today (including if the last recorded activity
+ * was on an earlier date).
+ * @returns {number}
+ */
+export function getTodayMinutesStudied() {
+  const progress = getProgress();
+  const today = new Date().toISOString().split("T")[0];
+  return progress.dailyActivity.date === today ? progress.dailyActivity.minutes : 0;
 }
 
 /**
@@ -332,4 +359,22 @@ export function saveDailyGoal(minutes) {
   const settings = getSettings();
   settings.dailyGoalMinutes = minutes;
   saveSettings(settings);
+}
+
+/**
+ * Reads the user's freeform notes. Notes are a single plain-text blob
+ * (not JSON) since there's only ever one notebook, kept in its own
+ * localStorage key so a progress reset doesn't wipe them.
+ * @returns {string}
+ */
+export function getNotes() {
+  return localStorage.getItem(NOTES_STORAGE_KEY) || "";
+}
+
+/**
+ * Persists the user's notes, overwriting whatever was there.
+ * @param {string} text
+ */
+export function saveNotes(text) {
+  localStorage.setItem(NOTES_STORAGE_KEY, text);
 }

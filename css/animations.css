@@ -60,7 +60,9 @@
 .sidebar__nav-item:focus-visible,
 .btn:focus-visible,
 .quiz-option:focus-visible,
-.flashcard-controls__select:focus-visible {
+.flashcard-controls__select:focus-visible,
+.settings-input:focus-visible,
+.notes-textarea:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }

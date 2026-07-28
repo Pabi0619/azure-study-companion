@@ -112,6 +112,9 @@
           <p class="view__subtitle">Here's where you stand on your AZ-900 journey.</p>
         </header>
 
+        <!-- Daily goal nudge: the closest thing to a "reminder" a static, backend-less app can offer -->
+        <p class="daily-goal-banner" id="daily-goal-banner"></p>
+
         <!-- Top stats row: overall progress -->
         <div class="card card--progress">
           <div class="card__header">
@@ -294,12 +297,14 @@
         </div>
       </section>
 
-      <!-- ---------- NOTES VIEW (placeholder) ---------- -->
+      <!-- ---------- NOTES VIEW ---------- -->
       <section id="view-notes" data-view="notes" class="view view--hidden">
         <header class="view__header">
           <h1>Notes</h1>
+          <p class="view__subtitle">Freeform notes — autosaved as you type.</p>
         </header>
-        <p>Your notes will go here.</p>
+        <textarea id="notes-textarea" class="notes-textarea" placeholder="Jot down anything you want to remember..."></textarea>
+        <p class="settings-hint" id="notes-save-status"></p>
       </section>
 
       <!-- ---------- SETTINGS VIEW ---------- -->
