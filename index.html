@@ -4,8 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azure Study Companion</title>
+  <meta
+    name="description"
+    content="A study companion app for the AZ-900 Microsoft Azure Fundamentals certification."
+  />
 
-  <!-- CSS load order matters: variables first (design tokens), then base, then components, then animations -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0078d4" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="icon" href="images/icons/icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png" />
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  />
+  <meta name="apple-mobile-web-app-title" content="AZ Study" />
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -25,49 +41,65 @@
       <ul class="sidebar__nav-list">
         <li>
           <button class="sidebar__nav-item is-active" data-nav-target="dashboard">
-            <span class="sidebar__icon">🏠</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+            </span>
             <span>Dashboard</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="study">
-            <span class="sidebar__icon">📘</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
             <span>Study</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="flashcards">
-            <span class="sidebar__icon">🗂️</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="15" height="12" rx="2"/><path d="M7 3h13a1 1 0 0 1 1 1v11"/></svg>
+            </span>
             <span>Flashcards</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="quiz">
-            <span class="sidebar__icon">❓</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4"/><line x1="12" y1="17.5" x2="12" y2="17.5"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
             <span>Quiz</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="exam">
-            <span class="sidebar__icon">⏱️</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6"/></svg>
+            </span>
             <span>Practice Exam</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="notes">
-            <span class="sidebar__icon">📝</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+            </span>
             <span>Notes</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="settings">
-            <span class="sidebar__icon">⚙️</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </span>
             <span>Settings</span>
           </button>
         </li>
         <li>
           <button class="sidebar__nav-item" data-nav-target="about">
-            <span class="sidebar__icon">ℹ️</span>
+            <span class="sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+            </span>
             <span>About</span>
           </button>
         </li>

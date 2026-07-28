@@ -96,5 +96,565 @@
         "explanation": "Azure pairs regions within the same geography and coordinates platform updates and recovery efforts between them, reducing the chance both regions are affected at once."
       }
     ]
+  },
+  "azure-compute": {
+    "title": "Azure Compute",
+    "questions": [
+      {
+        "id": "co-1",
+        "question": "Which Azure service is best suited for orchestrating and scaling many containers automatically?",
+        "options": ["Azure Container Instances", "Azure Kubernetes Service (AKS)", "Azure Virtual Machines", "Azure Files"],
+        "correctIndex": 1,
+        "explanation": "AKS manages container orchestration at scale (scheduling, scaling, healing containers), while Azure Container Instances is meant for simpler, single-container workloads without orchestration."
+      },
+      {
+        "id": "co-2",
+        "question": "What is Azure Functions primarily used for?",
+        "options": [
+          "Hosting a full virtual machine",
+          "Serverless, event-driven code that runs without managing servers",
+          "Storing files in the cloud",
+          "Managing user identities"
+        ],
+        "correctIndex": 1,
+        "explanation": "Azure Functions is a serverless compute service — you write small pieces of code that run in response to events, and you're billed only for the compute time actually used."
+      },
+      {
+        "id": "co-3",
+        "question": "What is Azure App Service designed for?",
+        "options": [
+          "Running and hosting web apps, REST APIs, and mobile back ends as a managed platform",
+          "Creating virtual networks",
+          "Encrypting data at rest",
+          "Managing billing alerts"
+        ],
+        "correctIndex": 0,
+        "explanation": "App Service is a fully managed PaaS for hosting web applications — Azure handles the underlying infrastructure, patching, and scaling for you."
+      },
+      {
+        "id": "co-4",
+        "question": "With Azure Virtual Machines (IaaS), who is responsible for patching the operating system?",
+        "options": ["Microsoft, always", "The customer", "No one — patching isn't needed", "Only for Linux VMs"],
+        "correctIndex": 1,
+        "explanation": "IaaS gives you full control of the OS, which means the responsibility for OS patching and maintenance falls on you, unlike PaaS options where Microsoft manages this."
+      },
+      {
+        "id": "co-5",
+        "question": "What does a Virtual Machine Scale Set do?",
+        "options": [
+          "Encrypts VM disks automatically",
+          "Automatically deploys and manages a group of identical, load-balanced VMs that can scale based on demand",
+          "Backs up VMs to another region",
+          "Converts a VM into a container"
+        ],
+        "correctIndex": 1,
+        "explanation": "Scale sets let you create and manage a group of identical VMs, automatically increasing or decreasing the count based on demand or a defined schedule."
+      }
+    ]
+  },
+  "azure-networking": {
+    "title": "Azure Networking",
+    "questions": [
+      {
+        "id": "net-1",
+        "question": "What is the primary purpose of an Azure Virtual Network (VNet)?",
+        "options": [
+          "To provide a private network for Azure resources to communicate securely",
+          "To store blob data",
+          "To manage user passwords",
+          "To calculate monthly costs"
+        ],
+        "correctIndex": 0,
+        "explanation": "A VNet is your own private, isolated network within Azure, allowing resources like VMs to communicate with each other, the internet, and on-premises networks securely."
+      },
+      {
+        "id": "net-2",
+        "question": "What does a Network Security Group (NSG) do?",
+        "options": [
+          "Encrypts data stored in blobs",
+          "Filters inbound and outbound network traffic to Azure resources using security rules",
+          "Manages billing thresholds",
+          "Automatically scales virtual machines"
+        ],
+        "correctIndex": 1,
+        "explanation": "An NSG contains rules that allow or deny traffic to resources within a virtual network, acting like a basic firewall at the subnet or network interface level."
+      },
+      {
+        "id": "net-3",
+        "question": "Which Azure service provides a private, dedicated connection from on-premises infrastructure to Azure that doesn't travel over the public internet?",
+        "options": ["VPN Gateway", "ExpressRoute", "Azure Load Balancer", "Azure DNS"],
+        "correctIndex": 1,
+        "explanation": "ExpressRoute creates a private connection between on-premises networks and Azure through a connectivity provider, avoiding the public internet entirely — useful for reliability and lower latency."
+      },
+      {
+        "id": "net-4",
+        "question": "What does VNet peering allow you to do?",
+        "options": [
+          "Connect two virtual networks so resources can communicate as if on the same network, using Microsoft's backbone",
+          "Automatically back up virtual machines",
+          "Encrypt traffic between regions",
+          "Give a VM a static IP address"
+        ],
+        "correctIndex": 0,
+        "explanation": "VNet peering connects two virtual networks, allowing traffic between them to travel through Microsoft's private backbone network rather than over the public internet."
+      },
+      {
+        "id": "net-5",
+        "question": "What is the purpose of Azure Load Balancer?",
+        "options": [
+          "It distributes incoming network traffic across multiple VMs to improve availability and performance",
+          "It stores unstructured data like images",
+          "It manages user sign-in sessions",
+          "It calculates the cost of running a VM"
+        ],
+        "correctIndex": 0,
+        "explanation": "A Load Balancer distributes incoming traffic among healthy VMs in the backend pool, helping ensure high availability and even resource utilization."
+      }
+    ]
+  },
+  "azure-storage": {
+    "title": "Azure Storage",
+    "questions": [
+      {
+        "id": "st-1",
+        "question": "Which Azure Storage service is optimized for storing large amounts of unstructured data like images, video, and backups?",
+        "options": ["Azure Files", "Azure Queue Storage", "Azure Blob Storage", "Azure Table Storage"],
+        "correctIndex": 2,
+        "explanation": "Blob Storage is designed for storing massive amounts of unstructured data — text or binary — such as documents, media files, and backups."
+      },
+      {
+        "id": "st-2",
+        "question": "What distinguishes the Hot, Cool, and Archive access tiers in Blob Storage?",
+        "options": [
+          "They are different regions",
+          "They balance storage cost against access cost, based on how frequently data is accessed",
+          "They control who can access the data",
+          "They only apply to Azure Files, not Blob Storage"
+        ],
+        "correctIndex": 1,
+        "explanation": "Hot is for frequently accessed data, Cool for infrequently accessed data kept for at least 30 days, and Archive for rarely accessed data where retrieval can take hours — each tier trades off storage cost against access cost and retrieval speed."
+      },
+      {
+        "id": "st-3",
+        "question": "What does Locally Redundant Storage (LRS) do?",
+        "options": [
+          "Replicates your data three times within a single datacenter",
+          "Replicates your data to a different country",
+          "Deletes old data automatically after 30 days",
+          "Encrypts data using your own keys only"
+        ],
+        "correctIndex": 0,
+        "explanation": "LRS keeps three synchronous copies of your data within a single datacenter in the primary region, protecting against hardware failures but not a full datacenter outage."
+      },
+      {
+        "id": "st-4",
+        "question": "What extra protection does Geo-Redundant Storage (GRS) provide compared to LRS?",
+        "options": [
+          "Faster read speeds only",
+          "It also replicates data to a secondary, paired region, protecting against a regional outage",
+          "It automatically compresses files",
+          "It removes the need for backups entirely"
+        ],
+        "correctIndex": 1,
+        "explanation": "GRS copies your data asynchronously to a secondary paired region in addition to the local replicas, so your data survives even if the entire primary region goes down."
+      },
+      {
+        "id": "st-5",
+        "question": "Which Azure Storage service provides fully managed file shares accessible via SMB or NFS, similar to a network drive?",
+        "options": ["Azure Blob Storage", "Azure Files", "Azure Table Storage", "Azure Queue Storage"],
+        "correctIndex": 1,
+        "explanation": "Azure Files provides managed file shares that can be mounted concurrently by cloud or on-premises deployments, using standard SMB or NFS protocols."
+      }
+    ]
+  },
+  "identity": {
+    "title": "Identity",
+    "questions": [
+      {
+        "id": "id-1",
+        "question": "What is the difference between authentication and authorization?",
+        "options": [
+          "They mean the same thing",
+          "Authentication verifies who you are; authorization determines what you're allowed to do",
+          "Authentication is for VMs; authorization is for storage",
+          "Authorization happens before authentication"
+        ],
+        "correctIndex": 1,
+        "explanation": "Authentication proves your identity (e.g. logging in with a password), while authorization determines what resources and actions that authenticated identity is permitted to access."
+      },
+      {
+        "id": "id-2",
+        "question": "What is Azure Active Directory (Azure AD)?",
+        "options": [
+          "A type of virtual machine",
+          "Microsoft's cloud-based identity and access management service",
+          "A billing and cost management tool",
+          "A physical datacenter location"
+        ],
+        "correctIndex": 1,
+        "explanation": "Azure AD is a cloud-based identity and access management service used to manage users, groups, and access to applications and resources."
+      },
+      {
+        "id": "id-3",
+        "question": "What does Multi-Factor Authentication (MFA) add to the sign-in process?",
+        "options": [
+          "A requirement to change your password every day",
+          "A requirement for two or more verification methods, not just a password",
+          "Automatic encryption of stored files",
+          "Unlimited sign-in attempts"
+        ],
+        "correctIndex": 1,
+        "explanation": "MFA requires additional proof of identity beyond a password — such as a code from a phone app or a fingerprint — making it much harder for an attacker to gain access even if they know the password."
+      },
+      {
+        "id": "id-4",
+        "question": "What benefit does Single Sign-On (SSO) provide?",
+        "options": [
+          "Users can sign in once and access multiple applications without re-entering credentials",
+          "It encrypts all network traffic automatically",
+          "It replaces the need for passwords entirely",
+          "It only works for on-premises applications"
+        ],
+        "correctIndex": 0,
+        "explanation": "SSO lets a user authenticate once and gain access to multiple independent applications and services, improving convenience while centralizing where credentials are managed."
+      },
+      {
+        "id": "id-5",
+        "question": "What is Azure AD Connect used for?",
+        "options": [
+          "Synchronizing on-premises Active Directory identities with Azure AD, enabling hybrid identity",
+          "Connecting virtual networks across regions",
+          "Managing storage account access keys",
+          "Monitoring VM performance"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure AD Connect synchronizes identity information between an on-premises Active Directory and Azure AD, allowing users to use the same credentials in both environments."
+      }
+    ]
+  },
+  "security": {
+    "title": "Security",
+    "questions": [
+      {
+        "id": "sec-1",
+        "question": "What does the security concept of 'defense in depth' describe?",
+        "options": [
+          "Relying on a single strong firewall",
+          "Using multiple layers of security controls so that if one layer fails, others still protect the system",
+          "Only encrypting data after a breach occurs",
+          "Hiring more security staff instead of using technology"
+        ],
+        "correctIndex": 1,
+        "explanation": "Defense in depth layers multiple security controls (physical, identity, network, application, data) so that a failure in any single layer doesn't leave the whole system exposed."
+      },
+      {
+        "id": "sec-2",
+        "question": "What is Azure Key Vault used for?",
+        "options": [
+          "Storing virtual machine images",
+          "Securely storing and managing secrets, encryption keys, and certificates",
+          "Hosting static websites",
+          "Monitoring network latency"
+        ],
+        "correctIndex": 1,
+        "explanation": "Key Vault provides a secure, centralized store for application secrets, cryptographic keys, and certificates, with tightly controlled access."
+      },
+      {
+        "id": "sec-3",
+        "question": "What does Microsoft Defender for Cloud primarily provide?",
+        "options": [
+          "Unified security posture management and threat protection across Azure, hybrid, and multi-cloud resources",
+          "A tool for estimating monthly Azure costs",
+          "A service for creating virtual networks",
+          "A service exclusively for antivirus on personal laptops"
+        ],
+        "correctIndex": 0,
+        "explanation": "Microsoft Defender for Cloud assesses your security posture, provides hardening recommendations, and detects threats across your cloud and hybrid workloads."
+      },
+      {
+        "id": "sec-4",
+        "question": "What does Azure DDoS Protection defend against?",
+        "options": [
+          "Unauthorized password guessing",
+          "Attacks that flood a resource with traffic to make it unavailable to legitimate users",
+          "Data corruption during backups",
+          "Malware embedded in uploaded files"
+        ],
+        "correctIndex": 1,
+        "explanation": "DDoS (Distributed Denial of Service) attacks overwhelm a resource with traffic from many sources; Azure DDoS Protection detects and mitigates these attacks to keep services available."
+      },
+      {
+        "id": "sec-5",
+        "question": "What core principle underlies the Zero Trust security model?",
+        "options": [
+          "Trust any device connected to the corporate network automatically",
+          "'Never trust, always verify' — every request is verified regardless of where it originates",
+          "Only external requests need verification",
+          "Passwords alone are sufficient once a user is inside the network"
+        ],
+        "correctIndex": 1,
+        "explanation": "Zero Trust assumes no request should be automatically trusted, even from inside the corporate network — every access request is authenticated, authorized, and encrypted based on all available signals."
+      }
+    ]
+  },
+  "governance": {
+    "title": "Governance",
+    "questions": [
+      {
+        "id": "gov-1",
+        "question": "What does Azure Policy do?",
+        "options": [
+          "Enforces organizational rules and standards on resources, and evaluates them for compliance",
+          "Automatically deletes unused resources",
+          "Manages billing invoices",
+          "Encrypts data in transit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure Policy creates, assigns, and manages policies that enforce rules over resources, such as requiring a specific region or resource type, and reports on compliance."
+      },
+      {
+        "id": "gov-2",
+        "question": "What is the purpose of Role-Based Access Control (RBAC)?",
+        "options": [
+          "It grants users only the level of access they need, based on their assigned role",
+          "It backs up data automatically every night",
+          "It sets the pricing tier for a subscription",
+          "It monitors network bandwidth usage"
+        ],
+        "correctIndex": 0,
+        "explanation": "RBAC lets you assign specific permissions to users, groups, or applications at a scope (subscription, resource group, or resource), following the principle of least privilege."
+      },
+      {
+        "id": "gov-3",
+        "question": "What does a Resource Lock do?",
+        "options": [
+          "Prevents a resource from being accidentally deleted or modified",
+          "Encrypts a resource's data automatically",
+          "Restricts a resource to a single region",
+          "Reduces the cost of a resource"
+        ],
+        "correctIndex": 0,
+        "explanation": "Resource Locks (CanNotDelete or ReadOnly) prevent accidental deletion or modification of critical resources, regardless of a user's RBAC permissions."
+      },
+      {
+        "id": "gov-4",
+        "question": "What is the purpose of Management Groups in Azure?",
+        "options": [
+          "To organize multiple subscriptions and apply governance controls across them at scale",
+          "To group virtual machines for load balancing",
+          "To manage individual user passwords",
+          "To store logs from Azure Monitor"
+        ],
+        "correctIndex": 0,
+        "explanation": "Management Groups sit above subscriptions in the hierarchy, letting you apply policies, RBAC, and other governance controls consistently across many subscriptions at once."
+      },
+      {
+        "id": "gov-5",
+        "question": "What are Azure Tags primarily used for?",
+        "options": [
+          "Applying metadata labels to resources to help organize, track cost, and manage them",
+          "Encrypting resource names",
+          "Creating new resource groups automatically",
+          "Setting the region a resource is deployed to"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tags are name/value pairs you attach to resources, commonly used to organize resources by department, project, or environment — especially useful for cost reporting."
+      }
+    ]
+  },
+  "monitoring": {
+    "title": "Monitoring",
+    "questions": [
+      {
+        "id": "mon-1",
+        "question": "What is Azure Monitor used for?",
+        "options": [
+          "Collecting, analyzing, and acting on telemetry data from cloud and on-premises environments",
+          "Creating virtual networks",
+          "Managing user identities",
+          "Estimating future Azure costs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure Monitor is the umbrella service for collecting metrics and logs, visualizing them, and setting up alerts or automated responses based on that data."
+      },
+      {
+        "id": "mon-2",
+        "question": "What does Azure Service Health inform you about?",
+        "options": [
+          "The health of Azure services themselves, including outages and planned maintenance affecting your resources",
+          "The physical health of datacenter staff",
+          "Whether your code has bugs",
+          "Your subscription's remaining budget"
+        ],
+        "correctIndex": 0,
+        "explanation": "Service Health provides personalized alerts and guidance about Azure service issues, planned maintenance, and health advisories that could affect the specific resources you use."
+      },
+      {
+        "id": "mon-3",
+        "question": "What does Azure Advisor provide?",
+        "options": [
+          "Personalized recommendations for cost, security, reliability, and performance best practices",
+          "A place to file support tickets",
+          "A virtual assistant for scheduling meetings",
+          "A tool for writing Azure Functions code"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure Advisor analyzes your resource configuration and usage, then recommends solutions to improve cost efficiency, security, reliability, and performance."
+      },
+      {
+        "id": "mon-4",
+        "question": "What does Application Insights (part of Azure Monitor) help you do?",
+        "options": [
+          "Monitor the performance, availability, and usage of live web applications",
+          "Manage employee access badges",
+          "Set up virtual network peering",
+          "Choose a storage redundancy option"
+        ],
+        "correctIndex": 0,
+        "explanation": "Application Insights is an application performance management tool that detects anomalies, tracks usage patterns, and helps diagnose issues in running applications."
+      },
+      {
+        "id": "mon-5",
+        "question": "What can an Azure Monitor Alert do?",
+        "options": [
+          "Proactively notify you (or trigger an automated action) when a metric or log meets a defined condition",
+          "Automatically write new application code",
+          "Permanently delete unused resources",
+          "Change a subscription's billing currency"
+        ],
+        "correctIndex": 0,
+        "explanation": "Alerts let you define conditions (like CPU usage exceeding a threshold) and automatically notify a person or trigger actions such as scaling resources or running a script."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "questions": [
+      {
+        "id": "pr-1",
+        "question": "What is the Azure Pricing Calculator used for?",
+        "options": [
+          "Estimating the cost of Azure products and services before provisioning them",
+          "Automatically applying discounts to an active subscription",
+          "Monitoring VM performance",
+          "Managing user roles and permissions"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Pricing Calculator lets you configure hypothetical resources and see an estimated monthly cost, helping with planning before you actually deploy anything."
+      },
+      {
+        "id": "pr-2",
+        "question": "What does the Total Cost of Ownership (TCO) Calculator help you do?",
+        "options": [
+          "Compare the cost of running infrastructure on-premises versus running the equivalent workload in Azure",
+          "Calculate the exact daily cost of a single VM",
+          "Estimate how many support tickets you'll need",
+          "Determine your MFA settings"
+        ],
+        "correctIndex": 0,
+        "explanation": "The TCO Calculator estimates potential cost savings of migrating on-premises workloads to Azure, factoring in things like hardware, power, and staffing costs you'd no longer need."
+      },
+      {
+        "id": "pr-3",
+        "question": "Which of these factors can affect the cost of an Azure resource?",
+        "options": [
+          "Region, resource type, and consumption/usage",
+          "Only the resource's name",
+          "The color scheme of the Azure Portal",
+          "The number of browser tabs open"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure pricing varies based on factors including region (different datacenters have different costs), the specific resource type/tier selected, and how much you actually consume."
+      },
+      {
+        "id": "pr-4",
+        "question": "What billing model applies to most Azure services by default?",
+        "options": [
+          "A large upfront one-time payment",
+          "Pay-as-you-go / consumption-based billing",
+          "A fixed annual fee regardless of usage",
+          "Free forever with no limits"
+        ],
+        "correctIndex": 1,
+        "explanation": "Most Azure services use a consumption-based model — you're billed based on what you actually use, rather than paying a large amount upfront (though reserved pricing options exist too)."
+      },
+      {
+        "id": "pr-5",
+        "question": "Is inbound data transfer into Azure typically billed?",
+        "options": [
+          "Yes, inbound and outbound are both billed the same way",
+          "No, inbound data transfer is generally free; it's outbound transfer that's typically billed",
+          "Only on weekends",
+          "Only for free-tier subscriptions"
+        ],
+        "correctIndex": 1,
+        "explanation": "Azure generally does not charge for data moving into a region (inbound), but does charge for data leaving Azure to the internet (outbound), depending on the service and volume."
+      }
+    ]
+  },
+  "cost-management": {
+    "title": "Cost Management",
+    "questions": [
+      {
+        "id": "cm-1",
+        "question": "What does Azure Cost Management + Billing help you do?",
+        "options": [
+          "Monitor, allocate, and optimize your organization's cloud spending",
+          "Create new virtual networks",
+          "Manage user sign-in methods",
+          "Configure DNS records"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cost Management + Billing provides tools to analyze spending, set budgets, and identify opportunities to reduce costs across your Azure subscriptions."
+      },
+      {
+        "id": "cm-2",
+        "question": "What is the purpose of an Azure Budget?",
+        "options": [
+          "To set spending thresholds and receive alerts as costs approach or exceed them",
+          "To automatically shut down all resources",
+          "To set a fixed price for all VMs",
+          "To grant users administrator access"
+        ],
+        "correctIndex": 0,
+        "explanation": "Budgets let you define a spending limit for a subscription or resource group and configure alerts to notify you as actual or forecasted costs approach that limit."
+      },
+      {
+        "id": "cm-3",
+        "question": "What is an Azure Reservation (Reserved Instance)?",
+        "options": [
+          "A commitment to use a resource for a 1- or 3-year term in exchange for a significant discount versus pay-as-you-go pricing",
+          "A way to reserve a specific IP address permanently for free",
+          "A guarantee that a VM will never be decommissioned",
+          "A type of security certificate"
+        ],
+        "correctIndex": 0,
+        "explanation": "Reservations let you pre-commit to using a certain amount of a resource over a set term, typically saving a significant percentage compared to standard pay-as-you-go rates."
+      },
+      {
+        "id": "cm-4",
+        "question": "What does Azure Hybrid Benefit allow you to do?",
+        "options": [
+          "Use your existing on-premises Windows Server or SQL Server licenses (with Software Assurance) to reduce costs in Azure",
+          "Get free Azure credits every month",
+          "Combine two subscriptions into one",
+          "Run Azure resources without an internet connection"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure Hybrid Benefit lets organizations apply licenses they already own on-premises toward Azure resources, avoiding paying for those licenses again in the cloud."
+      },
+      {
+        "id": "cm-5",
+        "question": "What is a Spot Virtual Machine?",
+        "options": [
+          "Unused Azure compute capacity offered at a steep discount, which can be evicted with little notice when Azure needs the capacity back",
+          "A VM that is always guaranteed to run without interruption",
+          "A VM located in a specific 'spot' region only",
+          "A free VM with no time limit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Spot VMs let you take advantage of Azure's unused capacity at a much lower price, but Azure can reclaim that capacity with short notice, making Spot VMs best suited for interruptible workloads."
+      }
+    ]
   }
 }

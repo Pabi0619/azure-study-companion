@@ -53,5 +53,230 @@
         "back": "Management groups — they let you organize and apply governance across multiple subscriptions at once."
       }
     ]
+  },
+  "azure-compute": {
+    "title": "Azure Compute",
+    "cards": [
+      {
+        "id": "co-fc-1",
+        "front": "What is Azure Kubernetes Service (AKS)?",
+        "back": "A managed service for orchestrating containerized applications at scale — handling scheduling, scaling, and healing of containers automatically."
+      },
+      {
+        "id": "co-fc-2",
+        "front": "What is Azure Functions?",
+        "back": "A serverless compute service that runs small pieces of code in response to events — you pay only for the compute time you actually use."
+      },
+      {
+        "id": "co-fc-3",
+        "front": "What is Azure App Service?",
+        "back": "A fully managed PaaS for hosting web apps, REST APIs, and mobile back ends — Microsoft handles the underlying infrastructure and patching."
+      },
+      {
+        "id": "co-fc-4",
+        "front": "What is a Virtual Machine Scale Set?",
+        "back": "A way to deploy and manage a group of identical, load-balanced VMs that can automatically scale up or down based on demand."
+      }
+    ]
+  },
+  "azure-networking": {
+    "title": "Azure Networking",
+    "cards": [
+      {
+        "id": "net-fc-1",
+        "front": "What is an Azure Virtual Network (VNet)?",
+        "back": "Your own private, isolated network within Azure that lets resources communicate securely with each other, the internet, and on-premises networks."
+      },
+      {
+        "id": "net-fc-2",
+        "front": "What is a Network Security Group (NSG)?",
+        "back": "A set of rules that filter inbound and outbound traffic to Azure resources, acting like a basic firewall at the subnet or network interface level."
+      },
+      {
+        "id": "net-fc-3",
+        "front": "What is ExpressRoute?",
+        "back": "A private, dedicated connection between your on-premises network and Azure that bypasses the public internet entirely."
+      },
+      {
+        "id": "net-fc-4",
+        "front": "What is Azure Load Balancer?",
+        "back": "A service that distributes incoming network traffic across multiple VMs, improving availability and performance."
+      }
+    ]
+  },
+  "azure-storage": {
+    "title": "Azure Storage",
+    "cards": [
+      {
+        "id": "st-fc-1",
+        "front": "What is Azure Blob Storage used for?",
+        "back": "Storing massive amounts of unstructured data — such as images, video, and backups — as text or binary objects."
+      },
+      {
+        "id": "st-fc-2",
+        "front": "What's the difference between the Hot, Cool, and Archive access tiers?",
+        "back": "They balance storage cost against access cost based on how often the data is accessed: Hot for frequent access, Cool for infrequent, Archive for rarely accessed data with slower retrieval."
+      },
+      {
+        "id": "st-fc-3",
+        "front": "What does Locally Redundant Storage (LRS) do?",
+        "back": "Keeps three synchronous copies of your data within a single datacenter, protecting against hardware failure but not a full datacenter outage."
+      },
+      {
+        "id": "st-fc-4",
+        "front": "What does Geo-Redundant Storage (GRS) add compared to LRS?",
+        "back": "It also replicates your data to a secondary, paired region — so your data survives even a full regional outage."
+      }
+    ]
+  },
+  "identity": {
+    "title": "Identity",
+    "cards": [
+      {
+        "id": "id-fc-1",
+        "front": "What's the difference between authentication and authorization?",
+        "back": "Authentication verifies who you are (like logging in); authorization determines what you're allowed to do once verified."
+      },
+      {
+        "id": "id-fc-2",
+        "front": "What is Azure Active Directory (Azure AD)?",
+        "back": "Microsoft's cloud-based identity and access management service, used to manage users, groups, and access to applications and resources."
+      },
+      {
+        "id": "id-fc-3",
+        "front": "What does Multi-Factor Authentication (MFA) do?",
+        "back": "Requires two or more forms of verification (like a password plus a phone code), making it much harder for an attacker to gain access."
+      },
+      {
+        "id": "id-fc-4",
+        "front": "What is Azure AD Connect?",
+        "back": "A tool that synchronizes on-premises Active Directory identities with Azure AD, enabling hybrid identity across both environments."
+      }
+    ]
+  },
+  "security": {
+    "title": "Security",
+    "cards": [
+      {
+        "id": "sec-fc-1",
+        "front": "What is 'defense in depth'?",
+        "back": "A layered security approach using multiple types of controls, so if one layer fails, others still protect the system."
+      },
+      {
+        "id": "sec-fc-2",
+        "front": "What is Azure Key Vault?",
+        "back": "A service for securely storing and managing secrets, encryption keys, and certificates."
+      },
+      {
+        "id": "sec-fc-3",
+        "front": "What does Microsoft Defender for Cloud do?",
+        "back": "Provides unified security posture management and threat protection across Azure, hybrid, and multi-cloud resources."
+      },
+      {
+        "id": "sec-fc-4",
+        "front": "What does the Zero Trust model assume?",
+        "back": "'Never trust, always verify' — every access request is authenticated and authorized, regardless of where it comes from."
+      }
+    ]
+  },
+  "governance": {
+    "title": "Governance",
+    "cards": [
+      {
+        "id": "gov-fc-1",
+        "front": "What does Azure Policy do?",
+        "back": "Enforces organizational rules and standards on resources, and evaluates them for compliance."
+      },
+      {
+        "id": "gov-fc-2",
+        "front": "What is Role-Based Access Control (RBAC)?",
+        "back": "A system that grants users only the level of access they need, based on their assigned role — following least-privilege principles."
+      },
+      {
+        "id": "gov-fc-3",
+        "front": "What is a Resource Lock?",
+        "back": "A setting that prevents a resource from being accidentally deleted or modified, regardless of a user's normal permissions."
+      },
+      {
+        "id": "gov-fc-4",
+        "front": "What is the purpose of Management Groups?",
+        "back": "To organize multiple subscriptions and apply governance controls (like policies and RBAC) across them all at once."
+      }
+    ]
+  },
+  "monitoring": {
+    "title": "Monitoring",
+    "cards": [
+      {
+        "id": "mon-fc-1",
+        "front": "What is Azure Monitor?",
+        "back": "The umbrella service for collecting metrics and logs, visualizing them, and setting up alerts or automated responses."
+      },
+      {
+        "id": "mon-fc-2",
+        "front": "What does Azure Service Health tell you?",
+        "back": "Personalized information about Azure service issues, outages, and planned maintenance affecting the specific resources you use."
+      },
+      {
+        "id": "mon-fc-3",
+        "front": "What is Azure Advisor?",
+        "back": "A tool that analyzes your resources and gives personalized recommendations for cost, security, reliability, and performance."
+      },
+      {
+        "id": "mon-fc-4",
+        "front": "What is Application Insights?",
+        "back": "An Azure Monitor feature that tracks the performance, availability, and usage of live web applications."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "cards": [
+      {
+        "id": "pr-fc-1",
+        "front": "What is the Azure Pricing Calculator?",
+        "back": "A tool for estimating the cost of Azure products and services before you actually provision them."
+      },
+      {
+        "id": "pr-fc-2",
+        "front": "What is the Total Cost of Ownership (TCO) Calculator?",
+        "back": "A tool that compares the cost of running infrastructure on-premises versus running the equivalent workload in Azure."
+      },
+      {
+        "id": "pr-fc-3",
+        "front": "What billing model does Azure typically use?",
+        "back": "Pay-as-you-go / consumption-based billing — you're charged based on what you actually use."
+      },
+      {
+        "id": "pr-fc-4",
+        "front": "Is inbound data transfer into Azure usually billed?",
+        "back": "No — inbound data transfer is generally free. It's outbound data transfer that's typically billed."
+      }
+    ]
+  },
+  "cost-management": {
+    "title": "Cost Management",
+    "cards": [
+      {
+        "id": "cm-fc-1",
+        "front": "What does Azure Cost Management + Billing help you do?",
+        "back": "Monitor, allocate, and optimize your organization's cloud spending across subscriptions."
+      },
+      {
+        "id": "cm-fc-2",
+        "front": "What is an Azure Budget?",
+        "back": "A spending threshold you set to receive alerts as actual or forecasted costs approach or exceed that limit."
+      },
+      {
+        "id": "cm-fc-3",
+        "front": "What is an Azure Reservation?",
+        "back": "A commitment to use a resource for a 1- or 3-year term in exchange for a significant discount versus pay-as-you-go pricing."
+      },
+      {
+        "id": "cm-fc-4",
+        "front": "What is a Spot Virtual Machine?",
+        "back": "Unused Azure compute capacity offered at a steep discount, which can be evicted with short notice when Azure needs the capacity back."
+      }
+    ]
   }
 }

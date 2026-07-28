@@ -27,6 +27,11 @@ async function loadCardBank() {
   if (cardBank) return cardBank;
 
   const response = await fetch("./js/data/flashcards.json");
+
+  if (!response.ok) {
+    throw new Error(`Failed to load flashcards: ${response.status}`);
+  }
+
   cardBank = await response.json();
   return cardBank;
 }
