@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azure Study Buddy</title>
-  <meta name="description" content="A study buddy app for the AZ-900 Microsoft Azure Fundamentals certification." />
+  <title>CloudForge</title>
+  <meta name="description" content="CloudForge — a hands-on learning platform for the AZ-900 Microsoft Azure Fundamentals certification." />
 
   <!-- PWA: lets iPhone/Android add this to the home screen as a standalone app -->
   <link rel="manifest" href="manifest.json" />
@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="images/icons/icon-192.png" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Study Buddy" />
+  <meta name="apple-mobile-web-app-title" content="CloudForge" />
 
   <!-- CSS load order matters: variables first (design tokens), then base, then components, then animations -->
   <link rel="stylesheet" href="css/variables.css" />
@@ -31,7 +31,7 @@
     <nav class="sidebar" aria-label="Main navigation">
       <div class="sidebar__brand">
         <span class="sidebar__logo">☁️</span>
-        <span class="sidebar__title">Azure Study Buddy</span>
+        <span class="sidebar__title">CloudForge</span>
       </div>
 
       <ul class="sidebar__nav-list">
@@ -159,6 +159,27 @@
      </header>
      <div id="study-module-list" class="study-module-list"></div>
    </section>
+
+      <!-- ---------- LESSON VIEW ---------- -->
+      <!-- One shared content container, repopulated per step by lessons.js — -->
+      <!-- only one step (Read Lesson, Key Takeaways, ... Module Complete) is ever visible at a time. -->
+      <section id="view-lesson" data-view="lesson" class="view view--hidden">
+        <header class="view__header">
+          <p class="quiz-progress" id="lesson-step-indicator"></p>
+          <h1 id="lesson-module-title"></h1>
+        </header>
+
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson step progress">
+          <div class="progress-bar__fill" id="lesson-progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <div id="lesson-step-content" class="card lesson-step-content"></div>
+
+        <div class="exam-nav">
+          <button id="lesson-back-btn" class="btn btn--secondary">← Back</button>
+          <button id="lesson-continue-btn" class="btn btn--primary">Continue</button>
+        </div>
+      </section>
 
       <!-- ---------- FLASHCARDS VIEW ---------- -->
       <section id="view-flashcards" data-view="flashcards" class="view view--hidden">

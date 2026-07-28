@@ -135,6 +135,38 @@ export function updateStreakForToday() {
 }
 
 /**
+ * Returns a module's progress entry, creating it with full defaults if it
+ * doesn't exist yet, or safely merging in any fields that didn't exist
+ * when this entry was first saved (e.g. an entry written before lesson
+ * tracking existed won't have lessonCompleted or knowledgeCheckBestScore
+ * yet). This is moduleProgress's equivalent of the top-level
+ * mergeWithDefaults() — needed separately because moduleProgress is a
+ * dynamic dictionary keyed by moduleId, not a fixed shape, so the
+ * top-level merge can't reach inside it. Shared by quiz/exam recording
+ * and lesson-completion tracking so both go through one safe path.
+ * @param {object} progress
+ * @param {string} moduleId
+ * @param {string} moduleTitle
+ * @returns {object} the module's progress entry (already attached to progress.moduleProgress)
+ */
+function ensureModuleProgressEntry(progress, moduleId, moduleTitle) {
+  const defaults = {
+    title: moduleTitle,
+    attempts: [],
+    lessonCompleted: false,
+    knowledgeCheckBestScore: null,
+  };
+
+  progress.moduleProgress[moduleId] = {
+    ...defaults,
+    ...progress.moduleProgress[moduleId],
+    title: moduleTitle, // always keep the latest title, same as before this refactor
+  };
+
+  return progress.moduleProgress[moduleId];
+}
+
+/**
  * Adds one attempt record to a module's history. Shared by both
  * recordQuizAttempt and recordExamAttempt — the only difference between
  * those two is what they increment (quizzesCompleted vs examsCompleted)
@@ -146,12 +178,8 @@ export function updateStreakForToday() {
  * @param {number} total
  */
 function addModuleAttempt(progress, moduleId, moduleTitle, score, total) {
-  if (!progress.moduleProgress[moduleId]) {
-    progress.moduleProgress[moduleId] = { title: moduleTitle, attempts: [] };
-  }
-
-  progress.moduleProgress[moduleId].title = moduleTitle;
-  progress.moduleProgress[moduleId].attempts.push({
+  const entry = ensureModuleProgressEntry(progress, moduleId, moduleTitle);
+  entry.attempts.push({
     score,
     total,
     date: new Date().toISOString(),
@@ -193,6 +221,60 @@ export function recordExamAttempt(moduleBreakdown) {
 
   progress.examsCompleted++;
   saveProgress(progress);
+}
+
+/**
+ * Marks a module's lesson flow (Read Lesson through Knowledge Check) as
+ * completed. Safe to call more than once — completing a lesson twice
+ * just leaves it marked complete.
+ * @param {string} moduleId
+ * @param {string} moduleTitle
+ */
+export function markLessonCompleted(moduleId, moduleTitle) {
+  const progress = getProgress();
+  const entry = ensureModuleProgressEntry(progress, moduleId, moduleTitle);
+  entry.lessonCompleted = true;
+  saveProgress(progress);
+}
+
+/**
+ * Records a Knowledge Check attempt, keeping only the best score seen so
+ * far — a later, worse attempt (e.g. from retrying to re-read explanations)
+ * should never erase a previous best.
+ * @param {string} moduleId
+ * @param {string} moduleTitle
+ * @param {number} score
+ * @param {number} total
+ */
+export function recordKnowledgeCheckAttempt(moduleId, moduleTitle, score, total) {
+  const progress = getProgress();
+  const entry = ensureModuleProgressEntry(progress, moduleId, moduleTitle);
+  const percent = Math.round((score / total) * 100);
+
+  if (entry.knowledgeCheckBestScore === null || percent > entry.knowledgeCheckBestScore) {
+    entry.knowledgeCheckBestScore = percent;
+  }
+
+  saveProgress(progress);
+}
+
+/**
+ * Returns a module's lesson-flow progress: whether the lesson has been
+ * completed, and the best Knowledge Check score achieved so far. Uses
+ * optional chaining rather than ensureModuleProgressEntry because this is
+ * a read-only lookup — it shouldn't have the side effect of writing a new
+ * entry to localStorage just because someone checked a module's status.
+ * @param {string} moduleId
+ * @returns {{ lessonCompleted: boolean, knowledgeCheckBestScore: number|null }}
+ */
+export function getLessonProgress(moduleId) {
+  const progress = getProgress();
+  const entry = progress.moduleProgress[moduleId];
+
+  return {
+    lessonCompleted: entry?.lessonCompleted ?? false,
+    knowledgeCheckBestScore: entry?.knowledgeCheckBestScore ?? null,
+  };
 }
 
 /**

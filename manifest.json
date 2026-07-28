@@ -1,7 +1,7 @@
 {
-  "name": "Azure Study Buddy",
-  "short_name": "Study Buddy",
-  "description": "Offline-friendly AZ-900 study buddy.",
+  "name": "CloudForge",
+  "short_name": "CloudForge",
+  "description": "Offline-friendly AZ-900 learning platform.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d1117",

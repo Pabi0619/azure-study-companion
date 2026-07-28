@@ -7,10 +7,11 @@
   that module's quiz or flashcard deck.
 */
 
-import { getProgress } from "./storage.js";
+import { getProgress, getLessonProgress } from "./storage.js";
 import { navigateTo } from "./router.js";
 import { startQuizForModule } from "./quiz-engine.js";
 import { selectFlashcardTopic } from "./flashcards.js";
+import { startLessonForModule } from "./lessons.js";
 
 let moduleList = null; // cached copy of modules.json
 
@@ -68,38 +69,55 @@ export async function renderStudyModules() {
 
   Object.entries(modules).forEach(([moduleId, moduleData]) => {
     const status = getCompletionStatus(moduleId, progress);
-    const card = buildModuleCard(moduleId, moduleData, status);
+    const lessonProgress = getLessonProgress(moduleId);
+    const card = buildModuleCard(moduleId, moduleData, status, lessonProgress);
     container.appendChild(card);
   });
 }
 
 /**
- * Builds a single module card element, including its Take Quiz and
- * Flashcards shortcut buttons.
+ * Builds a single module card element, including its Start Lesson,
+ * Take Quiz, and Flashcards shortcut buttons. Start Lesson is the primary
+ * action — it opens the full guided flow (Read Lesson through Module
+ * Complete) — while Take Quiz and Flashcards remain quick shortcuts
+ * straight into practice for anyone who doesn't need to re-read the
+ * lesson content first.
  * @param {string} moduleId
  * @param {object} moduleData
  * @param {{ label: string, statusClass: string }} status
+ * @param {{ lessonCompleted: boolean, knowledgeCheckBestScore: number|null }} lessonProgress
  * @returns {HTMLElement}
  */
-function buildModuleCard(moduleId, moduleData, status) {
+function buildModuleCard(moduleId, moduleData, status, lessonProgress) {
   const card = document.createElement("div");
   card.className = "card study-module-card";
+
+  const lessonBadge = lessonProgress.lessonCompleted
+    ? `<span class="study-status study-status--lesson-complete">📖 Lesson Complete</span>`
+    : "";
 
   card.innerHTML = `
     <div class="study-module-card__header">
       <h3>${moduleData.title}</h3>
       <span class="study-status study-status--${status.statusClass}">${status.label}</span>
     </div>
+    ${lessonBadge}
     <p class="study-module-card__description">${moduleData.description}</p>
     <div class="study-module-card__meta">
       <span>⏱️ ${moduleData.estimatedMinutes} min</span>
       <span>📊 ${moduleData.difficulty}</span>
     </div>
     <div class="action-grid">
-      <button class="btn btn--primary" data-action="quiz">Take Quiz</button>
+      <button class="btn btn--primary" data-action="lesson">Start Lesson</button>
+      <button class="btn btn--secondary" data-action="quiz">Take Quiz</button>
       <button class="btn btn--secondary" data-action="flashcards">Flashcards</button>
     </div>
   `;
+
+  card.querySelector('[data-action="lesson"]').addEventListener("click", () => {
+    navigateTo("lesson");
+    startLessonForModule(moduleId);
+  });
 
   card.querySelector('[data-action="quiz"]').addEventListener("click", () => {
     navigateTo("quiz");

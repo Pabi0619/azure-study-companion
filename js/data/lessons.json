@@ -1,0 +1,1142 @@
+{
+  "cloud-concepts": {
+    "title": "Cloud Concepts",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "What Is Cloud Computing?",
+          "body": "Cloud computing is the delivery of computing resources — servers, storage, databases, networking, and software — over the internet, on demand, from a provider like Microsoft Azure. Instead of buying and maintaining physical hardware in your own building, you rent exactly the capacity you need and pay only for what you use. This is a fundamental shift from capital expenditure (CapEx) — a large upfront purchase of hardware that then sits there whether you use it or not — to operational expenditure (OpEx), where cost tracks actual consumption."
+        },
+        {
+          "heading": "Cloud Service Models: IaaS, PaaS, and SaaS",
+          "body": "Azure offers three main service models, distinguished by how much of the technology stack you manage versus how much Microsoft manages for you. Infrastructure as a Service (IaaS) — for example, an Azure Virtual Machine — hands you a virtual machine and lets you manage the operating system, runtime, and applications yourself. Platform as a Service (PaaS) — for example, Azure App Service — takes the operating system and runtime off your plate so you can focus purely on your application code and data. Software as a Service (SaaS) — for example, Microsoft 365 — is a complete, ready-to-use application; you just sign in and use it. As you move from IaaS toward SaaS, you trade control for convenience: Microsoft manages progressively more of the stack."
+        },
+        {
+          "heading": "The Shared Responsibility Model",
+          "body": "No matter which service model you use, security and management responsibilities are shared between you and Microsoft — and where that line falls shifts depending on the model. The one constant across every model, including SaaS, is that you always retain responsibility for your data, your devices, and your accounts and identities. Microsoft never takes that part over for you. The diagram below shows exactly how the rest of the responsibility shifts as you move from on-premises infrastructure through IaaS and PaaS to SaaS."
+        },
+        {
+          "heading": "Cloud Deployment Models: Public, Private, and Hybrid",
+          "body": "Public cloud means the infrastructure is owned and operated by a third-party provider (like Microsoft) and shared across many customers over the internet — this is what most people mean by 'the cloud,' and it's what Azure itself is. Private cloud means the infrastructure is dedicated to a single organization, often for stricter regulatory, compliance, or customization needs. Hybrid cloud combines the two: some workloads run on-premises or in a private cloud, others run in the public cloud, connected together. Organizations often choose hybrid when they have legacy systems that can't easily move, or data residency rules that require certain data to stay on-premises, while still wanting the scalability of the public cloud for everything else. Don't confuse hybrid cloud with multi-cloud — using two or more public cloud providers together — which is a different concept entirely."
+        },
+        {
+          "heading": "Why Organizations Move to the Cloud",
+          "body": "Cloud computing offers several benefits that are difficult or expensive to achieve on-premises. High availability means designing systems with redundancy so they keep running even if individual components fail. Scalability is the ability to increase or decrease resource capacity — either vertically (a bigger VM) or horizontally (more VMs). Elasticity goes a step further: resources automatically scale up or down in response to real-time demand, without manual intervention, so you're never paying for idle capacity or getting caught short during a spike. Agility is the speed at which you can provision, test, and deploy new solutions. And because large providers like Microsoft operate at massive scale, they can offer better economies of scale — generally lower per-unit costs — than most organizations could achieve running their own datacenter."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Cloud computing delivers IT resources on demand over the internet, billed on a consumption (OpEx) basis instead of a large upfront (CapEx) purchase.",
+      "IaaS gives you the most control (you manage the OS upward), PaaS lets Microsoft manage the runtime and OS so you focus on your application, and SaaS is a ready-to-use application you don't manage at all.",
+      "Under the shared responsibility model, you always retain responsibility for your data, devices, and identities — no matter which service model you use.",
+      "Public cloud is fully hosted by a third-party provider; private cloud is dedicated to one organization; hybrid cloud combines both, often for compliance or legacy-system reasons.",
+      "Scalability (adding or removing capacity) and elasticity (automatically adjusting capacity to match real-time demand) are related but distinct concepts.",
+      "High availability and disaster recovery both aim to keep systems running, but high availability is about tolerating failures with minimal disruption, while disaster recovery is about restoring service after a major outage."
+    ],
+    "examTips": [
+      "AZ-900 loves scenario questions like \"a company wants X — which service or deployment model fits?\" Practice mapping keywords (e.g. \"regulatory data residency\" → private or hybrid) to the right answer rather than memorizing definitions in isolation.",
+      "Memorize the shared responsibility rule \"data and identity are always yours\" — it's one of the most frequently tested single facts in this entire domain, and it resurfaces in the Identity and Security modules too.",
+      "Don't confuse scaling up (vertical, a bigger VM) with scaling out (horizontal, more VMs) — the exam tests this distinction directly, and it comes up again in the Azure Compute module.",
+      "CapEx vs. OpEx questions are usually straightforward if you remember: CapEx means buying hardware upfront; OpEx means paying only for what you actually use, as you use it."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "\"IaaS means Microsoft manages everything.\"",
+        "correction": "In IaaS, Microsoft only manages the physical infrastructure and virtualization layer — you still manage the operating system, runtime, and applications yourself."
+      },
+      {
+        "mistake": "\"Hybrid cloud just means using two different cloud providers.\"",
+        "correction": "That's multi-cloud. Hybrid cloud specifically means combining on-premises or private infrastructure with public cloud services."
+      },
+      {
+        "mistake": "\"Elasticity and scalability are the same thing.\"",
+        "correction": "Scalability is the ability to increase or decrease resources, often through planned or manual action. Elasticity is the automatic, on-demand adjustment of resources to match real-time demand."
+      },
+      {
+        "mistake": "\"In SaaS, the customer has no responsibilities at all.\"",
+        "correction": "Even in SaaS, the customer is still responsible for their data, devices, and accounts and identities — Microsoft never takes over that part, regardless of service model."
+      }
+    ],
+    "diagram": {
+      "title": "Who manages what: on-premises vs. IaaS vs. PaaS vs. SaaS",
+      "svg": "<svg viewBox=\"0 0 600 232\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"192\" y=\"8\" width=\"98\" height=\"32\" fill=\"var(--color-surface)\" stroke=\"var(--color-border)\" /><text x=\"241\" y=\"28\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">On-premises</text><rect x=\"294\" y=\"8\" width=\"98\" height=\"32\" fill=\"var(--color-surface)\" stroke=\"var(--color-border)\" /><text x=\"343\" y=\"28\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">IaaS</text><rect x=\"392\" y=\"8\" width=\"98\" height=\"32\" fill=\"var(--color-surface)\" stroke=\"var(--color-border)\" /><text x=\"441\" y=\"28\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">PaaS</text><rect x=\"490\" y=\"8\" width=\"98\" height=\"32\" fill=\"var(--color-surface)\" stroke=\"var(--color-border)\" /><text x=\"539\" y=\"28\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">SaaS</text><text x=\"16\" y=\"72\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">Data &amp; Identity</text><rect x=\"192\" y=\"48\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"241\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"294\" y=\"48\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"343\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"392\" y=\"48\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"441\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"490\" y=\"48\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"539\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><text x=\"16\" y=\"116\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">Applications</text><rect x=\"192\" y=\"92\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"241\" y=\"116\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"294\" y=\"92\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"343\" y=\"116\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"392\" y=\"92\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"441\" y=\"116\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"490\" y=\"92\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"539\" y=\"116\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text><text x=\"16\" y=\"160\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">Runtime &amp; OS</text><rect x=\"192\" y=\"136\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"241\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"294\" y=\"136\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"343\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"392\" y=\"136\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"441\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text><rect x=\"490\" y=\"136\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"539\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text><text x=\"16\" y=\"204\" font-size=\"12\" font-weight=\"600\" fill=\"var(--color-text-primary)\">Infrastructure</text><rect x=\"192\" y=\"180\" width=\"98\" height=\"40\" fill=\"var(--color-accent-soft)\" stroke=\"var(--color-accent)\" /><text x=\"241\" y=\"204\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-accent)\">You</text><rect x=\"294\" y=\"180\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"343\" y=\"204\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text><rect x=\"392\" y=\"180\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"441\" y=\"204\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text><rect x=\"490\" y=\"180\" width=\"98\" height=\"40\" fill=\"var(--color-surface-hover)\" stroke=\"var(--color-border)\" /><text x=\"539\" y=\"204\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--color-text-secondary)\">Microsoft</text></svg>",
+      "caption": "As you move from left to right — on-premises, IaaS, PaaS, then SaaS — Microsoft takes on more of the technology stack. You always manage your data and identities. In IaaS you also manage the runtime, operating system, and applications. In PaaS, Microsoft manages the runtime and OS too, so you focus on your application and data. In SaaS, Microsoft manages everything except your data, devices, and accounts."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "In the shared responsibility model, which of the following is the customer always responsible for, in every service model?",
+        "options": [
+          "Physical servers",
+          "Their data and identities",
+          "The hypervisor",
+          "Networking hardware"
+        ],
+        "correctIndex": 1,
+        "explanation": "No matter which service model you use — IaaS, PaaS, or SaaS — you always retain responsibility for your own data and for managing identities and access. Physical infrastructure, the hypervisor, and networking hardware are increasingly managed by Microsoft as you move toward SaaS."
+      },
+      {
+        "question": "A company automatically adds more web server instances during a flash sale, then removes them afterward without any manual action. Which concept does this describe?",
+        "options": [
+          "Elasticity",
+          "Scalability",
+          "High availability",
+          "Fault tolerance"
+        ],
+        "correctIndex": 0,
+        "explanation": "Elasticity specifically means resources automatically scale up or down to match real-time demand, with no manual intervention required. Scalability is the broader ability to add or remove capacity, which can be manual or automatic."
+      },
+      {
+        "question": "Which cloud deployment model combines on-premises infrastructure with public cloud services?",
+        "options": [
+          "Multi-cloud",
+          "Private cloud",
+          "Hybrid cloud",
+          "Community cloud"
+        ],
+        "correctIndex": 2,
+        "explanation": "Hybrid cloud combines on-premises or private infrastructure with public cloud services, often chosen for compliance, data residency, or legacy-system reasons. Multi-cloud instead means using two or more public cloud providers together."
+      }
+    ]
+  },
+  "azure-architecture": {
+    "title": "Azure Architecture",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Azure's Physical Foundation: Regions and Zones",
+          "body": "Every Azure resource you create ultimately runs on physical hardware sitting in a real datacenter somewhere in the world, and understanding how Microsoft organizes that hardware geographically helps explain many of the choices you'll make when designing a solution. Azure groups its datacenters into regions, and within many regions those datacenters are further split into availability zones - physically separate facilities with independent power, cooling, and networking, so that a fire, flood, or power outage in one zone doesn't take down the others. Regions themselves are matched with a partner elsewhere in the world to form a region pair, giving Microsoft a coordinated way to roll out platform updates and recover services if an entire region were ever lost. Zooming out further, groups of regions across a broad area make up a geography, which matters most for organizations that need to guarantee customer data stays within a particular legal or regulatory boundary, such as a country or continent. None of this physical layout is something you manage day to day, but every time you pick a region for a new resource, you're implicitly choosing which of these physical protections apply to it."
+        },
+        {
+          "heading": "Containers for Your Resources: Resource Groups and Subscriptions",
+          "body": "Once you know where a resource will physically live, you need somewhere logical to put it, and that's where resource groups come in. Think of a resource group as a folder that holds everything related to one solution - a web app, its database, its storage account, and its networking components can all sit inside a single resource group so you can see, manage, and eventually retire them as a unit. That last part matters more than it might seem: deleting a resource group deletes every resource inside it, so a resource group is a lifecycle boundary as much as an organizational one, not just a label. Above resource groups sits the subscription, which acts as the billing and access boundary for everything underneath it; a subscription ties usage back to a payment method and an Azure Active Directory tenant, and it's the level at which many cost management and access controls are first configured. A single organization might run one subscription for everything, or split workloads across several subscriptions - for example, separating development from production, or isolating one department's spending from another's."
+        },
+        {
+          "heading": "The Full Governance Hierarchy and How Inheritance Works",
+          "body": "Resource groups and subscriptions don't exist in isolation - they sit inside a larger structure that Azure uses to apply governance consistently across an entire organization. At the top sits the management group, a container that can hold multiple subscriptions (or even other management groups), letting a large company apply one set of rules across every subscription it owns instead of configuring each one separately. Below the management group comes the subscription, below that the resource group, and below that the individual resource itself - a VM, a storage account, a database, or whatever else you've deployed. What makes this hierarchy powerful in practice is inheritance: an Azure Policy or a role-based access control (RBAC) assignment applied at any level automatically applies to everything nested beneath it, unless something more specific further down explicitly overrides it. Assign a policy that blocks a certain region at the management group level, and every subscription, resource group, and resource under it inherits that restriction immediately, with no need to reapply it four different times. This is the mechanism that lets a small governance team manage security and compliance for a company with hundreds of subscriptions without touching each one individually."
+        },
+        {
+          "heading": "Deploying Consistently with Resource Manager and ARM Templates",
+          "body": "Every action you take in Azure - clicking Create in the portal, running a CLI command, calling PowerShell, or hitting the REST API directly - ends up going through the same underlying service: Azure Resource Manager, or ARM. ARM is the layer that receives the request, checks who's asking and whether they're authorized, and then creates, updates, or deletes the resource accordingly, which is also why RBAC and policy enforcement work consistently no matter which tool someone used to make the request. Rather than clicking through the portal by hand every time you need to stand up the same environment, you can describe your desired infrastructure once in an ARM template - a JSON file listing the resources, their settings, and how they relate to each other - and hand that file to Resource Manager to deploy. Because the template is declarative, meaning it describes the end state you want rather than a sequence of steps to get there, you can run the same template against an empty subscription or one that already partially matches it, and Resource Manager will figure out what needs to be created or changed to match the template. This is what people mean by infrastructure as code: your environment's definition lives in a file you can review, version, and reuse, instead of in someone's memory of which buttons they clicked."
+        },
+        {
+          "heading": "Designing for Resilience: Availability Sets vs. Availability Zones",
+          "body": "Regions and zones describe where Microsoft's datacenters physically sit, but you still have to decide how to arrange your own virtual machines within that layout to avoid downtime. An availability set is a logical grouping you assign VMs to within a single datacenter so that Azure spreads them across separate fault domains, which share power and network hardware, and update domains, which are patched and rebooted at different times, meaning a hardware fault or planned maintenance won't take out every VM in your set simultaneously. Availability zones solve a bigger version of the same problem: instead of protecting you within one datacenter, they let you spread VMs across two or more physically separate datacenters within the same region, each with independent power and cooling, so that the loss of an entire facility still leaves your application running elsewhere. In practice, you choose based on the scale of failure you're protecting against and what the region supports - availability zones give stronger protection when they're available, while availability sets remain useful for resilience within a single datacenter or in regions where zones aren't offered."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Azure Resource Manager (ARM) is the single control plane behind every deployment method - portal, CLI, PowerShell, and SDKs all route through it.",
+      "ARM templates describe the desired end state of your infrastructure in JSON, so deployments become repeatable, version-controllable, and consistent across environments.",
+      "Policies and role assignments made at a management group or subscription flow downward automatically to every resource group and resource nested beneath them.",
+      "Deleting a resource group deletes every resource inside it in one action, which makes it efficient for cleanup but risky if used carelessly.",
+      "Regions are built from one or more datacenters, and many are subdivided into availability zones so a single facility failure doesn't take down an entire region.",
+      "Region pairs and geographies exist above individual regions to support coordinated disaster recovery and to satisfy data residency and compliance requirements."
+    ],
+    "examTips": [
+      "When a question describes wanting to apply one setting (a policy, a budget, or an RBAC role) to many subscriptions at once, the answer is almost always management group, not subscription or resource group.",
+      "If a scenario mentions repeatable, consistent, or automated deployment of the same infrastructure to multiple environments, look for ARM template or infrastructure as code in the answer choices rather than manual portal steps.",
+      "Watch for questions that test the consequence of deletion - AZ-900 likes to ask what happens to resources when their parent resource group is removed, and the answer is that they are deleted too.",
+      "Memorize the hierarchy order cold: management group sits above subscription, which sits above resource group, which sits above the individual resource - reordering it is a common wrong-answer trap.",
+      "Questions about resilience often hinge on scale of failure: a single-datacenter hardware or maintenance event points to availability sets, while a datacenter-wide outage points to availability zones."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I think a resource group is just a folder for organizing resources visually, so it doesn't really matter what I put in one together.",
+        "correction": "A resource group is also a management and lifecycle boundary - resources in it can be deployed, managed, and deleted together, and deleting the group deletes everything inside it, so grouping choices have real operational consequences."
+      },
+      {
+        "mistake": "I assumed ARM templates only work for creating brand-new resources.",
+        "correction": "ARM templates are declarative - you can run the same template against an environment that already has some or all of those resources, and Resource Manager will update whatever doesn't already match the desired state, which is why deployments are described as idempotent."
+      },
+      {
+        "mistake": "I figured permissions and policies have to be set individually on every subscription or resource group to make sure they're applied everywhere.",
+        "correction": "Assigning a policy or role at a management group, or any higher scope, automatically applies it to everything nested beneath it - that inheritance is the whole point of the hierarchy, letting you set a rule once at the right level instead of repeating it everywhere."
+      },
+      {
+        "mistake": "I think a subscription is the top of the Azure hierarchy, so there's nothing above it to worry about.",
+        "correction": "Management groups sit above subscriptions and let an organization apply governance across many subscriptions at once; a subscription is only the top of the hierarchy if no management group has been created above it."
+      }
+    ],
+    "diagram": {
+      "title": "Azure Resource Hierarchy and Policy Inheritance",
+      "svg": "<svg viewBox='0 0 600 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-labelledby='azArchTitle'><title id='azArchTitle'>Azure resource hierarchy</title><rect x='0' y='0' width='600' height='320' fill='var(--color-bg)'/><line x1='12' y1='35' x2='12' y2='285' stroke='var(--color-accent)' stroke-width='3'/><polygon points='5,278 19,278 12,292' fill='var(--color-accent)'/><text x='12' y='160' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)' transform='rotate(-90 12 160)'>Policy and RBAC inherit downward</text><rect x='30' y='20' width='560' height='280' rx='10' fill='none' stroke='var(--color-accent)' stroke-width='2'/><text x='45' y='42' font-size='14' font-weight='bold' fill='var(--color-accent)'>Management Group</text><rect x='60' y='55' width='510' height='225' rx='10' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='75' y='75' font-size='13' font-weight='bold' fill='var(--color-text-primary)'>Subscription</text><rect x='90' y='90' width='450' height='170' rx='10' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='2'/><text x='105' y='108' font-size='12' font-weight='bold' fill='var(--color-text-primary)'>Resource Group</text><rect x='115' y='130' width='125' height='65' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)'/><text x='177' y='158' font-size='11' text-anchor='middle' fill='var(--color-text-primary)'>Virtual Machine</text><text x='177' y='174' font-size='9' text-anchor='middle' fill='var(--color-text-secondary)'>Resource</text><rect x='260' y='130' width='125' height='65' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)'/><text x='322' y='158' font-size='11' text-anchor='middle' fill='var(--color-text-primary)'>Storage Account</text><text x='322' y='174' font-size='9' text-anchor='middle' fill='var(--color-text-secondary)'>Resource</text><rect x='405' y='130' width='125' height='65' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)'/><text x='467' y='158' font-size='11' text-anchor='middle' fill='var(--color-text-primary)'>SQL Database</text><text x='467' y='174' font-size='9' text-anchor='middle' fill='var(--color-text-secondary)'>Resource</text></svg>",
+      "caption": "Diagram showing Azure's resource hierarchy as four nested boxes: an outer Management Group box contains a Subscription box, which contains a Resource Group box, which contains three individual resources - a Virtual Machine, a Storage Account, and a SQL Database - arranged side by side. A downward arrow along the left edge, labeled 'Policy and RBAC inherit downward,' indicates that governance settings applied at the Management Group level automatically flow down through the Subscription and Resource Group to every resource nested inside them."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A company applies an Azure Policy at the management group level to block resource creation in a specific region. What happens to the subscriptions and resource groups nested beneath that management group?",
+        "options": [
+          "The policy automatically applies to all of them unless a lower-level assignment overrides it",
+          "The policy only applies to the management group itself, not anything beneath it",
+          "Each subscription must have the policy manually reapplied",
+          "The policy applies only to resource groups, skipping subscriptions"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure's hierarchy is designed so that governance controls like policies and RBAC roles assigned at a higher scope automatically flow down to every subscription, resource group, and resource nested within it, unless something more specific overrides them."
+      },
+      {
+        "question": "In what format are Azure Resource Manager (ARM) templates written?",
+        "options": [
+          "JSON",
+          "XML",
+          "YAML",
+          "Compiled binary"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARM templates are JSON files that declaratively describe the resources you want deployed and their configuration; Resource Manager reads the file and creates or updates resources to match it."
+      },
+      {
+        "question": "If you delete a resource group in Azure, what happens to the resources it contains?",
+        "options": [
+          "They are permanently deleted along with the resource group",
+          "They are automatically moved to a new default resource group",
+          "They remain running but become inaccessible",
+          "They are archived for 30 days before deletion"
+        ],
+        "correctIndex": 0,
+        "explanation": "Deleting a resource group deletes every resource inside it, which is why resource groups are a convenient way to clean up an entire project or environment in one action, but also why care must be taken before deleting one."
+      }
+    ]
+  },
+  "azure-compute": {
+    "title": "Azure Compute",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "What Is 'Compute,' and Why Does Azure Offer So Many Options?",
+          "body": "In cloud terminology, 'compute' simply means the raw processing power that runs your applications and code, the CPU, memory, and execution environment your workload actually runs on. Every app, whether it's a website, a mobile backend, or a batch job, needs somewhere to execute, and Azure offers a whole family of compute services rather than a single one-size-fits-all option. The reason for this variety is that different workloads have wildly different needs. Some teams want full control over the operating system and everything installed on it. Others just want to upload their code and never think about servers again. Azure's compute portfolio exists to let you pick a point along a spectrum: at one end you manage almost everything yourself and get maximum flexibility, and at the other end Azure manages almost everything and you get maximum convenience. Understanding this spectrum, and where each major compute service sits on it, is the single most useful mental model for this entire domain."
+        },
+        {
+          "heading": "Azure Virtual Machines: The IaaS Foundation",
+          "body": "Azure Virtual Machines (VMs) are the most fundamental compute building block and the clearest example of Infrastructure as a Service (IaaS). When you create a VM, Azure hands you a virtual computer, complete with virtual CPU, memory, disks, and networking, running on Azure's physical hardware. From there, you choose the operating system, install whatever software your application needs, configure it however you like, and manage it much like you would a physical server sitting in your own data center. This gives you enormous flexibility: if a workload needs a specific OS version, a particular driver, or unusual software combinations that wouldn't fit a managed platform, a VM can almost always accommodate it. The tradeoff is that flexibility comes with responsibility. You are the one who has to keep the OS updated, secure the machine, and manage its configuration over time, because Azure's job ends at the virtualization layer and the physical hardware underneath it. VMs are the right starting point for understanding compute precisely because every other service in this lesson can be thought of as 'taking away' some of that manual work in exchange for less control."
+        },
+        {
+          "heading": "App Service: Platform as a Service for Web Workloads",
+          "body": "Azure App Service moves a step further along the spectrum into Platform as a Service (PaaS). Instead of giving you a virtual machine you have to configure, App Service gives you a ready-made hosting environment specifically designed for web applications, REST APIs, and mobile backends. You bring your application code (in languages like .NET, Java, Node.js, Python, or PHP) and App Service takes care of provisioning the underlying servers, installing and patching the operating system, configuring the web server, and keeping the runtime up to date. This is the essence of PaaS: Azure manages the platform your code runs on, while you focus on the application itself. That doesn't mean you have zero responsibilities, you still own your application code, its dependencies, its configuration settings, and its data, but the operational burden of keeping servers healthy and patched disappears from your task list. For teams that want to ship web applications quickly without hiring dedicated infrastructure staff, App Service removes an entire category of day-to-day maintenance work."
+        },
+        {
+          "heading": "Containers: Packaging Applications for Portability",
+          "body": "Containers sit conceptually between VMs and fully managed platforms, and they solve a different problem than either one: consistency. A container packages an application together with everything it needs to run, its code, libraries, and configuration, into a single lightweight unit that behaves the same way no matter where it's deployed. Unlike a virtual machine, a container doesn't include a full copy of the operating system; instead, it shares the host machine's OS kernel, which makes containers much smaller and faster to start than VMs. This matters because it lets developers build an application once and trust that it will run identically on a laptop, in testing, and in production, eliminating the classic 'it worked on my machine' problem. Azure offers more than one way to run containers, reflecting the same control-versus-convenience spectrum seen elsewhere in compute: some options hand you more orchestration control, while others let you simply run a container without thinking about the machines underneath it at all. The key conceptual point to hold onto is that a container is a portable, self-contained packaging format, not a smaller virtual machine."
+        },
+        {
+          "heading": "Serverless Computing and Azure Functions",
+          "body": "At the far end of the spectrum from Virtual Machines sits serverless computing, and Azure Functions is its flagship example. The name 'serverless' is a bit misleading, since servers obviously still exist somewhere, but the point is that you never provision, see, or manage them. You simply write a piece of code that responds to a trigger, such as an HTTP request, a message arriving in a queue, or a file being uploaded, and Azure handles everything else: allocating compute resources the instant the trigger fires, scaling that capacity up or down automatically based on demand, and releasing it entirely when there's nothing to do. This has a direct financial consequence that's central to the serverless value proposition: you're typically billed for the actual execution time your code consumes, down to fractions of a second, rather than for reserved capacity sitting idle. Serverless computing is ideal for workloads that are triggered intermittently or unpredictably, where paying for an always-on server would be wasteful."
+        },
+        {
+          "heading": "Choosing Between IaaS, Containers, PaaS, and Serverless",
+          "body": "With four broad categories on the table, the decision of which to use comes down to one recurring question: how much control do you need, and how much operational work are you willing to take on to get it? If your workload demands a specific OS configuration, legacy software, or fine-grained control over networking and security at the machine level, Virtual Machines and IaaS give you that, at the cost of ongoing maintenance. If you want portability and consistency across environments without owning full servers, containers are a strong middle ground. If you're building a standard web application or API and would rather never think about the underlying server, App Service and PaaS let you hand that off while still owning your code and configuration. And if your workload is genuinely event-driven, sporadic, or you want to pay only for the moments your code actually executes, serverless computing with Azure Functions removes infrastructure concerns almost entirely. None of these options is objectively 'best'; the right choice depends entirely on matching the workload's requirements to how much of the underlying platform you actually need to touch."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Azure compute forms a spectrum from Virtual Machines (IaaS) through containers to App Service (PaaS) to Azure Functions (serverless), with control decreasing and convenience increasing along that path.",
+      "Virtual Machines give you full control over the operating system and installed software, but you are responsible for maintaining and patching them yourself.",
+      "App Service is a PaaS specifically built for hosting web apps and APIs, letting you focus on code while Azure manages the underlying platform.",
+      "A container packages an application with its dependencies into a lightweight, portable unit that shares the host operating system's kernel rather than including its own full OS.",
+      "Serverless computing, exemplified by Azure Functions, runs your code in response to triggers and typically bills you only for the actual execution time consumed.",
+      "Moving from IaaS toward serverless always trades away some customer control in exchange for Azure taking on more operational responsibility.",
+      "Choosing a compute service is a business tradeoff between operational control and management convenience, not a matter of one option being universally superior."
+    ],
+    "examTips": [
+      "AZ-900 scenario questions often describe a business need in plain language, such as 'wants to run code only when triggered, without managing any servers,' and expect you to map that description to the right category, so practice translating scenarios into IaaS, container, PaaS, or serverless without the product name being given away.",
+      "Watch for characteristic keyword traps: phrases like 'full control over the operating system' point to VMs/IaaS, 'focus only on application code' points to PaaS or serverless, and 'pay only when the code runs' points specifically to serverless.",
+      "Questions are sometimes framed as ranking or comparison questions, such as asking which option requires the least infrastructure management, rather than asking you to define a single service in isolation, so be comfortable placing all four categories along the same spectrum.",
+      "If a question emphasizes packaging an app consistently across environments rather than orchestration or scaling, it is testing the basic concept of a container, not a specific container service, so don't overcomplicate it.",
+      "Don't assume 'newest' or 'most modern' equals 'most control'; serverless is the newest-feeling option but deliberately offers the least control, while VMs remain the most control-heavy choice."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I figure that with PaaS like App Service, Azure manages literally everything, so I have basically no responsibilities at all.",
+        "correction": "With PaaS you still own your application code, its dependencies, its configuration, and your data; Azure only takes over the underlying OS, runtime, and infrastructure management, not your application itself."
+      },
+      {
+        "mistake": "Serverless means there are no servers involved anywhere in the picture.",
+        "correction": "Servers still run your code behind the scenes; 'serverless' means you never provision or manage them yourself, and you're billed based on actual execution time rather than for reserved server capacity."
+      },
+      {
+        "mistake": "A container is basically just a smaller, faster virtual machine.",
+        "correction": "A container is a fundamentally different packaging model: it bundles an app with its dependencies and shares the host machine's OS kernel, whereas a VM includes and runs its own separate full operating system."
+      },
+      {
+        "mistake": "IaaS must be the cheapest option since I'm closest to the raw hardware and not paying for a managed platform.",
+        "correction": "IaaS often costs more in total once you factor in the time and staff needed to patch, secure, and maintain the VM yourself; PaaS or serverless can end up cheaper overall for workloads that don't need that level of control."
+      }
+    ],
+    "diagram": {
+      "title": "The IaaS-to-Serverless Compute Spectrum",
+      "svg": "<svg viewBox='0 0 620 320' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='620' height='320' fill='var(--color-bg)' /><text x='310' y='28' font-size='18' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>The IaaS-to-Serverless Spectrum</text><line x1='70' y1='170' x2='570' y2='170' stroke='var(--color-border)' stroke-width='2' /><line x1='70' y1='170' x2='82' y2='164' stroke='var(--color-border)' stroke-width='2' /><line x1='70' y1='170' x2='82' y2='176' stroke='var(--color-border)' stroke-width='2' /><line x1='570' y1='170' x2='558' y2='164' stroke='var(--color-border)' stroke-width='2' /><line x1='570' y1='170' x2='558' y2='176' stroke='var(--color-border)' stroke-width='2' /><text x='75' y='192' font-size='12' fill='var(--color-text-secondary)' text-anchor='start'>Most control, most management</text><text x='565' y='192' font-size='12' fill='var(--color-text-secondary)' text-anchor='end'>Least control, least management</text><line x1='110' y1='170' x2='110' y2='205' stroke='var(--color-border)' stroke-width='1' /><line x1='250' y1='170' x2='250' y2='205' stroke='var(--color-border)' stroke-width='1' /><line x1='390' y1='170' x2='390' y2='205' stroke='var(--color-border)' stroke-width='1' /><line x1='530' y1='170' x2='530' y2='205' stroke='var(--color-border)' stroke-width='1' /><circle cx='110' cy='170' r='9' fill='var(--color-accent)' stroke='var(--color-surface)' stroke-width='2' /><circle cx='250' cy='170' r='9' fill='var(--color-accent)' stroke='var(--color-surface)' stroke-width='2' /><circle cx='390' cy='170' r='9' fill='var(--color-accent)' stroke='var(--color-surface)' stroke-width='2' /><circle cx='530' cy='170' r='9' fill='var(--color-accent)' stroke='var(--color-surface)' stroke-width='2' /><text x='110' y='145' font-size='14' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>IaaS (Virtual Machines)</text><text x='250' y='145' font-size='14' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>Containers (ACI / AKS)</text><text x='390' y='145' font-size='14' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>PaaS (App Service)</text><text x='530' y='145' font-size='14' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>Serverless (Functions)</text><rect x='40' y='205' width='140' height='95' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='110' y='225' font-size='11' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>You manage:</text><text x='110' y='240' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>OS, patches, apps</text><text x='110' y='262' font-size='11' font-weight='bold' fill='var(--color-accent)' text-anchor='middle'>Azure manages:</text><text x='110' y='277' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>Hardware, hypervisor</text><rect x='180' y='205' width='140' height='95' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='250' y='225' font-size='11' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>You manage:</text><text x='250' y='240' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>App code &amp; image</text><text x='250' y='262' font-size='11' font-weight='bold' fill='var(--color-accent)' text-anchor='middle'>Azure manages:</text><text x='250' y='277' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>Host OS, orchestration</text><rect x='320' y='205' width='140' height='95' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='390' y='225' font-size='11' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>You manage:</text><text x='390' y='240' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>App code only</text><text x='390' y='262' font-size='11' font-weight='bold' fill='var(--color-accent)' text-anchor='middle'>Azure manages:</text><text x='390' y='277' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>OS, runtime, scaling</text><rect x='460' y='205' width='140' height='95' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='530' y='225' font-size='11' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>You manage:</text><text x='530' y='240' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>Just your code</text><text x='530' y='262' font-size='11' font-weight='bold' fill='var(--color-accent)' text-anchor='middle'>Azure manages:</text><text x='530' y='277' font-size='10.5' fill='var(--color-text-secondary)' text-anchor='middle'>Everything, incl. scaling</text></svg>",
+      "caption": "A horizontal spectrum diagram showing four Azure compute options positioned from left to right in order of decreasing customer control and increasing Azure management: Virtual Machines (IaaS), where you manage the OS, patches, and applications while Azure manages only the physical hardware and hypervisor; Containers (ACI/AKS), where you manage the application code and container image while Azure manages the host OS and orchestration; App Service (PaaS), where you manage only the application code while Azure manages the OS, runtime, and scaling; and Azure Functions (serverless), where you manage just your code while Azure manages everything else, including scaling down to zero. The left end of the spectrum is labeled 'Most control, most management' and the right end is labeled 'Least control, least management.'"
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A team wants to run application code without ever provisioning or managing any servers, and wants to be billed based on how much the code actually executes rather than for reserved capacity. Which characteristic best describes the compute model they're describing?",
+        "options": [
+          "Serverless computing, where you're billed for actual execution time and never manage the underlying servers",
+          "IaaS, where you provision a virtual machine and are billed for the reserved server capacity",
+          "A dedicated on-premises server that you purchase and operate yourself",
+          "A colocation arrangement where you own hardware housed in someone else's data center"
+        ],
+        "correctIndex": 0,
+        "explanation": "This describes serverless computing: Azure allocates resources only when your code runs and bills you for that execution time, with no server provisioning or management required on your part."
+      },
+      {
+        "question": "Which statement best describes what a container is, as distinct from a virtual machine?",
+        "options": [
+          "A lightweight package containing an application and its dependencies that shares the host machine's operating system kernel",
+          "A virtual machine that has been resized to use fewer CPU cores and less memory",
+          "A dedicated physical server reserved exclusively for a single customer's workload",
+          "A billing construct that charges only for the exact seconds your application code executes"
+        ],
+        "correctIndex": 0,
+        "explanation": "A container bundles an application with its dependencies and shares the host OS kernel rather than including a full separate operating system, which is what makes it lighter weight and faster to start than a virtual machine."
+      },
+      {
+        "question": "A developer is deciding between hosting a standard web API on App Service versus building it on a Virtual Machine. What is the main tradeoff they are weighing?",
+        "options": [
+          "App Service reduces how much infrastructure they must manage themselves, while a VM gives them more direct control over the OS at the cost of ongoing maintenance",
+          "There is no real tradeoff, since App Service and Virtual Machines provide identical levels of control and management responsibility",
+          "A Virtual Machine is only usable for background batch jobs and cannot host a web API at all",
+          "App Service requires the developer to personally patch and secure the operating system, unlike a Virtual Machine"
+        ],
+        "correctIndex": 0,
+        "explanation": "The core tradeoff along the compute spectrum is control versus convenience: App Service (PaaS) hands off OS and runtime management to Azure, while a VM (IaaS) keeps that control, and that responsibility, with the developer."
+      }
+    ]
+  },
+  "azure-networking": {
+    "title": "Azure Networking",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "What Is a Virtual Network, Really?",
+          "body": "Every resource you deploy in Azure — a VM, a database, an app service — needs a way to send and receive traffic, and that starts with a Virtual Network, or VNet. Think of a VNet as your own private, isolated slice of network space carved out inside Azure's datacenters. When you create one, you assign it a range of IP addresses (an address space, such as 10.0.0.0/16) that belongs entirely to you. Nothing outside that VNet can see or reach the resources inside it unless you deliberately open a path, and nothing inside automatically talks to the outside world in ways you haven't configured. This is the foundation everything else in this lesson builds on: subnets divide a VNet up, security rules control what crosses its boundaries, and gateways and peering connect it to other networks. A VNet by itself isn't a physical piece of hardware — it is a logical construct, but it behaves exactly like a traditional network you might build in an on-premises datacenter, just software-defined and elastic."
+        },
+        {
+          "heading": "Subnets: Carving Up the Neighborhood",
+          "body": "A single VNet can hold a lot of resources, and lumping everything together makes it hard to organize or secure sensibly. That is where subnets come in: a subnet is simply a smaller range of addresses carved out of the VNet's overall address space, used to group related resources together. A common pattern is to put front-end web servers in one subnet and back-end database servers in another, so that each group can be managed, secured, and monitored on its own terms — for example, only the web subnet needs to accept traffic from the internet, while the database subnet should never be directly reachable from outside. Importantly, subnets within the same VNet are not isolated from each other by default: Azure automatically creates system routes that let resources in different subnets of the same VNet reach one another over the Microsoft network, with no extra gateway or peering required. Segmentation into subnets is therefore primarily an organizational and security tool, not a way to block traffic on its own — that job belongs to the next piece."
+        },
+        {
+          "heading": "Network Security Groups: Controlling Who Gets Through",
+          "body": "If subnets are how you organize your resources, a Network Security Group (NSG) is how you decide who is allowed to talk to them. An NSG is a set of rules you attach to a subnet or to an individual network interface, and each rule describes a piece of traffic by its source, destination, port, and protocol, then says whether to allow or deny it. The important mechanical detail worth remembering is that every rule has a priority number, and Azure evaluates rules in order from lowest number to highest — as soon as traffic matches a rule, that rule's action is applied and no further rules are checked, even if a later rule might also have matched. NSGs also come with a small set of built-in default rules (for instance, allowing traffic within the VNet and allowing outbound internet access) that apply unless you override them with rules of your own. Because an NSG works purely on addresses, ports, and protocols, it cannot look inside the traffic to understand what application-level request is being made — for that kind of deeper inspection, you need a dedicated firewall service."
+        },
+        {
+          "heading": "Connecting Networks: Peering, VPN Gateway, and ExpressRoute",
+          "body": "Sooner or later, a single VNet is not enough — you need two VNets to talk to each other, or you need your Azure network to talk to your company's on-premises office or datacenter. Azure gives you a few distinct tools for this, and picking the right one is largely a matter of scope and requirements. When you need to join two VNets together, VNet peering is typically the simplest and fastest choice, since it links them directly over Microsoft's own backbone network rather than routing traffic out to the public internet. When you need to connect an Azure VNet back to an on-premises network, you generally reach for a VPN Gateway, which encrypts traffic and sends it over the public internet in a protected tunnel — a good fit when cost matters more than guaranteed bandwidth or latency. When an organization needs a private, dedicated, high-bandwidth link to Azure that bypasses the public internet entirely — often for compliance reasons or to support very large, latency-sensitive workloads — that is the scenario ExpressRoute exists for. None of these three tools compete with each other so much as answer different versions of the same underlying question: how much distance, cost, and internet exposure am I willing to accept to link these networks together?"
+        },
+        {
+          "heading": "Getting Traffic to the Right Place",
+          "body": "Once your network is built and secured, you still need a way to spread incoming requests across multiple resources so no single VM or server gets overwhelmed, and Azure offers a small family of services for this that are easy to mix up because they all describe themselves as distributing traffic. Azure Load Balancer works at the transport layer — it looks only at IP addresses and ports, forwarding TCP or UDP connections to a pool of backend VMs without understanding anything about the content of the request, which makes it extremely fast but somewhat blunt. Application Gateway operates a layer higher, at the HTTP/HTTPS level, so it can read the actual web request and make smarter routing decisions — for example, sending traffic for /images to one set of servers and /api to another, all within a single region. Azure Front Door takes that same layer-7 awareness and applies it globally, routing users to whichever regional deployment of your application is closest or healthiest, which is what you reach for when your application runs in multiple regions around the world and you want a single global entry point. The pattern to hold onto is: Load Balancer is regional and layer 4, Application Gateway is regional and layer 7, and Front Door is global and layer 7."
+        },
+        {
+          "heading": "Guarding the Perimeter and Speeding Up Delivery",
+          "body": "NSGs handle basic traffic filtering per subnet or network interface, but larger environments often need centralized, more sophisticated perimeter protection, which is the role Azure Firewall plays. It is a fully managed firewall service that sits in front of your VNets and can filter traffic using richer criteria than an NSG offers, including specific domain names (FQDN filtering) and threat intelligence feeds, all managed as a single consistent policy across many VNets and subscriptions rather than rule-by-rule on each subnet. On the opposite side of the traffic equation — not protecting your network from the world, but making your content reach the world faster — sits Azure CDN, a Content Delivery Network that caches copies of static content like images, videos, and scripts on servers physically distributed around the globe, so users download that content from a nearby location instead of round-tripping all the way back to your original server. Firewall and CDN solve unrelated problems, but both exist for the same underlying reason: as your audience and your infrastructure grow past a single subnet in a single region, you need dedicated services to manage security and performance at scale rather than relying on the basics alone."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "A VNet is a private, isolated address space in Azure, and nothing crosses its boundary unless you configure a path for it.",
+      "Subnets subdivide a VNet's address range so you can group and manage resources separately, but resources in different subnets of the same VNet can reach each other by default through Azure's system routes.",
+      "NSG rules are evaluated strictly in priority order — lowest number first — and the first matching rule wins, so later rules are never consulted once a match occurs.",
+      "VNet peering connects two VNets over Microsoft's backbone, VPN Gateway connects networks over the encrypted public internet, and ExpressRoute connects networks over a private dedicated line — the right choice depends on scope, cost, and how much internet exposure is acceptable.",
+      "Load Balancer works at layer 4 within a region, Application Gateway works at layer 7 within a region, and Front Door works at layer 7 across regions globally.",
+      "Azure Firewall provides centralized, policy-based filtering with capabilities like FQDN filtering that go beyond what an NSG's simple allow/deny rules can do.",
+      "CDN caches static content close to users to speed up delivery, which is a different job from routing decisions handled by Load Balancer, Application Gateway, or Front Door."
+    ],
+    "examTips": [
+      "When a scenario asks how to connect two VNets in the same region as cheaply and simply as possible, the expected answer is usually VNet peering, not a gateway.",
+      "Look for OSI-layer language as a shortcut: 'Layer 4' or 'transport' points to Load Balancer, while 'Layer 7', 'HTTP', or 'URL-based routing' points to Application Gateway; 'global' or 'multiple regions' points to Front Door.",
+      "If a question mentions filtering by domain name (FQDN) or applying one security policy across many VNets, that is describing Azure Firewall, not an NSG — NSGs only match on IP, port, and protocol.",
+      "Do not assume CDN and Front Door are interchangeable on the exam — CDN questions tend to emphasize caching static content near users, while Front Door questions emphasize global HTTP routing and failover between regions.",
+      "When a question describes needing a connection that never touches the public internet for compliance or heavy bandwidth reasons, that is the signal for ExpressRoute rather than VPN Gateway."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I need to configure something before two VMs in the same subnet can talk to each other.",
+        "correction": "Resources within the same subnet can already communicate by default. NSGs and other rules only come into play when you explicitly need to allow or block specific traffic."
+      },
+      {
+        "mistake": "Two subnets in the same VNet can't reach each other unless I set up peering or a gateway.",
+        "correction": "Peering and gateways are for connecting separate VNets or external networks. Subnets inside a single VNet are automatically routable to one another through Azure's default system routes."
+      },
+      {
+        "mistake": "Application Gateway and Load Balancer are really the same product with two different names.",
+        "correction": "Load Balancer distributes TCP/UDP traffic at layer 4 without inspecting content, while Application Gateway understands HTTP/HTTPS requests at layer 7 and can route based on things like URL path — they solve related but distinct problems."
+      },
+      {
+        "mistake": "As long as traffic passes my NSG, the resources behind it are fully protected.",
+        "correction": "An NSG is one layer of defense based on simple address/port/protocol rules. Sensitive environments typically add Azure Firewall for deeper filtering and other controls like private endpoints as part of a layered security approach."
+      }
+    ],
+    "diagram": {
+      "title": "VNet, Subnets, NSG, and Traffic Flow",
+      "svg": "<svg viewBox='0 0 620 300' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='620' height='300' fill='var(--color-bg)' /><text x='95' y='140' font-size='13' text-anchor='middle' fill='var(--color-text-secondary)'>Internet traffic</text><line x1='20' y1='170' x2='170' y2='170' stroke='var(--color-accent)' stroke-width='3' /><path d='M160,163 L173,170 L160,177 Z' fill='var(--color-accent)' /><rect x='175' y='140' width='55' height='60' fill='var(--color-warning)' stroke='var(--color-border)' stroke-width='2' /><text x='202' y='165' font-size='13' text-anchor='middle' fill='var(--color-text-primary)' font-weight='bold'>NSG</text><text x='202' y='180' font-size='9' text-anchor='middle' fill='var(--color-text-primary)'>filters traffic</text><line x1='230' y1='170' x2='260' y2='170' stroke='var(--color-accent)' stroke-width='3' /><path d='M250,163 L263,170 L250,177 Z' fill='var(--color-accent)' /><rect x='245' y='40' width='355' height='230' fill='none' stroke='var(--color-accent)' stroke-width='2' /><text x='422' y='60' font-size='14' text-anchor='middle' fill='var(--color-text-primary)' font-weight='bold'>Virtual Network (VNet)</text><text x='422' y='76' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>Address space 10.0.0.0/16</text><rect x='260' y='95' width='150' height='150' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='335' y='115' font-size='13' text-anchor='middle' fill='var(--color-text-primary)' font-weight='bold'>Subnet A</text><text x='335' y='130' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>10.0.1.0/24</text><rect x='280' y='150' width='110' height='70' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2' /><text x='335' y='190' font-size='12' text-anchor='middle' fill='var(--color-text-primary)'>Virtual Machine</text><rect x='430' y='95' width='150' height='150' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='505' y='115' font-size='13' text-anchor='middle' fill='var(--color-text-primary)' font-weight='bold'>Subnet B</text><text x='505' y='130' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>10.0.2.0/24</text><rect x='450' y='150' width='110' height='70' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2' /><text x='505' y='190' font-size='12' text-anchor='middle' fill='var(--color-text-primary)'>Virtual Machine</text></svg>",
+      "caption": "A diagram showing internet traffic arriving from the left and passing through a Network Security Group before entering a Virtual Network with the address space 10.0.0.0/16. Inside the VNet are two subnets: Subnet A, with address range 10.0.1.0/24, contains a virtual machine and is the subnet directly guarded by the NSG as traffic enters; Subnet B, with address range 10.0.2.0/24, sits alongside it inside the same VNet and also contains a virtual machine. The diagram illustrates the containment relationship of VNet, subnets, and virtual machines, and shows the NSG positioned at the network boundary controlling what traffic is allowed in."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A company wants to manage its web servers and database servers with different security rules, but keep both groups within a single Azure network so they can communicate easily. What should they create inside their VNet to achieve this?",
+        "options": [
+          "Two separate VNets connected by peering",
+          "Two subnets within the same VNet",
+          "Two NSGs with no subnets defined",
+          "Two separate resource groups"
+        ],
+        "correctIndex": 1,
+        "explanation": "Subnets let you divide a VNet's address space into groups so different sets of resources can be organized and secured separately, while still allowing communication within the same VNet by default."
+      },
+      {
+        "question": "A VNet contains Subnet A and Subnet B, with no peering, gateway, or custom routes configured between them. Can a VM in Subnet A reach a VM in Subnet B?",
+        "options": [
+          "No, subnets are isolated from each other by default",
+          "Yes, Azure automatically routes traffic between subnets in the same VNet",
+          "Only if ExpressRoute is configured",
+          "Only if both subnets have identical NSG rules"
+        ],
+        "correctIndex": 1,
+        "explanation": "Azure creates default system routes that allow resources in different subnets within the same VNet to communicate automatically, without requiring peering, a gateway, or ExpressRoute."
+      },
+      {
+        "question": "An NSG has multiple rules that could match the same piece of traffic. How does Azure determine which rule is actually applied?",
+        "options": [
+          "The rule with the lowest priority number is evaluated first, and the first match wins",
+          "All matching rules are applied together",
+          "The most recently created rule always wins",
+          "Rules are applied in alphabetical order by name"
+        ],
+        "correctIndex": 0,
+        "explanation": "NSG rules are processed in order of priority number, from lowest to highest, and processing stops as soon as a rule matches — later rules are not evaluated once a match is found."
+      }
+    ]
+  },
+  "azure-storage": {
+    "title": "Azure Storage",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "The Azure Storage Account: One Front Door, Many Services",
+          "body": "Every piece of data you put in Azure Storage lives inside a storage account — think of it as the single container, billing boundary, and namespace that groups together whichever storage services you decide to use. When you create a storage account, you're not committing to just one type of data; the same account can simultaneously hold blob containers, file shares, queues, and tables, each reachable through its own unique URL under that account's name. This matters because real applications rarely need only one shape of data: a web app might store user-uploaded photos as blobs, keep session state in a queue, and log click events in a table, all from the same account. Understanding that the storage account is the umbrella — and that the specific service, access tier, and redundancy setting are choices you layer on top of it — is the foundation for everything else in this lesson."
+        },
+        {
+          "heading": "Choosing the Right Storage Service: Blobs, Files, Queues, and Tables",
+          "body": "Azure gives you four core storage services, and picking the right one comes down to a simple question: what shape does your data take, and how will something read it back? Blob Storage is built for data that doesn't fit neatly into rows and columns — photos, video files, log dumps, backups, or any binary object you just need to store and retrieve by name; it scales to enormous size and is what most people picture when they think 'cloud storage.' Azure Files takes a different approach: instead of accessing data through an API or SDK, you mount it as a shared network drive using the same SMB or NFS protocols your on-premises file servers already speak, which makes it the natural choice when you're migrating legacy applications that expect a normal file path rather than a web request. Queue Storage exists to solve a very specific coordination problem: when one part of an application produces work faster than another part can consume it, a queue lets messages pile up safely in between, so components can operate independently without losing work or crashing under load. Table Storage, meanwhile, is a simple NoSQL store for key-value style data — rows of information you look up quickly by key, without the overhead of a relational database schema, which suits things like device metadata or user preferences where the data is simple and access patterns are predictable. None of these services compete with each other so much as divide the labor: a single application often uses two or three of them side by side."
+        },
+        {
+          "heading": "Access Tiers: Balancing Cost Against How Often You Need Your Data",
+          "body": "Not all data is read equally often, and Azure lets you pay accordingly through access tiers, which apply at the blob level. The Hot tier is tuned for data you expect to touch frequently — it costs more to store but the least to read, which makes sense for anything actively in use, like the images behind a live website. The Cool tier flips that balance: storage is cheaper, but reading the data back costs more, so it fits information you need to keep around but don't expect to open often, such as a monthly backup you hope you never have to restore. Archive pushes the tradeoff to its extreme — the cheapest possible storage cost, but data isn't instantly available; retrieving an archived blob requires a rehydration step that can take hours before the file is usable again, so it's meant for data kept purely for retention or compliance rather than anything you might need on short notice. The skill being tested here isn't memorizing three names, it's recognizing that the 'right' tier is a function of how predictably and how soon you'll need the data back, and that moving data to a colder tier is a bet that you won't need fast access before you need cheap storage."
+        },
+        {
+          "heading": "Redundancy: How Azure Keeps Your Data Alive",
+          "body": "Storing data in only one place is a risk, so Azure Storage always keeps multiple copies of your data — the redundancy option you choose just determines how many copies exist and how far apart they are. Locally redundant storage (LRS) keeps three copies within a single datacenter, protecting you against ordinary hardware failure but not against an event that takes out the whole building. Zone-redundant storage (ZRS) spreads those three copies across separate availability zones within the same region — physically distinct facilities with their own power and networking — so a zone-level outage doesn't take your data with it. Geo-redundant storage (GRS) takes the LRS model and adds a second, geographically distant paired region, asynchronously copying your data there so it survives even a regional disaster. Geo-zone-redundant storage (GZRS) combines both ideas: zone-level protection in the primary region plus a replicated copy in a secondary region, giving you the highest level of durability Azure offers for a single storage account. Reading this progression is the real exam skill: each step up adds a specific kind of protection, so you should be able to work backward from a stated risk — 'what if a whole datacenter fails' versus 'what if a whole region fails' — to the redundancy option that actually addresses it, rather than assuming more copies is always the answer."
+        },
+        {
+          "heading": "Keeping Data Organized, Secure, and Compliant",
+          "body": "Beyond deciding where and how many copies of your data live, Azure gives you tools to manage it responsibly over time. Lifecycle management policies let you define rules — based on how old a blob is or when it was last accessed — that automatically move data between tiers or delete it outright, so a rule might shift blobs from Hot to Cool after 30 days and into Archive after a year, all without anyone manually babysitting storage costs. When you need to grant someone temporary, limited access to your storage — a mobile app uploading a photo, or a partner downloading a single file — a shared access signature (SAS) is the tool for the job: it's a signed URL that grants specific permissions, such as read-only or write-only, to specific resources for a specific window of time, without ever handing over the account's full keys. For data that must not change once it's written — financial records, legal documents, audit logs — immutable storage locks blobs into a write-once-read-many (WORM) state for a retention period you define, during which the data genuinely cannot be modified or deleted by anyone, including an administrator, which is often the exact guarantee a regulator is asking for. Together, these tools mean you're not just choosing where data lives, but actively managing its cost, its accessibility, and its integrity throughout its lifetime."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "A single Azure Storage account can host Blob, File, Queue, and Table storage together under one billing and management boundary.",
+      "Blob Storage holds unstructured data, Azure Files provides a mountable network share, Queue Storage decouples application components, and Table Storage offers simple key-value lookups.",
+      "Access tiers trade storage cost against retrieval cost and speed — Hot for frequent access, Cool for infrequent access, Archive for rarely-touched compliance data that can wait hours to be read.",
+      "Redundancy options multiply the number and location of data copies, from 3 copies in one datacenter (LRS) up to 6 copies spanning zones and a paired region (GZRS).",
+      "Choosing a colder tier or higher redundancy is a deliberate tradeoff, not automatically 'better' — it should match actual recovery and access requirements, not just chase the biggest number of copies.",
+      "Lifecycle management policies automate moving or deleting blobs based on age or last-access rules, removing the need for manual tier management.",
+      "Shared access signatures grant narrow, time-limited permissions instead of full account credentials, and immutable (WORM) storage prevents changes or deletion for a defined retention period."
+    ],
+    "examTips": [
+      "The exam frequently poses scenarios rather than definitions — instead of asking 'what is LRS,' it describes a business need ('must survive loss of an entire datacenter but budget is tight') and expects you to map it to the right redundancy option.",
+      "Watch for tier questions that hide the real constraint in a single word: 'rarely,' 'archived,' 'compliance for years,' or 'must be available immediately' are the signals that decide between Cool and Archive.",
+      "When a question mixes a storage service with a tier or redundancy option, answer them independently: the service answers 'what kind of data,' while tier and redundancy answer 'how it's accessed and protected' — don't let one distractor blur the other.",
+      "Questions about management tools often list AzCopy, Storage Explorer, and CLI/PowerShell together as distractors — know that AzCopy is command-line and scriptable while Storage Explorer is the graphical tool, since the exam likes to swap these labels.",
+      "If a scenario says data 'must remain accessible during a full regional outage,' a GRS or GZRS class answer is required; if it only says 'protect against hardware failure,' LRS is often the intended, cheapest correct answer — don't over-engineer toward the fanciest redundancy option."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I figured moving blobs to the Archive tier just makes them a little slower to open, like a cache miss.",
+        "correction": "Archive isn't just 'slower' — data must be rehydrated back to an online tier first, a process that can take hours, so Archive is only appropriate for data you don't need on short notice, not simply 'cold' data you might grab any minute."
+      },
+      {
+        "mistake": "Since GZRS protects against both zone and region failures, I assumed it's always the right choice and GRS is basically obsolete.",
+        "correction": "GZRS costs more than GRS for the added zone-level protection in the primary region. If a workload doesn't require that extra layer, or the region doesn't support availability zones, GRS remains a valid and cheaper way to meet a cross-region durability requirement."
+      },
+      {
+        "mistake": "I thought a shared access signature was just another way of logging in with the storage account's username and password.",
+        "correction": "A SAS is a time-limited, scoped token that grants specific permissions to specific resources, not a full credential. It expires and can be restricted to read-only or a single container, which is exactly why it's safer to hand out than the account's access keys."
+      },
+      {
+        "mistake": "I assumed Azure Files was just Blob Storage with a different name, since both store 'files' in the cloud.",
+        "correction": "Azure Files is mounted like a network file share using SMB or NFS, so existing applications can read and write to it with normal file paths, whereas Blob Storage is accessed through APIs and SDKs as objects — the two solve different integration problems even though both can hold file-like data."
+      }
+    ],
+    "diagram": {
+      "title": "Redundancy Options: Copies and Locations at a Glance",
+      "svg": "<svg viewBox='0 0 640 340' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='640' height='340' fill='var(--color-bg)' /><text x='320' y='16' font-size='13' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>How Many Copies, and Where?</text><text x='80' y='34' font-size='13' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>LRS</text><rect x='5' y='44' width='150' height='240' rx='6' fill='var(--color-bg)' stroke='var(--color-border)' /><text x='80' y='60' font-size='10' fill='var(--color-text-secondary)' text-anchor='middle'>Region</text><rect x='20' y='130' width='120' height='90' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='80' y='145' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>Datacenter</text><rect x='30' y='155' width='28' height='28' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='44' y='173' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>1</text><rect x='66' y='155' width='28' height='28' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='80' y='173' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>2</text><rect x='102' y='155' width='28' height='28' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='116' y='173' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>3</text><text x='80' y='300' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>3 copies, 1 datacenter</text><text x='240' y='34' font-size='13' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>ZRS</text><rect x='165' y='44' width='150' height='240' rx='6' fill='var(--color-bg)' stroke='var(--color-border)' /><text x='240' y='60' font-size='10' fill='var(--color-text-secondary)' text-anchor='middle'>Region</text><rect x='170' y='110' width='40' height='110' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='190' y='125' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>Zone 1</text><rect x='177' y='145' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='190' y='163' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>1</text><rect x='220' y='110' width='40' height='110' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='240' y='125' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>Zone 2</text><rect x='227' y='145' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='240' y='163' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>2</text><rect x='270' y='110' width='40' height='110' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='290' y='125' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>Zone 3</text><rect x='277' y='145' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='290' y='163' font-size='10' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>3</text><text x='240' y='300' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>3 copies across 3 zones, 1 region</text><text x='400' y='34' font-size='13' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>GRS</text><rect x='325' y='44' width='150' height='110' rx='6' fill='var(--color-bg)' stroke='var(--color-border)' /><text x='400' y='60' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>Primary Region</text><rect x='335' y='68' width='130' height='60' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><rect x='353' y='78' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='366' y='96' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>1</text><rect x='387' y='78' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='400' y='96' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>2</text><rect x='421' y='78' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='434' y='96' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>3</text><rect x='325' y='168' width='150' height='110' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-border)' stroke-dasharray='4,2' /><text x='400' y='184' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>Secondary Region</text><text x='400' y='196' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>(async replica)</text><rect x='335' y='204' width='130' height='60' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><rect x='353' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='366' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>4</text><rect x='387' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='400' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>5</text><rect x='421' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='434' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>6</text><text x='400' y='300' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>3+3 copies across 2 regions</text><text x='560' y='34' font-size='13' font-weight='bold' fill='var(--color-text-primary)' text-anchor='middle'>GZRS</text><rect x='485' y='44' width='150' height='110' rx='6' fill='var(--color-bg)' stroke='var(--color-border)' /><text x='560' y='58' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>Primary Region (zones)</text><rect x='490' y='66' width='40' height='68' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='510' y='78' font-size='7' fill='var(--color-text-secondary)' text-anchor='middle'>Z1</text><rect x='499' y='86' width='22' height='22' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='510' y='101' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>1</text><rect x='540' y='66' width='40' height='68' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='560' y='78' font-size='7' fill='var(--color-text-secondary)' text-anchor='middle'>Z2</text><rect x='549' y='86' width='22' height='22' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='560' y='101' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>2</text><rect x='590' y='66' width='40' height='68' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><text x='610' y='78' font-size='7' fill='var(--color-text-secondary)' text-anchor='middle'>Z3</text><rect x='599' y='86' width='22' height='22' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='610' y='101' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>3</text><rect x='485' y='168' width='150' height='110' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-border)' stroke-dasharray='4,2' /><text x='560' y='184' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>Secondary Region</text><text x='560' y='196' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>(LRS copy)</text><rect x='495' y='204' width='130' height='60' rx='4' fill='var(--color-surface)' stroke='var(--color-border)' /><rect x='513' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='526' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>4</text><rect x='547' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='560' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>5</text><rect x='581' y='214' width='26' height='26' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='594' y='232' font-size='9' fill='var(--color-bg)' text-anchor='middle' font-weight='bold'>6</text><text x='560' y='300' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>3+3 copies, zones + secondary region</text><rect x='15' y='312' width='16' height='16' fill='var(--color-accent)' stroke='var(--color-border)' /><text x='36' y='324' font-size='10' fill='var(--color-text-secondary)' text-anchor='start'>= one data copy</text><rect x='220' y='312' width='16' height='16' fill='none' stroke='var(--color-border)' stroke-dasharray='4,2' /><text x='241' y='324' font-size='10' fill='var(--color-text-secondary)' text-anchor='start'>= secondary region (asynchronous replication)</text></svg>",
+      "caption": "The diagram compares four Azure Storage redundancy options as a progression from left to right, using small numbered rectangles to represent individual data copies. LRS keeps 3 numbered copies inside a single datacenter within one region. ZRS spreads 3 copies across 3 separate availability zones within one region. GRS keeps 3 copies in a primary region's datacenter plus 3 more copies asynchronously replicated to a datacenter in a secondary, dashed-outline region, for 6 copies total across 2 regions. GZRS combines zone redundancy in the primary region (3 copies across 3 zones) with a secondary region replica (3 more copies in a datacenter), also 6 copies total across 2 regions, but with zone-level protection added in the primary region."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A finance team must retain seven years of monthly statements for compliance. The files are rarely opened, but if auditors request one, staff need to view it within minutes, not hours. Which access tier best fits this requirement?",
+        "options": [
+          "Archive",
+          "Cool",
+          "Hot",
+          "Premium"
+        ],
+        "correctIndex": 1,
+        "explanation": "Archive is the cheapest to store but can take hours to rehydrate before a blob is readable, which fails the 'within minutes' requirement. Cool offers low storage cost while still allowing prompt access, making it the better fit for infrequently accessed data that must remain quickly retrievable."
+      },
+      {
+        "question": "A team wants their storage account's data to survive the loss of an entire Azure region, but they don't need the primary region itself to tolerate a zone-level outage, and they want to keep costs as low as possible while still meeting that regional-failure requirement. Which redundancy option should they choose?",
+        "options": [
+          "LRS",
+          "ZRS",
+          "GRS",
+          "GZRS"
+        ],
+        "correctIndex": 2,
+        "explanation": "GRS replicates data from the primary region to a second, distant region, satisfying the 'survive a full region loss' requirement without paying for the zone-level protection that GZRS adds in the primary region, making it the lower-cost option that still meets the stated need."
+      },
+      {
+        "question": "An application needs to store blob containers, file shares, and queues, and wants all of them to share the same billing and access boundary. What single Azure resource makes this possible?",
+        "options": [
+          "A storage account",
+          "A resource group",
+          "A subscription",
+          "A management group"
+        ],
+        "correctIndex": 0,
+        "explanation": "A storage account is the unique namespace that can hold multiple storage services — blobs, files, queues, and tables — together, giving them a shared billing boundary and access point, distinct from broader organizational scopes like resource groups or subscriptions."
+      }
+    ]
+  },
+  "identity": {
+    "title": "Identity",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Two Different Questions: Who Are You, and What Can You Do?",
+          "body": "Every time you sign in to a system, that system is quietly working through two separate questions, in a strict order. The first question is: are you really who you claim to be? Answering that question is the job of authentication, and it happens through things like a password, a fingerprint, or a one-time code from your phone. Only once that question is settled does the system move on to the second question: now that we know who you are, what exactly are you permitted to do? That is authorization, and it decides which files you can open, which resources you can create or delete, and which parts of the system stay off-limits to you. It helps to picture a large office building with a security desk. Authentication is the moment the guard checks your ID badge and confirms it belongs to you. Authorization is what happens after that, when your badge is scanned at a specific door and either lets you through or doesn't, depending on which floors you're cleared for. You cannot skip straight to authorization without authentication happening first, because the system has to know who you are before it can look up what you're allowed to touch. Keeping these two stages mentally separate is one of the most useful habits you can build when learning cloud identity, because almost everything else in this module is really just a variation on refining one of these two steps."
+        },
+        {
+          "heading": "Azure Active Directory and the Idea of a Tenant",
+          "body": "So who actually performs that identity check in Azure? That job belongs to Azure Active Directory, Microsoft's cloud-based service for managing identities and controlling access. Think of it as a directory, in the same sense as a phone directory or an employee directory, except this one holds digital records: user accounts, groups, registered devices, and the applications an organization uses, all in one place. When an organization signs up to use Microsoft cloud services, it doesn't share a directory with every other customer in the world. Instead, it gets its own dedicated, isolated instance of Azure AD, and that dedicated instance is called a tenant. You can think of a tenant as your organization's own private slice of the identity service, walled off from everyone else's, with its own set of users, its own settings, and its own administrators. A single company usually has one tenant that represents the whole organization, and every Azure subscription that company owns is associated with that tenant so that access decisions all trace back to the same trusted set of identities. Understanding the tenant as a boundary is the foundation everything else in this lesson builds on top of."
+        },
+        {
+          "heading": "Proving It's Really You: MFA and Passwordless Sign-In",
+          "body": "A password by itself has always had a weakness: it's just a string of characters, and strings of characters can be guessed, stolen, or reused across multiple sites without you realizing it. Because of that, modern identity systems lean on the idea of factors, which fall into rough categories: something you know, like a password; something you have, like a phone or a hardware key; and something you are, like a fingerprint. Requiring more than one of these categories together, rather than relying on a password alone, dramatically shrinks the chance that a stolen credential is enough to get someone into your account. Taking this a step further, some sign-in methods remove the password from the equation entirely. With a physical security key or a device-based method like Windows Hello, you prove who you are directly through something you hold or something biometric about you, with no password ever typed or stored to be phished in the first place. These passwordless methods tend to be both more secure, since there's no password to steal, and more convenient, since there's nothing to remember or type. Either way, all of this activity, whether it's a password plus a code, or a fingerprint on its own, still belongs entirely to the authentication stage: it's all about proving identity before any conversation about permissions even begins."
+        },
+        {
+          "heading": "Signing In Once and Reaching Everything: How SSO Fits In",
+          "body": "Once an organization has dozens or hundreds of cloud and web applications, asking a user to authenticate separately, with a separate password, for every single one becomes exhausting and, ironically, less secure, since people cope with too many passwords by reusing weak ones. Single sign-on solves this by letting a user go through the authentication process once, with a trusted identity provider, and then carry that proof of identity across many connected applications without signing in again for each one. In an Azure environment, the identity provider doing this work is Azure AD itself: it authenticates the user a single time and then issues a token that the user's session presents to any application that trusts that same directory. Each of those applications doesn't need to re-check the password; it just needs to trust the token that Azure AD already vouched for. From the user's perspective, this feels like effortlessly moving between applications; from an organization's perspective, it means fewer passwords to manage, fewer help desk calls about forgotten credentials, and one central place to enforce sign-in rules rather than dozens of separate, inconsistent ones."
+        },
+        {
+          "heading": "Conditional Access: Making the Sign-In Decision Smarter",
+          "body": "So far, authentication has sounded fairly binary: you prove who you are, and you're either let in or you're not. In practice, Azure AD can be far more nuanced than that through a capability called Conditional Access. Rather than treating every sign-in attempt identically, Conditional Access evaluates the surrounding circumstances of that attempt, such as which user is signing in, what device they're using, where in the world the request is coming from, and how risky that combination looks, and then applies an organization's if-this-then-that policies to decide the outcome. A sign-in from a recognized company laptop on the office network might be waved through with no extra friction, while the exact same username signing in from an unfamiliar country on an unmanaged device might be challenged for an extra verification step, or blocked outright, even though the password entered was completely correct. This turns authentication from a single yes-or-no gate into a continuously evaluated decision that responds to context, which is a core piece of what people mean when they describe identity as the perimeter that really matters in cloud security."
+        },
+        {
+          "heading": "Bringing in the Outside World: B2B and B2C",
+          "body": "Not everyone who needs to sign in belongs inside your own tenant as a regular employee, and Azure AD offers two different answers depending on who that outside person is. If you need to collaborate with an external partner, vendor, or contractor, giving them access to specific resources without creating and managing a brand-new account for them, you invite them into your tenant as a guest, using the credentials they already have from their own organization; this scenario is what Azure AD External Identities covers for business-to-business collaboration. If, instead, you're building a customer-facing application, like a retail website or a mobile app, where the public at large needs to register and sign in, possibly using a social account they already have, you're dealing with a completely different scale and audience, and that's the scenario built for business-to-customer identity management. The distinction to hold onto is who is on the other end of that sign-in screen: a known partner organization collaborating with you internally, versus the general public consuming something you've built for them externally."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Authentication always happens before authorization: you must prove who you are before the system can decide what you're allowed to do.",
+      "A tenant is an organization's own dedicated, isolated instance of Azure AD, separate from every other organization's directory.",
+      "Multi-factor and passwordless sign-in both strengthen the authentication step, not the authorization step.",
+      "Single sign-on lets one successful authentication with Azure AD carry across many trusted applications without repeated logins.",
+      "Conditional Access turns sign-in into a context-aware decision, factoring in signals like device, location, and risk rather than a simple yes-or-no gate.",
+      "External collaboration with known partner organizations is a business-to-business scenario, while public customer-facing sign-in is a business-to-customer scenario.",
+      "Identity checks, MFA prompts, and Conditional Access policies all still belong to the authentication stage; permission checks on resources are what constitute authorization."
+    ],
+    "examTips": [
+      "When a question describes a scenario and asks whether it's about authentication or authorization, look for whether the described action is about proving identity (authentication) or about being allowed to perform a specific action or reach a specific resource (authorization) — the exam loves testing this distinction through scenarios rather than definitions.",
+      "If a question mentions inviting an external partner organization's users into your tenant, that's a B2B scenario; if it mentions a public-facing website or app letting customers sign up with a social account, that's B2C — watch for these keyword cues rather than assuming they're interchangeable.",
+      "Questions describing access decisions that change based on location, device compliance, or risk level are testing Conditional Access, not MFA or SSO on their own — MFA is one possible outcome a Conditional Access policy can require, not the same feature.",
+      "When a scenario says a user should only sign in once to reach several different applications, that phrase is a strong signal for SSO, so be ready to pick it over Azure AD or MFA as the more precise answer.",
+      "Remember that a tenant is the organizational boundary for identity, which is a different boundary than a subscription (billing and resources) — questions sometimes test whether you can tell these two apart."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Thinking that once MFA is enabled, a user has effectively been both authenticated and authorized in one step.",
+        "correction": "MFA only strengthens the authentication step by requiring an extra proof of identity; a separate authorization check still determines what the now-verified user is allowed to access."
+      },
+      {
+        "mistake": "Assuming a company automatically gets a new tenant every time it creates a new Azure subscription.",
+        "correction": "A tenant is the identity boundary for the whole organization, and multiple subscriptions typically belong to and trust the same single tenant rather than each having its own."
+      },
+      {
+        "mistake": "Believing SSO means a weaker, shared password is being used across multiple apps.",
+        "correction": "SSO means the user authenticates once with a trusted identity provider and receives a token that other trusted applications accept, so no password is being shared or reused across those apps at all."
+      },
+      {
+        "mistake": "Treating passwordless sign-in as just another name for multi-factor authentication.",
+        "correction": "Passwordless authentication removes the password entirely and proves identity through something like a security key or biometric, whereas MFA can still include a password as one of its factors alongside another."
+      },
+      {
+        "mistake": "Assuming B2B and B2C are just two names for the same external-user feature.",
+        "correction": "B2B is about inviting known partner or vendor users into your own tenant as guests, while B2C is about building and managing identities for the general public in a customer-facing application, which are different audiences and different tools."
+      }
+    ],
+    "diagram": {
+      "title": "Authentication then Authorization Flow",
+      "svg": "<svg viewBox='0 0 680 240' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Authentication then authorization flow'><rect x='0' y='0' width='680' height='240' fill='var(--color-bg)' /><rect x='10' y='15' width='480' height='130' rx='10' fill='var(--color-accent-soft)' stroke='var(--color-border)' stroke-width='1' /><text x='250' y='32' font-size='13' font-weight='bold' fill='var(--color-text-secondary)' text-anchor='middle'>AUTHENTICATION</text><rect x='500' y='15' width='170' height='210' rx='10' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='1' /><text x='585' y='32' font-size='13' font-weight='bold' fill='var(--color-text-secondary)' text-anchor='middle'>AUTHORIZATION</text><rect x='25' y='60' width='110' height='60' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='1.5' /><text x='80' y='85' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>User</text><text x='80' y='102' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>credentials + MFA</text><line x1='135' y1='90' x2='240' y2='90' stroke='var(--color-accent)' stroke-width='2' /><path d='M 250 90 L 240 84 L 240 96 Z' fill='var(--color-accent)' /><rect x='250' y='55' width='140' height='70' rx='6' fill='var(--color-surface)' stroke='var(--color-accent)' stroke-width='2' /><text x='320' y='80' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Azure AD</text><text x='320' y='97' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>verifies who you are</text><text x='320' y='109' font-size='9' font-style='italic' fill='var(--color-text-secondary)' text-anchor='middle'>(authentication)</text><line x1='390' y1='90' x2='392' y2='90' stroke='var(--color-accent)' stroke-width='2' /><path d='M 400 90 L 392 84 L 392 96 Z' fill='var(--color-accent)' /><rect x='400' y='65' width='80' height='50' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='1.5' /><text x='440' y='87' font-size='12' fill='var(--color-text-primary)' text-anchor='middle'>Token</text><text x='440' y='102' font-size='9' fill='var(--color-text-secondary)' text-anchor='middle'>issued</text><line x1='480' y1='90' x2='507' y2='90' stroke='var(--color-accent)' stroke-width='2' /><path d='M 515 90 L 507 84 L 507 96 Z' fill='var(--color-accent)' /><rect x='515' y='60' width='140' height='55' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='1.5' /><text x='585' y='82' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Resource</text><text x='585' y='98' font-size='9' font-style='italic' fill='var(--color-text-secondary)' text-anchor='middle'>checks permissions</text><line x1='585' y1='115' x2='547' y2='149' stroke='var(--color-text-secondary)' stroke-width='1.5' /><line x1='585' y1='115' x2='622' y2='149' stroke='var(--color-text-secondary)' stroke-width='1.5' /><rect x='515' y='150' width='65' height='55' rx='6' fill='var(--color-surface)' stroke='var(--color-success)' stroke-width='2' /><text x='547' y='173' font-size='12' fill='var(--color-success)' text-anchor='middle'>Allowed</text><text x='547' y='188' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>access granted</text><rect x='590' y='150' width='65' height='55' rx='6' fill='var(--color-surface)' stroke='var(--color-error)' stroke-width='2' /><text x='622' y='173' font-size='12' fill='var(--color-error)' text-anchor='middle'>Denied</text><text x='622' y='188' font-size='8' fill='var(--color-text-secondary)' text-anchor='middle'>access blocked</text></svg>",
+      "caption": "A left-to-right flow diagram split into two shaded stages. In the Authentication stage on the left, a User box sends credentials plus an MFA factor along an arrow into an Azure AD box, which verifies who the user is and issues a Token box confirming that identity. An arrow then carries that token across into the Authorization stage on the right, where a Resource box checks the token against permissions and branches into two possible outcomes below it: an Allowed box outlined in the success color meaning access is granted, or a Denied box outlined in the error color meaning access is blocked."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "In the flow of signing in and reaching a resource, what does Azure AD hand off to the user's session immediately after successfully confirming their identity?",
+        "options": [
+          "A token that other applications and resources can trust",
+          "A brand-new user account",
+          "A permanent password exemption",
+          "A list of every resource in the subscription"
+        ],
+        "correctIndex": 0,
+        "explanation": "Once Azure AD has verified who a user is, it issues a token representing that proven identity, which is what gets presented onward so resources can perform their own authorization check without re-verifying the password."
+      },
+      {
+        "question": "Two companies merge, and for now each keeps its own separate set of users, groups, and directory settings in Azure AD rather than sharing one. What is each of these separate directory instances best described as?",
+        "options": [
+          "A tenant",
+          "A resource group",
+          "A management group",
+          "A subscription"
+        ],
+        "correctIndex": 0,
+        "explanation": "A tenant is a dedicated, isolated instance of Azure AD belonging to one organization, so each company keeping its own separate directory of users and settings means each still has its own distinct tenant."
+      },
+      {
+        "question": "A sign-in attempt uses the correct password and passes MFA, but it comes from an unfamiliar country on a device the organization has never seen before, and the request ends up being blocked as a result. Which Azure AD capability is most directly responsible for that context-based decision?",
+        "options": [
+          "Conditional Access",
+          "Single sign-on",
+          "Azure AD B2C",
+          "Passwordless authentication"
+        ],
+        "correctIndex": 0,
+        "explanation": "Conditional Access evaluates surrounding signals such as location and device before deciding whether to grant, challenge, or block a sign-in, so it is what can override an otherwise correct password and MFA based on context like this."
+      }
+    ]
+  },
+  "security": {
+    "title": "Security",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Security as a Series of Layers",
+          "body": "Think about how a museum protects a priceless painting. It doesn't rely on one lock on the front door — there's a fence outside, guards at the entrance, cameras in the halls, a motion-sensor case around the painting, and alarms wired to everything. If a visitor slips past the guards, the case still stops them. Cloud security works the same way. Instead of trying to build one unbeatable wall, Azure wraps a set of independent protective rings around the thing that ultimately matters: your data. Each ring covers a different kind of risk, so a weakness in one doesn't automatically expose everything behind it. Because you don't own or physically visit the buildings your workloads run in, and because your applications are reachable from anywhere on the internet, this layered approach isn't optional decoration — it's how a system with no single walled perimeter can still be trusted with sensitive information."
+        },
+        {
+          "heading": "Physical Security and Identity: The Outermost Layers",
+          "body": "The very outside of the model is physical security — the concrete, steel, and staffing around Azure's actual datacenters: perimeter fencing, security personnel on site around the clock, biometric checks before anyone reaches a server rack, and surveillance throughout the facility. This is one layer that a customer moving to Azure never has to design, staff, or audit themselves; Microsoft owns it fully regardless of whether you're running virtual machines, containers, or serverless functions. The moment you step inside that boundary, the next layer you actually interact with is identity. Before a network packet is inspected or a firewall rule is checked, the platform has to answer a more basic question: who is asking, and what are they allowed to touch? Every account, every sign-in, and every permission grant lives in this identity layer, which is why getting authentication and access control right is treated as the first real line of defense a customer is responsible for — everything else in the model assumes identity has already done its job correctly."
+        },
+        {
+          "heading": "Perimeter and Network: Controlling the Boundary",
+          "body": "Moving one ring further in, the perimeter layer is where your environment meets the open internet. This is the boundary where large-scale, blunt-force attacks — like a flood of traffic aimed at knocking a service offline — are absorbed and filtered before they ever reach anything you're running. Once traffic is allowed past that outer edge, the network layer takes over, and its job is different: rather than guarding against the whole internet, it controls how traffic is allowed to move inside your own environment. This is where you divide resources into smaller segments so that a compromise in one part of a network doesn't automatically grant access to every other part, and where administrative access to virtual machines can be routed through a secure, browser-based gateway instead of exposing management ports directly to the internet. Perimeter and network security are often confused because they both sound like 'network stuff,' but the distinction — outer edge versus internal segmentation — shows up regularly in how the model is described."
+        },
+        {
+          "heading": "Compute and Application: Securing What Runs Your Workloads",
+          "body": "Further in still is the compute layer, which covers the virtual machines, containers, and hosts that actually execute your workloads. Securing this layer means controlling what can run, limiting standing access to management interfaces, and keeping the guest operating system up to date — a responsibility that shifts depending on the service model you choose, since Azure manages the underlying host but you typically manage the software inside an IaaS virtual machine. Sitting just outside the data itself is the application layer, which protects the code, APIs, and logic that users and other systems actually interact with. This is where practices like validating input, filtering malicious web requests before they reach your code, and requiring users to authenticate within the application itself come into play. A vulnerability here — like an application that blindly trusts whatever a user submits — can undermine every layer sitting outside it, which is why application security is treated as its own distinct ring rather than folded into compute."
+        },
+        {
+          "heading": "Data: The Innermost Layer and the Reason for All the Rest",
+          "body": "At the very center of the model sits data, and everything described so far exists purely to protect it. This is a useful way to reframe the model: it isn't seven equally important boxes sitting side by side — it's six outer rings built specifically to buy the data at the center as much protection as possible before an attacker could ever reach it. At this innermost layer, the questions become very specific to the information itself: who is allowed to read or modify it, how is it classified, and how are the cryptographic keys that protect it managed separately from the data they protect, so that having access to one doesn't automatically mean access to the other. That separation of 'the data' from 'the keys that unlock the data' is a deliberate design choice, and it's the reason a dedicated vault for secrets, keys, and certificates exists as its own service rather than being bundled into storage."
+        },
+        {
+          "heading": "Watching Over It All: Posture, Detection, and Response",
+          "body": "A model built from seven separate layers is only useful if someone can see across all of them at once, which is why Azure provides tools that sit on top of the whole picture rather than inside any single ring. One gives you a continuously updated, percentage-based read on how closely your configuration matches security best practices, turning a vague sense of 'are we secure?' into a concrete number you can track and improve over time. Another watches for signs that something has actually gone wrong — unusual sign-in patterns, suspicious network activity, malware behavior — and can automatically trigger a response rather than just raising a silent alert. A third service exists specifically to absorb and mitigate the kind of massive, coordinated traffic floods that target the perimeter layer, protecting availability even when the source of the attack is impossible to block one address at a time. None of these tools replace the layers themselves; they exist to give you visibility and control across all of them simultaneously, which is exactly the gap a purely layer-by-layer design would otherwise leave open."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Defense in depth arranges independent security layers — physical, identity, perimeter, network, compute, application, and data — so a failure in one layer doesn't expose everything behind it.",
+      "Physical security of Azure's datacenters is entirely Microsoft's responsibility, no matter which service model or workload you deploy.",
+      "Identity is the first layer a customer is actually responsible for, since every other layer depends on knowing who is making a request.",
+      "Perimeter defenses guard the outer edge facing the internet, while network controls govern how traffic moves inside your own environment — these are related but distinct layers.",
+      "Compute security includes patching guest operating systems on virtual machines, a responsibility that shifts depending on the service model in use.",
+      "Data sits at the center of the model because it's the asset every outer layer exists to protect, not just one peer layer among seven.",
+      "Posture, detection, and DDoS mitigation tools operate across the whole layered model rather than living inside any single ring."
+    ],
+    "examTips": [
+      "AZ-900 frequently asks 'which layer does this control belong to' — practice mapping specific tools (NSGs, a web application firewall, OS patching, a locked server room) to the correct ring rather than memorizing the ring names alone.",
+      "When a question mentions 'multiple layers' or 'no single point of failure' without naming a specific control, the concept being tested is the layered model itself, even if the word for it doesn't appear in the question.",
+      "Learn to tell apart tools that sound alike but do different jobs: one gives you a posture score, one detects and responds to active threats, and one absorbs volumetric traffic attacks — questions often hinge on picking the right one for a described scenario.",
+      "Watch for shared-responsibility traps embedded in layer questions, such as assuming Microsoft patches a customer-managed VM just because Microsoft also secures the physical datacenter.",
+      "If an option describes 'internal segmentation of traffic' versus 'blocking large attacks from the internet,' that's testing network versus perimeter — read carefully before choosing."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Defense in depth basically just means having a really strong firewall.",
+        "correction": "It means combining multiple independent layers — physical, identity, perimeter, network, compute, application, and data — so that if any one layer is bypassed, the others still stand between an attacker and the data."
+      },
+      {
+        "mistake": "Since Microsoft secures the datacenter building, Microsoft must also patch the operating system inside my virtual machine.",
+        "correction": "Physical security of the facility is entirely Microsoft's job, but keeping the guest operating system patched on an IaaS virtual machine is a customer responsibility."
+      },
+      {
+        "mistake": "Perimeter security and network security are really just two names for the same thing.",
+        "correction": "Perimeter security defends the outer boundary facing the internet, while network security controls and segments how traffic moves once it's already inside the environment — they solve different problems."
+      },
+      {
+        "mistake": "A security posture score is a protection tool that actively blocks attacks.",
+        "correction": "A posture score is a measurement — a percentage reflecting how closely your configuration matches security recommendations — not a service that itself intercepts or stops threats."
+      }
+    ],
+    "diagram": {
+      "title": "Defense in Depth: Concentric Layers Around Your Data",
+      "svg": "<svg viewBox='0 0 460 460' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='440' height='440' rx='24' fill='var(--color-bg)' stroke='var(--color-border)' stroke-width='2'/><text x='230' y='32' text-anchor='middle' font-size='16' fill='var(--color-text-primary)'>Physical Security</text><rect x='40' y='40' width='380' height='380' rx='22' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='230' y='62' text-anchor='middle' font-size='15' fill='var(--color-text-primary)'>Identity &amp; Access</text><rect x='70' y='70' width='320' height='320' rx='20' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='2'/><text x='230' y='92' text-anchor='middle' font-size='15' fill='var(--color-text-primary)'>Perimeter</text><rect x='100' y='100' width='260' height='260' rx='18' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='230' y='122' text-anchor='middle' font-size='14' fill='var(--color-text-primary)'>Network</text><rect x='130' y='130' width='200' height='200' rx='16' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='2'/><text x='230' y='152' text-anchor='middle' font-size='14' fill='var(--color-text-primary)'>Compute</text><rect x='160' y='160' width='140' height='140' rx='14' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2'/><text x='230' y='180' text-anchor='middle' font-size='13' fill='var(--color-text-primary)'>Application</text><rect x='190' y='190' width='80' height='80' rx='12' fill='var(--color-accent)' stroke='var(--color-accent)' stroke-width='2'/><text x='230' y='235' text-anchor='middle' font-size='15' font-weight='bold' fill='var(--color-surface)'>DATA</text></svg>",
+      "caption": "A set of seven concentric rounded squares nested inside one another, labeled from outermost to innermost: Physical Security, Identity & Access, Perimeter, Network, Compute, Application, and finally Data in a solid, highlighted square at the very center — illustrating that every outer layer exists to protect the data at the core."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "In the defense-in-depth model, which layer sits at the very center and represents the asset that every other layer exists to protect?",
+        "options": [
+          "Network",
+          "Application",
+          "Data",
+          "Perimeter"
+        ],
+        "correctIndex": 2,
+        "explanation": "Data is placed at the innermost ring of the model. The physical, identity, perimeter, network, compute, and application layers all exist to shield this central asset."
+      },
+      {
+        "question": "Which of the following correctly matches a defense-in-depth layer with an example activity that belongs to it?",
+        "options": [
+          "Perimeter — segmenting internal traffic between subnets",
+          "Network — absorbing a massive flood of internet traffic",
+          "Compute — keeping a virtual machine's guest operating system patched",
+          "Application — staffing a datacenter security desk"
+        ],
+        "correctIndex": 2,
+        "explanation": "Patching the guest OS on a virtual machine is a compute-layer activity. Internal traffic segmentation belongs to the network layer, absorbing internet-wide floods belongs to the perimeter layer, and staffing a datacenter belongs to physical security — not application."
+      },
+      {
+        "question": "A team wants one tool that continuously monitors their environment for suspicious activity, such as unusual sign-ins or malware behavior, and can respond automatically. Which capability best fits this need?",
+        "options": [
+          "A posture score expressed as a percentage",
+          "A cloud-native tool for detecting threats and orchestrating a response",
+          "Physical fencing around a datacenter",
+          "Segmenting a virtual network into subnets"
+        ],
+        "correctIndex": 1,
+        "explanation": "Detecting suspicious activity and automatically orchestrating a response describes a threat detection and response capability, distinct from a posture score (which measures configuration, not active threats) and unrelated to physical fencing or subnet segmentation."
+      }
+    ]
+  },
+  "governance": {
+    "title": "Governance",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Why Governance Exists",
+          "body": "When a single person spins up a virtual machine for a weekend project, there isn't much need for oversight. But once an organization has dozens of teams, hundreds of subscriptions, and thousands of resources spread across Azure, someone has to answer basic questions at scale: which regions are we allowed to deploy into, who can shut down a production database, and how do we know what a given resource is actually for. Governance is the umbrella term for the tools and processes Azure provides to answer those questions consistently, without a human manually checking every deployment. Rather than relying on one all-powerful control, Azure spreads governance across several complementary mechanisms, each answering a different question: what is allowed, who is allowed to do it, what is protected from change, and how is everything labeled and tracked. Understanding how these pieces fit together, and how they flow down through an organization's structure, is the core of thinking like a cloud administrator rather than just a cloud user."
+        },
+        {
+          "heading": "Setting the Rules: Azure Policy",
+          "body": "Azure Policy is the mechanism that answers the question 'what is allowed to happen in this environment, no matter who is asking.' A policy definition is a rule, expressed as a JSON document, that gets evaluated against resources as they are created or updated. Azure ships with a large catalog of ready-made, built-in policy definitions covering everyday needs, such as restricting which Azure regions can be used or requiring that storage accounts encrypt data at rest, so most organizations never need to write a definition from scratch. When a built-in rule doesn't cover something specific to a business, custom policy definitions can be authored to enforce that organization's own requirements. Because real-world compliance needs rarely come as a single rule, related policy definitions are often grouped together into a policy initiative, letting an administrator assign, track, and report on dozens of related rules, such as everything needed to satisfy a particular regulatory standard, as one bundled unit instead of managing each rule individually."
+        },
+        {
+          "heading": "Controlling Access: RBAC and Least Privilege",
+          "body": "Where Azure Policy governs what can be done regardless of the requester, role-based access control governs who is allowed to do it. RBAC works by assigning a role, such as Owner, Contributor, or Reader, to a user, group, or application at a particular scope, and that assignment determines exactly which actions that identity can perform within that scope. The guiding philosophy behind good RBAC design is the principle of least privilege: every identity should hold only the access it genuinely needs to do its job, and nothing more. A developer who only needs to restart a web app shouldn't also hold the ability to delete the resource group it lives in. Keeping access this tightly scoped isn't about distrust; it's about limiting the damage that a mistake, a compromised account, or a misfiring automation script could cause. It's worth internalizing the distinction clearly: Policy asks 'is this configuration permitted,' while RBAC asks 'is this identity permitted to act here at all.'"
+        },
+        {
+          "heading": "Protecting What Matters: Resource Locks",
+          "body": "Even a well-designed RBAC structure has a gap: an Owner is, by definition, allowed to delete things, which means a single misclick by an authorized, trusted person can still take down a critical resource. Resource locks close that gap by adding a layer of protection that sits above and outside the normal permission system. A lock can be set to prevent deletion outright, or to make a resource read-only so that no property can be changed at all, and critically, a lock applies to everyone touching that resource, including subscription Owners, until the lock itself is removed. Locks are typically reserved for the handful of resources where an accidental change would be genuinely painful to recover from, such as a production database or a shared virtual network, rather than applied blanket-style across an entire environment."
+        },
+        {
+          "heading": "Keeping Things Organized: Tags",
+          "body": "Not every governance need is about restriction; sometimes the challenge is simply knowing what you have. Tags are key-value labels, such as environment: production or costCenter: marketing, that can be attached to almost any resource, resource group, or subscription. They don't grant or deny any action and they don't get evaluated by Policy or RBAC on their own; their entire purpose is descriptive. Tags make it possible to filter a cost report down to a single department, find every resource that belongs to a particular application, or automate a script that only touches resources marked as non-production. Because tags carry no enforcement power by themselves, they work best alongside a naming convention and, often, a policy that requires certain tags to be present before a resource can even be created."
+        },
+        {
+          "heading": "How It All Cascades: The Governance Hierarchy",
+          "body": "None of these tools would scale well if they had to be configured separately on every single resource, so Azure organizes everything into a nested hierarchy: a management group can contain multiple subscriptions, each subscription can contain multiple resource groups, and each resource group contains the actual resources. The reason this structure matters for governance is inheritance: a policy assignment or RBAC role granted at a management group automatically applies to every subscription, resource group, and resource nested beneath it, without needing to be reapplied at each level. This lets an organization set broad, non-negotiable rules once at the top, such as blocking deployments outside approved regions, while still allowing individual teams to add further, more specific restrictions lower down for their own resource groups. What a lower scope cannot do is loosen or override a restriction that was inherited from above; the most restrictive applicable rule always wins, which is exactly what keeps top-level governance meaningful."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Governance in Azure is achieved through several complementary tools working together, not one single control.",
+      "Azure Policy governs what configurations are allowed, regardless of who is making the request.",
+      "RBAC governs who can perform which actions, guided by the principle of least privilege.",
+      "Resource locks override normal permissions to prevent accidental deletion or modification, even for Owners.",
+      "Tags are descriptive metadata only; they carry no enforcement power over access or configuration.",
+      "Settings applied at a higher scope, such as a management group, are automatically inherited by everything nested beneath it.",
+      "A lower scope can add further restrictions but can never override or loosen a rule inherited from a parent scope."
+    ],
+    "examTips": [
+      "AZ-900 governance questions are usually scenario-based: read for the verb. 'Prevent a type of configuration' points to Policy, 'control who can perform an action' points to RBAC, and 'prevent deletion or changes regardless of role' points to Locks.",
+      "If a question describes someone with Owner or Contributor access still being unable to delete or modify a resource, the answer is almost always a resource lock, not a missing RBAC assignment.",
+      "Expect at least one question that tests inheritance direction directly, such as a rule set at a management group and asking what happens at a subscription beneath it; the answer is that it applies automatically unless a more restrictive rule exists lower down.",
+      "Watch for answer choices that claim tags restrict access, enforce compliance, or lock a resource; tags never do any of these, they are purely descriptive.",
+      "When a question mentions grouping several related rules under one regulatory or compliance goal, that's describing a policy initiative rather than a single policy definition."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "If I set someone's role to Reader instead of Contributor, that alone guarantees they can never accidentally break anything important.",
+        "correction": "RBAC only controls what a role permits an identity to do; it doesn't create a hard barrier around specific resources. For guaranteed protection of a critical resource against deletion or modification, use a resource lock, since locks apply regardless of anyone's assigned role, including Owners."
+      },
+      {
+        "mistake": "Tags help keep sensitive resources hidden or restricted from people who shouldn't see them.",
+        "correction": "Tags are plain key-value metadata used for organization, cost reporting, and automation. They have no effect whatsoever on who can view, access, or modify a resource; that job belongs to RBAC."
+      },
+      {
+        "mistake": "Since policy settings flow downward, a team can just set a less restrictive policy on their own resource group to override an inconvenient rule inherited from the management group above.",
+        "correction": "Inheritance only flows one direction, from parent scope down to child scope, and it only ever adds restriction, never removes it. When a policy at a lower scope conflicts with one inherited from above, the more restrictive rule always takes effect."
+      },
+      {
+        "mistake": "Every governance rule a company needs has to be written from scratch as a custom policy.",
+        "correction": "Azure provides a large library of built-in policy definitions covering most common scenarios, such as allowed regions or required encryption. Custom policy definitions are only necessary for rules specific to an organization that no built-in definition already covers."
+      }
+    ],
+    "diagram": {
+      "title": "Governance Hierarchy and Inheritance",
+      "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 620 380' role='img'><rect x='0' y='0' width='620' height='380' fill='var(--color-bg)' /><line x1='555' y1='20' x2='555' y2='345' stroke='var(--color-accent)' stroke-width='3' /><line x1='555' y1='345' x2='545' y2='330' stroke='var(--color-accent)' stroke-width='3' /><line x1='555' y1='345' x2='565' y2='330' stroke='var(--color-accent)' stroke-width='3' /><text x='590' y='185' font-size='13' fill='var(--color-text-secondary)' text-anchor='middle' transform='rotate(90 590 185)'>Policy &amp; RBAC inherit downward</text><line x1='260' y1='70' x2='140' y2='110' stroke='var(--color-border)' stroke-width='2' /><line x1='260' y1='70' x2='410' y2='110' stroke='var(--color-border)' stroke-width='2' /><line x1='140' y1='160' x2='140' y2='200' stroke='var(--color-border)' stroke-width='2' /><line x1='410' y1='160' x2='410' y2='200' stroke='var(--color-border)' stroke-width='2' /><line x1='140' y1='250' x2='140' y2='290' stroke='var(--color-border)' stroke-width='2' /><line x1='410' y1='250' x2='410' y2='290' stroke='var(--color-border)' stroke-width='2' /><rect x='150' y='20' width='220' height='50' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2' /><text x='260' y='50' font-size='15' fill='var(--color-text-primary)' text-anchor='middle'>Management Group</text><rect x='50' y='110' width='180' height='50' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='140' y='140' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Subscription</text><rect x='320' y='110' width='180' height='50' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='410' y='140' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Subscription</text><rect x='50' y='200' width='180' height='50' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='140' y='230' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Resource Group</text><rect x='320' y='200' width='180' height='50' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2' /><text x='410' y='230' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Resource Group</text><rect x='50' y='290' width='180' height='50' rx='6' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='2' /><text x='140' y='320' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Resource</text><rect x='320' y='290' width='180' height='50' rx='6' fill='var(--color-surface-hover)' stroke='var(--color-border)' stroke-width='2' /><text x='410' y='320' font-size='14' fill='var(--color-text-primary)' text-anchor='middle'>Resource</text></svg>",
+      "caption": "A vertical hierarchy diagram showing four levels of Azure governance scope, from top to bottom: a single Management Group box, connected down to two Subscription boxes beneath it, each Subscription connected down to a Resource Group box, and each Resource Group connected down to a Resource box. Connecting lines link each level to the one directly below it. To the right of the whole tree, a downward-pointing arrow is labeled 'Policy & RBAC inherit downward,' showing that governance controls such as Azure Policy assignments and RBAC role assignments applied at the Management Group level automatically cascade down through every Subscription, Resource Group, and Resource nested beneath it."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A management group has a policy assigned that blocks the creation of virtual machines in any region except West Europe. What happens to the subscriptions nested inside that management group?",
+        "options": [
+          "The restriction applies automatically to those subscriptions unless a more restrictive policy is set lower down",
+          "Each subscription owner must manually copy the policy for it to take effect",
+          "The policy has no effect until it is individually assigned to every resource group",
+          "Only subscriptions created after the policy was assigned are affected"
+        ],
+        "correctIndex": 0,
+        "explanation": "Policy assignments made at a management group are inherited automatically by every subscription, resource group, and resource beneath it in the hierarchy; nothing needs to be manually reapplied at lower scopes."
+      },
+      {
+        "question": "A user holds the Owner role on a resource group, but one resource inside it has a CanNotDelete lock applied. What happens if that user attempts to delete the locked resource?",
+        "options": [
+          "The deletion is blocked, because the lock overrides the permissions granted by the Owner role",
+          "The deletion succeeds, because Owner permissions always take priority over locks",
+          "The deletion is blocked only if the user is also using a guest account",
+          "The lock only affects users with the Reader role, so the Owner can delete it normally"
+        ],
+        "correctIndex": 0,
+        "explanation": "Resource locks apply regardless of role assignments. A CanNotDelete lock prevents deletion of the resource by anyone, including a user with the Owner role, until the lock itself is removed."
+      },
+      {
+        "question": "A team wants to make sure every storage account it creates is automatically labeled with the department that owns it, so finance reports can be filtered accurately later. Which governance tool is being described, and what does it not do?",
+        "options": [
+          "Tags, which organize and describe resources for reporting but do not restrict what any user can access or do",
+          "RBAC roles, which restrict access to only members of that department",
+          "Resource locks, which prevent the storage account from being deleted by other departments",
+          "Policy initiatives, which enforce the department label as a compliance requirement across the tenant"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tags are descriptive key-value metadata used for organizing and reporting on resources, such as attributing costs to a department. On their own, tags have no effect on access permissions, deletion protection, or enforcement; those jobs belong to RBAC, locks, and Policy respectively."
+      }
+    ]
+  },
+  "monitoring": {
+    "title": "Monitoring",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Azure Monitor: The Umbrella for Everything You Run",
+          "body": "The moment you deploy anything in Azure — a virtual machine, a web app, a database, a virtual network — that resource starts generating a constant stream of information about its own behavior: how busy it is, whether it is responding, what errors it is hitting, who is connecting to it. Left unwatched, that information just evaporates, and you only find out something was wrong when a user complains. Azure Monitor exists to catch that stream before it disappears. It is best thought of not as a single button you press, but as a platform: one collection pipeline that gathers telemetry from almost every Azure service (and, with the right agents, from on-premises and other-cloud machines too), and a shared set of tools built on top of that pipeline for analyzing what it collected and reacting to it. Everything else in this lesson — metrics, logs, Application Insights, alerts, dashboards, workbooks — is a piece of that one platform, not a separate product bolted on beside it. Learning Azure Monitor is really learning how these pieces fit together into a single story: collect, analyze, act."
+        },
+        {
+          "heading": "Metrics and Logs: Two Different Shapes of Telemetry",
+          "body": "Azure Monitor collects two fundamentally different shapes of data, and confusing them is one of the easiest ways to lose marks or waste time in the real world. A metric is a simple number attached to a timestamp, collected at a regular interval — CPU percentage every minute, the number of requests per second, available memory. Metrics are lightweight and numeric by design, which makes them cheap to collect and fast to plot, so they are what you reach for when you want a near-real-time trend line or a quick chart of 'is this number going up or down.' A log, by contrast, is a record of something that happened, and it can carry far more structure and detail than a single number: a line describing a specific request, an error with its stack trace, a security event, a custom message your own code chose to write out. Logs from across your environment land in a Log Analytics workspace, which is essentially a searchable database purpose-built for this kind of telemetry. To get anything useful out of it you write a query in KQL (Kusto Query Language), a language designed specifically for filtering, joining, and summarizing large volumes of time-stamped log data. The short version: metrics answer 'what is the number right now,' logs answer 'what exactly happened, and why.'"
+        },
+        {
+          "heading": "Application Insights: Watching the Code, Not Just the Machine",
+          "body": "Everything described so far tends to focus on infrastructure — is the VM alive, is the disk full, is the network saturated. But a server can look perfectly healthy while the application running on it is quietly broken: a page that takes eight seconds to load, a dependency call that keeps timing out, an exception being swallowed silently in code. Application Insights is the feature of Azure Monitor built specifically to answer questions at that layer. Once it is enabled for an application — through an SDK added to the code, or increasingly through codeless, agent-based instrumentation — it starts tracking things like incoming requests and how long they take, calls out to dependencies such as databases or external APIs, exceptions thrown, and even how real users are navigating through a web app. This is usually called application performance monitoring, or APM. It is not a competing product to Azure Monitor; it is a specialized lens on the same platform, and the data it collects still lives alongside your other metrics and logs, ready to be queried, alerted on, or charted the same way."
+        },
+        {
+          "heading": "From Signal to Action: Alerts and Action Groups",
+          "body": "Collecting telemetry is only valuable if something happens when the telemetry looks bad, and this is where alerts come in. An alert rule is a definition of a condition to watch for — evaluated against a metric (CPU above 90 percent for five minutes) or against a log query (more than ten failed sign-ins in the last hour) — plus how often to check it. On its own, though, an alert rule does not know who to tell. That job belongs to a separate resource called an action group: a reusable, named bundle of responses, such as sending an email or SMS, pushing a notification, calling a webhook, running an Azure Automation runbook, invoking a function, or opening a ticket in an ITSM system. The reason these two are kept as separate objects is reusability: a dozen different alert rules across a dozen different resources can all point at the same action group, so when the on-call rotation changes you update one action group instead of hunting down every alert rule that mentions a phone number."
+        },
+        {
+          "heading": "Is Everything Okay? Service Health, Azure Status, and Advisor as Complementary Views",
+          "body": "Azure Monitor tells you about the behavior of the things you built. It deliberately does not try to answer a different, equally important question: is Azure itself, or my specific corner of it, in good shape right now? Two health-focused tools sit alongside Monitor to cover that ground: Azure Status is a public dashboard showing the health of Azure services globally, visible to anyone, with no awareness of your subscription. Service Health narrows that same kind of information down to what actually matters to you — the specific services and regions your resources depend on — and layers on planned maintenance notices and health advisories tailored to your subscription. A third tool, Azure Advisor, takes a different angle again: rather than reporting live incidents, it periodically reviews your resource configuration and usage patterns and turns that review into personalized, actionable recommendations across cost, security, reliability, performance, and operational excellence. None of these three replace Azure Monitor; they answer 'is everything okay' from angles that raw telemetry dashboards were never designed to cover."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Azure Monitor is a platform, not a single feature — Application Insights, Log Analytics, alerts, dashboards, and workbooks are all pieces built on top of one shared collection pipeline.",
+      "Metrics are lightweight, numeric, time-stamped values sampled at intervals, ideal for near-real-time trends; logs are richer structured or text records queried with KQL in a Log Analytics workspace.",
+      "Application Insights is Azure Monitor's application performance monitoring (APM) feature, focused on request times, dependencies, and exceptions inside your code, not the underlying infrastructure.",
+      "An alert rule defines the condition to watch for; an action group defines who or what responds — they are separate resources so one action group can serve many alert rules.",
+      "Azure Status is a public, unauthenticated view of global Azure service health, while Service Health is personalized to the resources and regions in your own subscription.",
+      "Azure Advisor doesn't collect live telemetry itself — it periodically analyzes your configuration and usage to produce personalized recommendations.",
+      "Dashboards, alerts, and workbooks are all downstream consumers of the same metrics and logs that Azure Monitor collects, not separate data sources."
+    ],
+    "examTips": [
+      "When a scenario describes a threshold being crossed and someone needing to be paged, look for the pairing of an alert rule (the condition) with an action group (the response) — the exam likes to test that these are two distinct objects.",
+      "Scenario questions that say 'I need to know if my application is slow' point to Application Insights; ones that say 'I need to know if Azure itself is having a problem' point to Service Health or Azure Status — read carefully which one is being described.",
+      "Keywords are a strong signal: 'near real-time numeric data' or 'trend over time' usually means metrics, while 'searchable,' 'detailed,' or 'query with KQL' usually means logs.",
+      "Don't let a question trick you into treating Azure Advisor as a live monitoring tool — it produces recommendations from periodic analysis, it does not stream telemetry like Azure Monitor does.",
+      "If a question contrasts 'public/global' information against 'personalized to my subscription,' that phrasing is testing Azure Status versus Service Health specifically."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Application Insights and Azure Monitor are two separate, competing monitoring products.",
+        "correction": "Application Insights is a feature within Azure Monitor, specialized for application-level telemetry — it shares the same underlying platform and data store, not a rival system."
+      },
+      {
+        "mistake": "An alert rule already contains the email addresses or phone numbers that get notified.",
+        "correction": "The alert rule only defines the condition; the actual notification targets live in a separate, reusable action group that the alert rule points to."
+      },
+      {
+        "mistake": "Metrics and logs are just two names for the same kind of telemetry.",
+        "correction": "They are structurally different — metrics are lightweight numeric time-series values sampled at intervals, while logs are structured or free-text event records analyzed with KQL in a Log Analytics workspace."
+      },
+      {
+        "mistake": "Checking Azure Status will tell me whether my own virtual machine or app is degraded.",
+        "correction": "Azure Status is a public, global dashboard with no knowledge of your subscription; Service Health is the tool that scopes health and maintenance information to your actual resources."
+      },
+      {
+        "mistake": "Azure Advisor continuously watches my resources in real time the way Azure Monitor does.",
+        "correction": "Advisor periodically evaluates your configuration and usage data to generate recommendations — it's a review-and-suggest tool, not a live telemetry stream."
+      }
+    ],
+    "diagram": {
+      "title": "How Azure Monitor Collects and Distributes Telemetry",
+      "svg": "<svg viewBox='0 0 650 300' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='650' height='300' fill='var(--color-bg)'/><rect x='20' y='110' width='140' height='80' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='1.5'/><text x='90' y='145' font-size='14' text-anchor='middle' fill='var(--color-text-primary)'>Azure Resources</text><text x='90' y='165' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>VMs · Apps · Networks</text><line x1='160' y1='150' x2='248' y2='150' stroke='var(--color-border)' stroke-width='2'/><path d='M250,150 L240,145 L240,155 Z' fill='var(--color-accent)'/><text x='205' y='138' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>emit metrics &amp; logs</text><rect x='250' y='90' width='160' height='120' rx='6' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2'/><text x='330' y='130' font-size='15' text-anchor='middle' fill='var(--color-text-primary)'>Azure Monitor</text><text x='330' y='155' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>Log Analytics workspace</text><text x='330' y='172' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>(KQL queries)</text><line x1='410' y1='150' x2='440' y2='150' stroke='var(--color-border)' stroke-width='2'/><line x1='440' y1='55' x2='440' y2='245' stroke='var(--color-border)' stroke-width='2'/><line x1='440' y1='55' x2='468' y2='55' stroke='var(--color-border)' stroke-width='2'/><path d='M470,55 L460,50 L460,60 Z' fill='var(--color-accent)'/><line x1='440' y1='150' x2='468' y2='150' stroke='var(--color-border)' stroke-width='2'/><path d='M470,150 L460,145 L460,155 Z' fill='var(--color-accent)'/><line x1='440' y1='245' x2='468' y2='245' stroke='var(--color-border)' stroke-width='2'/><path d='M470,245 L460,240 L460,250 Z' fill='var(--color-accent)'/><rect x='470' y='20' width='160' height='70' rx='6' fill='var(--color-surface)' stroke='var(--color-success)' stroke-width='1.5'/><text x='550' y='50' font-size='13' text-anchor='middle' fill='var(--color-text-primary)'>Dashboards</text><text x='550' y='68' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>Visualize metrics over time</text><rect x='470' y='115' width='160' height='70' rx='6' fill='var(--color-surface)' stroke='var(--color-warning)' stroke-width='1.5'/><text x='550' y='145' font-size='13' text-anchor='middle' fill='var(--color-text-primary)'>Alerts</text><text x='550' y='163' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>Trigger Action Groups</text><rect x='470' y='210' width='160' height='70' rx='6' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='1.5'/><text x='550' y='240' font-size='13' text-anchor='middle' fill='var(--color-text-primary)'>Workbooks</text><text x='550' y='258' font-size='10' text-anchor='middle' fill='var(--color-text-secondary)'>Interactive reports</text></svg>",
+      "caption": "A left-to-right flow diagram showing Azure Resources such as VMs, apps, and networks emitting metrics and logs, which are collected into Azure Monitor and its Log Analytics workspace where they can be queried with KQL; from that central hub, the data branches out to feed three separate outputs — Dashboards for visualizing metrics over time, Alerts which trigger Action Groups, and Workbooks for interactive reports."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A team wants CPU usage above 90 percent on a VM to automatically notify both the on-call engineer by SMS and a shared Teams channel. Which two Azure Monitor components work together to achieve this?",
+        "options": [
+          "An alert rule and an action group",
+          "Azure Advisor and Service Health",
+          "A workbook and a dashboard",
+          "Application Insights and Network Watcher"
+        ],
+        "correctIndex": 0,
+        "explanation": "The alert rule defines the condition to watch (CPU above 90 percent), and the action group defines the set of notifications and actions that fire when the condition is met — the two are separate, reusable resources that work together."
+      },
+      {
+        "question": "Which statement best describes the difference between metrics and logs in Azure Monitor?",
+        "options": [
+          "They are the same kind of telemetry, just stored in different places",
+          "Metrics are numeric time-series values sampled at regular intervals, while logs are structured or text-based records analyzed with KQL",
+          "Metrics apply only to virtual machines, while logs apply only to web apps",
+          "Logs are collected automatically, but metrics must always be configured manually"
+        ],
+        "correctIndex": 1,
+        "explanation": "Metrics are lightweight numeric values collected on a regular schedule, ideal for trend charts, whereas logs are richer, structured or free-text records that are explored using KQL queries in a Log Analytics workspace."
+      },
+      {
+        "question": "A developer wants to see the average response time of their web app's requests and how many unhandled exceptions occurred in the last hour. Which Azure Monitor feature is purpose-built for this kind of visibility?",
+        "options": [
+          "Network Watcher",
+          "Application Insights",
+          "Azure Advisor",
+          "Service Health"
+        ],
+        "correctIndex": 1,
+        "explanation": "Application Insights is the application performance monitoring (APM) feature of Azure Monitor, specifically designed to track request performance, dependencies, and exceptions at the application code level."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "How Azure Pricing Works",
+          "body": "Unlike buying a physical server that you own outright regardless of whether it sits idle, Azure charges you based on what you actually consume, and when you consume it. This is called consumption-based billing, and it is the default model for the vast majority of Azure services: pay-as-you-go pricing means you are billed only for the compute hours, storage capacity, or data processed that you actually use, with no long-term contract required to get started. Billing is metered at a fine level of detail, since many services charge per second or per minute rather than rounding up to the nearest hour, so a virtual machine you spin up for twenty minutes to test something costs you for twenty minutes, not a full hour. This flexibility is one of the core value propositions of cloud computing: instead of estimating peak capacity years in advance and buying hardware to match, you scale resources up and down as demand changes and your bill follows along. It also means your monthly invoice can vary from month to month, which is exactly why cost estimation tools and budgeting habits matter so much in Azure, a theme the rest of this lesson builds on."
+        },
+        {
+          "heading": "What Determines the Price of a Resource",
+          "body": "Not all Azure resources cost the same, and the same resource does not cost the same everywhere or at every size. Three factors combine to determine the price you actually pay, as shown in the diagram below. The first is region: Azure has datacenters spread across the globe, and prices for identical services can differ from one region to another because of local factors like electricity, real estate, and connectivity costs. The second is resource type and tier: choosing a larger virtual machine size, a premium storage tier, or a higher-performance SKU costs more than a basic equivalent, so the pricing tier you select for a service directly shapes your bill. The third is consumption: how many hours a virtual machine runs, how many gigabytes of data you store, how many requests hit an API, or how much data leaves the region all feed into the final number. Understanding that price is a product of where you deploy, what you deploy, and how much you use it helps explain why two people running what sounds like 'the same thing' can see very different invoices."
+        },
+        {
+          "heading": "Estimating Costs Before You Build",
+          "body": "Azure gives you two distinct tools for reasoning about cost, and knowing which one to reach for is a common source of confusion for newcomers. The Pricing Calculator lets you build out a hypothetical set of resources, say a handful of virtual machines, a database, and some storage, and see an estimated monthly cost for running them on Azure before you provision anything. It is the tool you use when you already know you want to be in Azure and need to answer 'how much will this configuration cost me?' The Total Cost of Ownership, or TCO, Calculator answers a different question: it compares what you are currently spending to run infrastructure on-premises, including easy-to-overlook costs like power, cooling, physical space, and IT labor, against the projected cost of running the equivalent workload in Azure. You would reach for the TCO Calculator when making the business case to migrate to the cloud in the first place, and the Pricing Calculator once you are ready to price out the specific Azure resources that migration would use. Used together, they cover the full journey from 'should we move to the cloud' to 'exactly what will this cost us next month.'"
+        },
+        {
+          "heading": "Getting Started for Free",
+          "body": "Because cost is such a central concern, Microsoft gives newcomers several ways to explore Azure without spending money. Signing up for a free account provides an upfront credit, typically valid for the first 30 days, that you can spend on almost any Azure service while you experiment. On top of that credit, a set of popular services, certain tiers of virtual machines, storage, and databases among them, are free for the first 12 months of the account, letting you build out and run real projects at a small scale without a bill arriving. Separately from both of those time-limited offers, a further list of services is always free, with no time limit and no credit required, for usage under a certain threshold, covering things like a limited number of function executions or a small App Service instance. These three layers, the trial credit, the 12-months-free services, and the always-free services, are easy to conflate, but each has a different scope and expiration, so it is worth being precise about which one applies to a given resource before assuming it will not show up on your invoice."
+        },
+        {
+          "heading": "Support Plans and Licensing Add to Your Bill",
+          "body": "The cost of running Azure is not limited to the meters on your resources; the level of support you choose and how you license existing software both factor into total spend. Azure support plans come in several tiers, Basic, Developer, Standard, and Professional Direct, and while Basic is included for every subscription at no extra charge, the paid tiers add a recurring monthly fee in exchange for faster response times, deeper technical guidance, and, in the higher tiers, a designated support contact. Choosing a support tier is therefore a genuine cost decision, not just a technical one, and organizations size their choice to how critical their workloads are. Licensing works the other direction: if your organization already owns on-premises licenses for products like Windows Server or SQL Server under Software Assurance, License Mobility lets you bring those existing licenses to Azure instead of paying for new ones, reducing what would otherwise be additional cost baked into the price of a virtual machine or database. Taken together, support and licensing are two of the most commonly overlooked line items when someone first estimates what running a solution on Azure will actually cost."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Azure bills primarily on a consumption basis, so cost follows usage rather than upfront hardware purchases.",
+      "A resource's price is shaped by three combined factors: region, resource type/tier, and actual consumption.",
+      "The Pricing Calculator estimates the cost of a specific Azure configuration, while the TCO Calculator compares on-premises costs to running that workload in Azure.",
+      "A free Azure account combines a time-limited trial credit, 12-months-free services, and services that are always free, each with a different scope.",
+      "Basic support is included free with every subscription; Developer, Standard, and Professional Direct are paid tiers layered on top.",
+      "License Mobility through Software Assurance lets you reuse existing on-premises licenses in Azure instead of buying new ones.",
+      "Many services bill in fine-grained increments, such as per-second or per-minute, rather than rounding up to full hours."
+    ],
+    "examTips": [
+      "If a question gives you an existing on-premises datacenter's costs and asks about justifying a move to the cloud, that points to the TCO Calculator, not the Pricing Calculator; watch for 'compare current infrastructure costs' language.",
+      "Questions about estimating the cost of a proposed set of Azure resources before deploying point to the Pricing Calculator; the giveaway is that no existing on-premises environment is mentioned.",
+      "When a scenario mentions region-based price differences or moving a workload to a cheaper region, recognize it is testing the 'region is a pricing factor' concept, not a networking or latency concept.",
+      "Support-plan questions often hinge on remembering that Basic is free and included by default; if an option claims all support plans cost extra, it is wrong.",
+      "Watch for distractor answers that blend the free account's three tiers together, such as claiming always-free services expire after 12 months; keep the trial credit, 12-months-free, and always-free scopes distinct in your head."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I assumed the Pricing Calculator and the TCO Calculator are basically two names for the same estimating tool.",
+        "correction": "They answer different questions: the Pricing Calculator estimates the cost of Azure resources you plan to deploy, while the TCO Calculator compares your current on-premises costs against projected Azure costs to justify migration."
+      },
+      {
+        "mistake": "I thought everything in my free Azure account stays free forever as long as I don't change any settings.",
+        "correction": "Only the always-free tier has no time limit; the signup credit expires after roughly 30 days, and the 12-months-free services stop being free once that year is up, after which normal pay-as-you-go rates apply."
+      },
+      {
+        "mistake": "I figured picking a cheaper region always means picking one that's geographically closer to me.",
+        "correction": "Region pricing is driven by local factors like the cost of power, land, and operations in that datacenter's area, not by physical distance from the customer, so a farther region can sometimes be cheaper."
+      },
+      {
+        "mistake": "I assumed Azure support plans are an optional add-on that most subscriptions don't have at all.",
+        "correction": "Every Azure subscription automatically includes Basic support at no charge; Developer, Standard, and Professional Direct are the optional paid tiers layered on top of that baseline."
+      },
+      {
+        "mistake": "I believed License Mobility means Azure gives you free licenses for software you don't already own.",
+        "correction": "License Mobility only lets you transfer licenses you already purchased under an existing Software Assurance agreement to Azure; it does not grant new licenses at no cost."
+      }
+    ],
+    "diagram": {
+      "title": "What Determines an Azure Resource's Price",
+      "svg": "<svg viewBox='0 0 600 300' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='600' height='300' fill='var(--color-bg)'/><rect x='10' y='20' width='180' height='80' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='100' y='55' font-size='16' text-anchor='middle' fill='var(--color-text-primary)'>Region</text><text x='100' y='78' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>e.g. East US, West Europe</text><rect x='210' y='20' width='180' height='80' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='300' y='50' font-size='15' text-anchor='middle' fill='var(--color-text-primary)'>Resource Type/Tier</text><text x='300' y='70' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>VM size, storage tier, SKU</text><rect x='410' y='20' width='180' height='80' rx='8' fill='var(--color-surface)' stroke='var(--color-border)' stroke-width='2'/><text x='500' y='50' font-size='15' text-anchor='middle' fill='var(--color-text-primary)'>Consumption/Usage</text><text x='500' y='70' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>hours, GB, requests</text><line x1='100' y1='100' x2='230' y2='196' stroke='var(--color-accent)' stroke-width='2'/><line x1='300' y1='100' x2='300' y2='196' stroke='var(--color-accent)' stroke-width='2'/><line x1='500' y1='100' x2='370' y2='196' stroke='var(--color-accent)' stroke-width='2'/><path d='M223,188 L237,188 L230,200 Z' fill='var(--color-accent)'/><path d='M293,188 L307,188 L300,200 Z' fill='var(--color-accent)'/><path d='M363,188 L377,188 L370,200 Z' fill='var(--color-accent)'/><rect x='190' y='200' width='220' height='80' rx='8' fill='var(--color-accent-soft)' stroke='var(--color-accent)' stroke-width='2'/><text x='300' y='235' font-size='17' text-anchor='middle' fill='var(--color-text-primary)'>Estimated Price</text><text x='300' y='258' font-size='11' text-anchor='middle' fill='var(--color-text-secondary)'>combines all three factors</text></svg>",
+      "caption": "A diagram showing three boxes labeled Region, Resource Type/Tier, and Consumption/Usage, each with an arrow pointing down into a single box labeled Estimated Price, illustrating that all three factors combine together to determine what an Azure resource actually costs."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "A company wants to know whether migrating its current on-premises servers to Azure will save money compared to continuing to run its own datacenter. Which tool should they use?",
+        "options": [
+          "Total Cost of Ownership (TCO) Calculator",
+          "Azure Pricing Calculator",
+          "Azure Cost Management + Billing",
+          "Azure Advisor"
+        ],
+        "correctIndex": 0,
+        "explanation": "The TCO Calculator is designed specifically to compare the cost of existing on-premises infrastructure against the projected cost of running the equivalent workload in Azure, which is exactly the migration business case described."
+      },
+      {
+        "question": "Which of the following is NOT one of the three factors that combine to determine the price of an Azure resource?",
+        "options": [
+          "The region where the resource is deployed",
+          "The resource type or pricing tier selected",
+          "How much of the resource is actually consumed",
+          "The programming language used to build the application"
+        ],
+        "correctIndex": 3,
+        "explanation": "Region, resource type/tier, and consumption are the three factors that determine price. The programming language used in an application has no bearing on the underlying resource's billing."
+      },
+      {
+        "question": "A startup deploys a small App Service instance that stays within Azure's always-free usage limits. What should they expect regarding cost 18 months after creating their account?",
+        "options": [
+          "The service remains free, since always-free offers have no expiration date tied to account age",
+          "The service starts billing after 12 months, since all free offers expire after a year",
+          "The service starts billing after 30 days, since that is when the trial credit runs out",
+          "The service becomes free only if they upgrade to a paid support plan"
+        ],
+        "correctIndex": 0,
+        "explanation": "Always-free services are distinct from the 30-day trial credit and the 12-months-free tier; as long as usage stays under the specified threshold, they remain free indefinitely regardless of account age."
+      }
+    ]
+  },
+  "cost-management": {
+    "title": "Cost Management",
+    "lesson": {
+      "sections": [
+        {
+          "heading": "Why Cloud Spend Needs a Different Mindset",
+          "body": "On-premises IT spending is mostly fixed and slow-moving: you buy servers, and the bill doesn't change much month to month whether you use the hardware heavily or let it sit idle. Azure flips that model. Almost everything is billed on consumption, by the minute or by the gigabyte, and because any authorized person on a team can spin up new resources in seconds, spend can grow just as quickly as usage does. That flexibility is a huge advantage, but it also means nobody is naturally forced to stop and ask 'should we be spending this?' the way a hardware purchase order would. Microsoft addresses this gap with a set of tools and practices built around visibility, control, and accountability, so that the same elasticity that makes the cloud powerful doesn't turn into an unpleasant surprise on next month's invoice."
+        },
+        {
+          "heading": "Seeing Where the Money Goes",
+          "body": "Before an organization can control spend, it needs to understand it, and that visibility starts with Azure Cost Management + Billing, the built-in toolset for tracking every dollar an Azure environment consumes. Billing accounts and invoices tell you what you owe overall, while views like cost analysis let you break that number down: by subscription, by resource group, by service, or by the tags applied to individual resources. Because Azure organizes resources into a hierarchy of scopes, management groups at the top, then subscriptions, then resource groups, cost tools can be pointed at any level of that hierarchy, letting a finance team see an entire department's cloud footprint or a project lead see just their own resource group. Getting comfortable navigating that hierarchy is the first real skill in cost management, because every budget, alert, and export you configure later inherits the scope you choose here."
+        },
+        {
+          "heading": "Budgets and Alerts Working Together",
+          "body": "Once spend is visible, the next step is setting a guardrail, and that guardrail is a budget: a spending limit defined over a scope and a time period, typically monthly. A budget by itself doesn't do anything active; its value comes from the alerts attached to it. When configuring those alerts, it's worth understanding that they can watch two different numbers. An actual cost alert compares the threshold to money already spent, so it fires only after the line has genuinely been crossed. A forecasted cost alert instead looks at the current spending trend and estimates where that trend is heading, so it can warn you before the period ends that you're on track to blow past the threshold, giving a team time to react rather than just finding out after the fact. Either way, it's important to remember that a budget alert is a notification mechanism, typically an email or an action group, not an enforcement mechanism; Azure won't automatically shut anything down just because a budget was exceeded."
+        },
+        {
+          "heading": "Paying Less for the Same Workloads",
+          "body": "Alongside monitoring spend, Azure offers several ways to lower the underlying price of the resources you're already using, and each one trades a different kind of commitment for a different kind of discount. Reservations offer the steepest discounts, sometimes up to around 70%, in exchange for committing to a specific resource type, in a specific region, for a one- or three-year term paid upfront or monthly. Azure Savings Plans for Compute take a more flexible approach: instead of locking in one exact VM configuration, you commit to spending a fixed dollar amount per hour, and that commitment automatically applies across whichever eligible compute services, VM families, regions, or operating systems you happen to be running, at the cost of a slightly smaller discount than a matching reservation. Azure Hybrid Benefit works differently again: it doesn't discount usage directly but lets an organization reuse Windows Server or SQL Server licenses it already owns under Software Assurance, cutting the licensing portion out of the Azure bill entirely. Finally, Spot VMs offer some of the cheapest compute available by selling Azure's unused spare capacity, but that low price comes with the risk of eviction with very little warning whenever Azure needs the capacity back, which makes Spot suitable only for workloads that can tolerate interruption."
+        },
+        {
+          "heading": "Keeping Everyone Accountable",
+          "body": "Cost visibility and discounts only go so far if nobody feels responsible for the numbers, which is where tagging and rightsizing come in. Applying consistent tags, such as department, project, or environment, to every resource means cost analysis can group spend along organizational lines instead of just technical ones, which is what makes showback (reporting a department's cloud spend for awareness) and chargeback (actually re-billing that spend to a department's budget through an internal transaction) possible in the first place. On the optimization side, rightsizing means periodically checking whether a resource's size still matches how it's actually being used, and adjusting it accordingly; Azure Advisor surfaces many of these opportunities automatically by flagging underused VMs or disks. None of these practices work as a one-time exercise: tagging conventions need to be enforced as new resources are created, and recommendations need to be reviewed on an ongoing basis, which is why mature Azure environments treat cost management as a continuous habit rather than a monthly cleanup task."
+        }
+      ]
+    },
+    "keyTakeaways": [
+      "Azure billing is consumption-based, so cost visibility tools matter more than they would in a fixed-cost, on-premises environment.",
+      "Azure Cost Management + Billing is the central hub for monitoring, analyzing, and allocating spend across any scope from a resource group up to a management group.",
+      "A budget alert can be triggered by actual spend already incurred or by forecasted spend that's projected to exceed the threshold before the period ends.",
+      "Budget alerts only notify; they never automatically stop, delete, or lock resources.",
+      "Reservations give the deepest discount but require committing to one specific resource type, region, and term.",
+      "Azure Savings Plans for Compute trade a fixed hourly spend commitment for flexibility across VM families, regions, and operating systems.",
+      "Tags are what make showback and chargeback possible, turning raw spend data into cost that's attributable to a department, project, or environment."
+    ],
+    "examTips": [
+      "AZ-900 scenario questions often hide the actual-vs-forecasted distinction in phrasing like 'before the month ends' or 'is trending toward exceeding' — that wording signals a forecasted alert, not an actual one.",
+      "Expect at least one question that tests whether you know a budget alert can stop spending; it can't, it only sends a notification.",
+      "When a question describes committing to an hourly dollar amount that flexibly covers different VM sizes or regions, that's a Savings Plan, not a Reservation; watch for that flexible-vs-fixed contrast as a common distractor pair.",
+      "If a question mentions reusing licenses the organization already owns, the answer is Azure Hybrid Benefit even if the question doesn't use that exact phrase.",
+      "Read for the word 'evictable' or 'interrupted' as the giveaway for Spot VM questions, since that's their defining tradeoff versus other discount options."
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "I assumed a budget alert would automatically stop resources or block new spending once the threshold was hit.",
+        "correction": "A budget alert only sends a notification, typically through email or an action group; it never stops, deletes, or blocks anything by itself, so someone (or some automated process) still has to act on the warning."
+      },
+      {
+        "mistake": "I thought Reservations and Savings Plans were basically two names for the same discount.",
+        "correction": "A Reservation locks in a specific resource type, region, and term for the biggest discount, while a Savings Plan commits to an hourly spend amount that flexibly applies across eligible compute services for a somewhat smaller discount."
+      },
+      {
+        "mistake": "I figured Spot VMs were just a universally cheaper way to run any VM workload.",
+        "correction": "Spot VMs are cheap because Azure can evict them with little warning when it needs the capacity back, so they only make sense for interruption-tolerant workloads like batch processing, not for anything that needs to stay running continuously."
+      },
+      {
+        "mistake": "I assumed showback and chargeback both mean a department actually gets billed for its cloud usage.",
+        "correction": "Showback only reports spend for awareness; chargeback goes a step further and moves that cost onto a department's budget through an actual internal transaction."
+      }
+    ],
+    "diagram": {
+      "title": "Budget Threshold vs. Actual Spend",
+      "svg": "<svg viewBox='0 0 580 260' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='580' height='260' fill='var(--color-bg)' rx='8'/><rect x='40' y='10' width='520' height='210' fill='var(--color-surface)' stroke='var(--color-border)' rx='6'/><text x='300' y='30' text-anchor='middle' font-size='16' fill='var(--color-text-primary)'>Spend Over Time</text><line x1='60' y1='40' x2='60' y2='200' stroke='var(--color-text-secondary)' stroke-width='1.5'/><line x1='60' y1='200' x2='540' y2='200' stroke='var(--color-text-secondary)' stroke-width='1.5'/><text x='45' y='52' font-size='11' fill='var(--color-text-secondary)'>Cost</text><text x='540' y='216' text-anchor='end' font-size='11' fill='var(--color-text-secondary)'>Time</text><line x1='60' y1='110' x2='540' y2='110' stroke='var(--color-warning)' stroke-width='2' stroke-dasharray='6,4'/><text x='65' y='104' font-size='11' fill='var(--color-warning)'>Budget Threshold</text><polyline points='60,195 150,170 240,140 330,110 420,75 540,40' fill='none' stroke='var(--color-accent)' stroke-width='3'/><text x='430' y='65' font-size='11' fill='var(--color-accent)'>Actual Spend</text><circle cx='330' cy='110' r='7' fill='var(--color-error)' stroke='var(--color-surface)' stroke-width='2'/><text x='335' y='95' font-size='11' fill='var(--color-error)'>Alert Triggered</text></svg>",
+      "caption": "A line chart shows actual Azure spend rising over time from lower left to upper right, plotted against a flat, dashed horizontal line representing the fixed budget threshold. The rising spend line starts well below the threshold, climbs steadily, and crosses the dashed budget line partway through the period; a marked circle at that exact crossing point is labeled 'Alert Triggered,' showing that this is the moment a budget alert would fire because spend has caught up to the pre-set limit."
+    },
+    "knowledgeCheck": [
+      {
+        "question": "Which term describes an Azure discount model where you commit to spending a fixed dollar amount per hour on compute, and that commitment can automatically apply across eligible VM sizes, regions, and operating systems?",
+        "options": [
+          "Azure Savings Plan for Compute",
+          "Azure Reservation",
+          "Azure Hybrid Benefit",
+          "Spot VM pricing"
+        ],
+        "correctIndex": 0,
+        "explanation": "Azure Savings Plans for Compute let you commit to an hourly spend amount that flexibly applies across VM families, sizes, regions, and operating systems, unlike a Reservation, which locks in one specific configuration in exchange for a deeper discount."
+      },
+      {
+        "question": "When an Azure budget's spending threshold is crossed and an alert fires, what actually happens to the resources that caused the overage?",
+        "options": [
+          "Nothing is automatically stopped or deleted; the alert only sends a notification",
+          "All virtual machines in the budget's scope are automatically deallocated",
+          "The subscription is immediately locked from creating new resources",
+          "Azure automatically applies a reservation discount to reduce future costs"
+        ],
+        "correctIndex": 0,
+        "explanation": "A budget alert is purely a notification mechanism; it does not automatically stop, deallocate, or lock any resources. A person or an automated remediation workflow still has to act on the warning."
+      },
+      {
+        "question": "An Azure Advisor recommendation suggests resizing a virtual machine to a smaller SKU because its average CPU utilization has stayed below 5% for the past month. Adopting this recommendation is an example of which cost practice?",
+        "options": [
+          "Rightsizing",
+          "Reservation purchase",
+          "Chargeback",
+          "Budget forecasting"
+        ],
+        "correctIndex": 0,
+        "explanation": "Adjusting a resource's size to match its actual utilization is the definition of rightsizing, and Azure Advisor is one of the main tools that surfaces these opportunities automatically."
+      }
+    ]
+  }
+}

@@ -15,6 +15,7 @@ import { initExamStartScreen, initExamControls } from "./exam.js";
 import { renderStudyModules } from "./study.js";
 import { applyStoredTheme, initSettingsControls } from "./settings.js";
 import { initNotes } from "./notes.js";
+import { initLessonControls } from "./lessons.js";
 
 /**
  * Sets up a single click listener on the whole document (event delegation)
@@ -64,6 +65,7 @@ function initApp() {
   initExamControls();
   initSettingsControls();
   initNotes();
+  initLessonControls();
   renderStudyModules();
   navigateTo("dashboard");
 }
