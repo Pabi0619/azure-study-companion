@@ -11,6 +11,7 @@
 */
 
 const STORAGE_KEY = "azureStudyCompanion.progress";
+const SETTINGS_STORAGE_KEY = "azureStudyCompanion.settings";
 
 /**
  * Defines the shape of progress data. This is the single source of truth
@@ -25,6 +26,7 @@ function getDefaultProgress() {
       lastStudyDate: null, // ISO date string, e.g. "2026-07-27"
     },
     quizzesCompleted: 0,
+    examsCompleted: 0,
     moduleProgress: {}, // populated per-module in later steps, e.g. { "cloud-concepts": { completed: true } }
     weakTopics: [],
     timeSpentMinutes: 0,
@@ -127,6 +129,78 @@ export function updateStreakForToday() {
 }
 
 /**
+ * Adds one attempt record to a module's history. Shared by both
+ * recordQuizAttempt and recordExamAttempt — the only difference between
+ * those two is what they increment (quizzesCompleted vs examsCompleted)
+ * and whether one module or several are touched in a single call.
+ * @param {object} progress
+ * @param {string} moduleId
+ * @param {string} moduleTitle
+ * @param {number} score
+ * @param {number} total
+ */
+function addModuleAttempt(progress, moduleId, moduleTitle, score, total) {
+  if (!progress.moduleProgress[moduleId]) {
+    progress.moduleProgress[moduleId] = { title: moduleTitle, attempts: [] };
+  }
+
+  progress.moduleProgress[moduleId].title = moduleTitle;
+  progress.moduleProgress[moduleId].attempts.push({
+    score,
+    total,
+    date: new Date().toISOString(),
+  });
+}
+
+/**
+ * Records the result of a completed quiz attempt against a specific module.
+ * Keeps the FULL history of attempts (not just a running average), so
+ * progress.js can calculate weak/strong topics, trends, etc. from real data
+ * rather than a single number that's already lost information.
+ * @param {string} moduleId
+ * @param {string} moduleTitle - stored alongside so progress.js doesn't need
+ *   a separate lookup just to display a human-readable name
+ * @param {number} score - number of correct answers
+ * @param {number} total - total number of questions in that attempt
+ */
+export function recordQuizAttempt(moduleId, moduleTitle, score, total) {
+  const progress = getProgress();
+  addModuleAttempt(progress, moduleId, moduleTitle, score, total);
+  progress.quizzesCompleted++;
+  saveProgress(progress);
+}
+
+/**
+ * Records the result of a completed practice exam, which typically spans
+ * several modules at once. Each module's portion of the exam is recorded
+ * as its own attempt (so weak/strong topic calculations stay accurate),
+ * but the whole exam only counts once toward examsCompleted — not once
+ * per module it happened to touch.
+ * @param {Array<{moduleId: string, moduleTitle: string, score: number, total: number}>} moduleBreakdown
+ */
+export function recordExamAttempt(moduleBreakdown) {
+  const progress = getProgress();
+
+  moduleBreakdown.forEach(({ moduleId, moduleTitle, score, total }) => {
+    addModuleAttempt(progress, moduleId, moduleTitle, score, total);
+  });
+
+  progress.examsCompleted++;
+  saveProgress(progress);
+}
+
+/**
+ * Adds to the running total of minutes spent studying. Called periodically
+ * while the app is open (see progress.js's session timer).
+ * @param {number} minutes
+ */
+export function incrementTimeSpent(minutes) {
+  const progress = getProgress();
+  progress.timeSpentMinutes += minutes;
+  saveProgress(progress);
+}
+
+/**
  * Toggles whether a flashcard is marked as "mastered." Adds it to the
  * list if not present, removes it if already there.
  * @param {string} cardId
@@ -196,4 +270,66 @@ function wasYesterday(previousDateStr, todayStr) {
 
   const dayDifference = Math.round((today - previous) / msInOneDay);
   return dayDifference === 1;
+}
+
+/**
+ * Defines the shape of app settings (theme, daily study goal). Kept in a
+ * separate localStorage key from progress on purpose: "Reset Progress"
+ * should clear study history without silently reverting a user's theme
+ * or goal preference.
+ * @returns {object} a fresh default settings object
+ */
+function getDefaultSettings() {
+  return {
+    theme: "dark",
+    dailyGoalMinutes: 20,
+  };
+}
+
+/**
+ * Reads settings from localStorage, falling back to defaults if nothing
+ * is stored yet or the stored data is corrupted.
+ * @returns {object}
+ */
+export function getSettings() {
+  const raw = localStorage.getItem(SETTINGS_STORAGE_KEY);
+
+  if (!raw) {
+    return getDefaultSettings();
+  }
+
+  try {
+    return { ...getDefaultSettings(), ...JSON.parse(raw) };
+  } catch (error) {
+    console.error("Stored settings were corrupted, resetting to defaults.", error);
+    return getDefaultSettings();
+  }
+}
+
+/**
+ * Persists a settings object to localStorage, overwriting whatever was there.
+ * @param {object} settings
+ */
+function saveSettings(settings) {
+  localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+}
+
+/**
+ * Updates and persists the theme preference ("dark" or "light").
+ * @param {string} theme
+ */
+export function saveTheme(theme) {
+  const settings = getSettings();
+  settings.theme = theme;
+  saveSettings(settings);
+}
+
+/**
+ * Updates and persists the daily study goal, in minutes.
+ * @param {number} minutes
+ */
+export function saveDailyGoal(minutes) {
+  const settings = getSettings();
+  settings.dailyGoalMinutes = minutes;
+  saveSettings(settings);
 }

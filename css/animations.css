@@ -49,6 +49,78 @@
 .flashcard__face--back {
   transform: rotateY(180deg);
 }
+
+/* ---------- ACCESSIBILITY: visible keyboard focus ---------- */
+/*
+  :focus-visible (not plain :focus) shows an outline only for keyboard
+  navigation, not for mouse clicks — this matches how modern browsers/OSes
+  behave natively, so it won't look out of place, but ensures anyone
+  tabbing through the app can always see where they are.
+*/
+.sidebar__nav-item:focus-visible,
+.btn:focus-visible,
+.quiz-option:focus-visible,
+.flashcard-controls__select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.flashcard:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* ---------- CARD HOVER ELEVATION ---------- */
+/* Module-select buttons lift slightly on hover to signal they're clickable */
+.module-grid__item {
+  transition: background-color var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.module-grid__item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+/* ---------- CUSTOM SCROLLBAR (WebKit browsers) ---------- */
+/* Subtle, theme-matched scrollbar instead of the harsh default on a dark background */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- SMALL SCREEN REFINEMENT ---------- */
+/*
+  Below 480px (most phones in portrait), stack action/nav button grids
+  into a single column and increase touch target height — 44px is the
+  generally recommended minimum comfortable tap target size for touch.
+*/
+@media (max-width: 480px) {
+  .action-grid,
+  .flashcard-actions,
+  .flashcard-nav,
+  .exam-nav,
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .flashcard {
+    height: 240px;
+  }
+}
+
+/* ---------- ACCESSIBILITY: respect reduced motion preference ---------- */
 /* Some users disable motion at the OS level (iOS/Android both support this).
    We honor that by removing animations entirely for them. */
 @media (prefers-reduced-motion: reduce) {

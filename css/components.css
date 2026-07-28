@@ -290,3 +290,129 @@
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+
+/* ---------- PRACTICE EXAM: top bar with progress + timer ---------- */
+.exam-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.exam-timer {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums; /* keeps digits from jittering in width as they change each second */
+}
+
+.exam-timer.is-low-time {
+  color: var(--color-error);
+}
+
+/* ---------- PRACTICE EXAM: selected (ungraded) option state ---------- */
+/* Distinct from quiz-option--correct/incorrect — this just shows a choice
+   is selected, without revealing whether it's right, since exam mode
+   doesn't grade until submission. */
+.quiz-option--selected {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+.exam-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.exam-nav .btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.exam-submit-btn {
+  width: 100%;
+}
+
+/* ---------- PRACTICE EXAM: results & topic breakdown ---------- */
+.exam-time-taken {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.exam-breakdown-title {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-md);
+}
+
+.exam-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.exam-breakdown__label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+/* ---------- PRACTICE EXAM: review screen ---------- */
+.exam-review-item {
+  margin-bottom: var(--space-md);
+}
+
+.exam-review-item__topic {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.exam-review-item h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-sm);
+}
+
+/* ---------- SETTINGS ---------- */
+.settings-card {
+  margin-bottom: var(--space-lg);
+}
+
+.settings-card h2 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-md);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.settings-input {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  width: 100px;
+}
+
+.settings-hint {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-sm);
+}
+
+.settings-danger-btn {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}

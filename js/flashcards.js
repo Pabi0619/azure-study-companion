@@ -26,12 +26,7 @@ let isFlipped = false;
 async function loadCardBank() {
   if (cardBank) return cardBank;
 
-  const response = await fetch("./js/data/flashcards.json");
-
-  if (!response.ok) {
-    throw new Error(`Failed to load flashcards: ${response.status}`);
-  }
-
+  const response = await fetch("js/data/flashcards.json");
   cardBank = await response.json();
   return cardBank;
 }
@@ -87,6 +82,18 @@ export async function initFlashcardFilter() {
 
   // Load the default ("All Topics") deck immediately so the view isn't empty
   loadDeck(ALL_TOPICS_VALUE);
+}
+
+/**
+ * Jumps the flashcard deck directly to a specific topic — used by the
+ * Study view so clicking "Flashcards" on a module card shows that
+ * module's cards immediately, keeping the dropdown filter in sync too.
+ * @param {string} moduleId
+ */
+export async function selectFlashcardTopic(moduleId) {
+  await loadCardBank();
+  document.getElementById("flashcard-topic-filter").value = moduleId;
+  loadDeck(moduleId);
 }
 
 /**

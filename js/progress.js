@@ -5,16 +5,6 @@
   and load raw data (attempt history, streak, flashcard state) — this file
   knows what that data MEANS: which topic is weakest, what percentage of
   the course is complete, how to display the streak.
-
-  Known tradeoff (worth understanding, not hiding): calculating "percentage
-  of modules complete" needs to know the TOTAL number of available modules.
-  That list currently only exists inside data/questions.json, which
-  quiz-engine.js already loads separately. Rather than build a shared
-  "content registry" module now — solving a problem we don't fully have
-  yet, since Study Modules browsing isn't built — this file does its own
-  small fetch of questions.json. The browser caches it, so the real cost
-  is negligible. The proper fix (a single modules.json as source of truth
-  for all module metadata) belongs in a future Study Modules content step.
 */
 
 import { getProgress, incrementTimeSpent } from "./storage.js";
@@ -22,16 +12,18 @@ import { getProgress, incrementTimeSpent } from "./storage.js";
 let totalModuleCount = null; // cached after first calculation
 
 /**
- * Fetches questions.json just to count how many modules exist in total.
- * Cached after the first call.
+ * Fetches modules.json just to count how many modules exist in total.
+ * Cached after the first call. This is now the proper source of truth
+ * for module metadata (added in the Study Modules feature) — replacing
+ * an earlier workaround that counted modules via questions.json instead.
  * @returns {Promise<number>}
  */
 async function getTotalModuleCount() {
   if (totalModuleCount !== null) return totalModuleCount;
 
-  const response = await fetch("data/questions.json");
-  const bank = await response.json();
-  totalModuleCount = Object.keys(bank).length;
+  const response = await fetch("js/data/modules.json");
+  const modules = await response.json();
+  totalModuleCount = Object.keys(modules).length;
   return totalModuleCount;
 }
 

@@ -7,23 +7,13 @@
 */
 
 import { navigateTo } from "./router.js";
-import { updateStreakForToday, getProgress } from "./storage.js";
+import { updateStreakForToday } from "./storage.js";
 import { initQuizModuleSelector, initQuizControls } from "./quiz-engine.js";
 import { initFlashcardFilter, initFlashcardControls } from "./flashcards.js";
-
-/**
- * Reads current progress and writes the values into the dashboard's
- * stat elements. Kept simple for now — full weak-topic calculation
- * and quiz-driven stats arrive in the Progress Tracking step.
- */
-function renderDashboardStats() {
-  const progress = getProgress();
-
-  document.getElementById("stat-streak").textContent = `${progress.streak.count} day${progress.streak.count === 1 ? "" : "s"}`;
-  document.getElementById("stat-quizzes").textContent = progress.quizzesCompleted;
-  document.getElementById("stat-weak-topic").textContent =
-    progress.weakTopics.length > 0 ? progress.weakTopics[0] : "—";
-}
+import { renderDashboardStats, startSessionTimer } from "./progress.js";
+import { initExamStartScreen, initExamControls } from "./exam.js";
+import { renderStudyModules } from "./study.js";
+import { applyStoredTheme, initSettingsControls } from "./settings.js";
 
 /**
  * Sets up a single click listener on the whole document (event delegation)
@@ -41,6 +31,16 @@ function initNavigation() {
 
     const targetView = navButton.dataset.navTarget;
     navigateTo(targetView);
+
+    // Dashboard stats and Study completion status can both change from
+    // anywhere in the app — recalculate whenever those views are opened,
+    // rather than only once when the page first loads.
+    if (targetView === "dashboard") {
+      renderDashboardStats();
+    }
+    if (targetView === "study") {
+      renderStudyModules();
+    }
   });
 }
 
@@ -50,13 +50,19 @@ function initNavigation() {
  * it by default — this keeps state.js and the DOM guaranteed to agree.
  */
 function initApp() {
+  applyStoredTheme();
   initNavigation();
   updateStreakForToday();
   renderDashboardStats();
+  startSessionTimer();
   initQuizModuleSelector();
   initQuizControls();
   initFlashcardFilter();
   initFlashcardControls();
+  initExamStartScreen();
+  initExamControls();
+  initSettingsControls();
+  renderStudyModules();
   navigateTo("dashboard");
 }
 

@@ -10,7 +10,7 @@
   so it doesn't belong in the app-wide state.js.
 */
 
-import { getProgress, saveProgress } from "./storage.js";
+import { recordQuizAttempt } from "./storage.js";
 
 // ---------- MODULE-PRIVATE STATE ----------
 let questionBank = null;       // full questions.json, cached after first fetch
@@ -53,7 +53,7 @@ export async function initQuizModuleSelector() {
 }
 
 /**
- * Randomly reorders an array using the Fisher-Yates algorithm.
+ * Fisher-Yates shuffle — same correct algorithm used in flashcards.js.
  * (Not array.sort(() => Math.random() - 0.5) — that trick produces a
  * statistically biased shuffle, not a true random permutation.)
  * @param {Array} array
@@ -66,6 +66,19 @@ function shuffle(array) {
     [result[i], result[j]] = [result[j], result[i]];
   }
   return result;
+}
+
+/**
+ * Starts a quiz for a specific module from outside this file — used by
+ * the Study view so "Take Quiz" on a module card jumps straight into
+ * that quiz, rather than requiring a second click on the Quiz tab.
+ * Ensures the question bank is loaded first, in case this is called
+ * before the Quiz view has ever been visited.
+ * @param {string} moduleId
+ */
+export async function startQuizForModule(moduleId) {
+  await loadQuestionBank();
+  startQuiz(moduleId);
 }
 
 /**
@@ -196,15 +209,14 @@ function finishQuiz() {
 }
 
 /**
- * Updates persisted progress: increments quizzesCompleted.
- * Deeper per-module/per-topic tracking (weak topics, time spent) is
- * built out fully in the Progress Tracking step — this is the minimal
- * hook needed now so quiz completions aren't lost.
+ * Updates persisted progress with this attempt's result, recorded against
+ * the module that was quizzed. progress.js uses this history to calculate
+ * weak/strong topics — that's why we pass the module ID and title here,
+ * not just a raw score.
  */
 function recordQuizCompletion() {
-  const progress = getProgress();
-  progress.quizzesCompleted++;
-  saveProgress(progress);
+  const moduleTitle = questionBank[activeModuleId].title;
+  recordQuizAttempt(activeModuleId, moduleTitle, score, currentQuestions.length);
 }
 
 /**

@@ -53,3 +53,28 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
 }
+
+/*
+  LIGHT THEME
+  -----------
+  Overrides applied when settings.js sets data-theme="light" on <html>
+  (persisted via storage.js). Dark stays the default look for anyone who
+  never opens Settings, so only the colors that need to flip are listed
+  here — spacing, typography, and layout tokens above are shared by both.
+*/
+:root[data-theme="light"] {
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #eef1f5;
+  --color-border: #d7dee6;
+
+  --color-accent-hover: #005a9e;
+  --color-accent-soft: rgba(0, 120, 212, 0.12);
+
+  --color-text-primary: #1b1f24;
+  --color-text-secondary: #57606a;
+
+  --color-success: #1a7f37;
+  --color-error: #cf222e;
+  --color-warning: #9a6700;
+}

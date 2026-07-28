@@ -1,0 +1,68 @@
+{
+  "cloud-concepts": {
+    "title": "Cloud Concepts",
+    "description": "Core cloud ideas: service models (IaaS/PaaS/SaaS), cloud vs. hybrid vs. private, and the economics of the cloud.",
+    "estimatedMinutes": 20,
+    "difficulty": "Beginner"
+  },
+  "azure-architecture": {
+    "title": "Azure Architecture",
+    "description": "How Azure is physically and logically organized: regions, availability zones, resource groups, and subscriptions.",
+    "estimatedMinutes": 20,
+    "difficulty": "Beginner"
+  },
+  "azure-compute": {
+    "title": "Azure Compute",
+    "description": "Running workloads in Azure: virtual machines, containers, and serverless compute options.",
+    "estimatedMinutes": 25,
+    "difficulty": "Intermediate"
+  },
+  "azure-networking": {
+    "title": "Azure Networking",
+    "description": "Connecting resources securely: virtual networks, VPN gateways, load balancing, and DNS.",
+    "estimatedMinutes": 25,
+    "difficulty": "Intermediate"
+  },
+  "azure-storage": {
+    "title": "Azure Storage",
+    "description": "Storing data in Azure: blobs, files, disks, and choosing the right redundancy option.",
+    "estimatedMinutes": 20,
+    "difficulty": "Beginner"
+  },
+  "identity": {
+    "title": "Identity",
+    "description": "Managing who can access what: Microsoft Entra ID, authentication, and multi-factor authentication.",
+    "estimatedMinutes": 20,
+    "difficulty": "Intermediate"
+  },
+  "security": {
+    "title": "Security",
+    "description": "Protecting resources: defense in depth, Microsoft Defender for Cloud, and network security basics.",
+    "estimatedMinutes": 20,
+    "difficulty": "Intermediate"
+  },
+  "governance": {
+    "title": "Governance",
+    "description": "Keeping environments compliant and organized: policies, role-based access control, and resource locks.",
+    "estimatedMinutes": 15,
+    "difficulty": "Beginner"
+  },
+  "monitoring": {
+    "title": "Monitoring",
+    "description": "Understanding system health: Azure Monitor, Azure Advisor, and the Service Health dashboard.",
+    "estimatedMinutes": 15,
+    "difficulty": "Beginner"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Estimating and comparing costs with the Pricing Calculator and the Total Cost of Ownership Calculator.",
+    "estimatedMinutes": 15,
+    "difficulty": "Beginner"
+  },
+  "cost-management": {
+    "title": "Cost Management",
+    "description": "Keeping spending under control: budgets, alerts, tags, and the Azure Cost Management tools.",
+    "estimatedMinutes": 15,
+    "difficulty": "Beginner"
+  }
+}

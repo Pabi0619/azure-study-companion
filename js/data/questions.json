@@ -46,6 +46,76 @@
         ],
         "correctIndex": 1,
         "explanation": "High availability means designing systems so they keep running even if individual components fail — typically through redundancy across multiple servers or regions."
+      },
+      {
+        "id": "cc-6",
+        "question": "Which statement best describes the difference between CapEx and OpEx in the context of cloud adoption?",
+        "options": ["CapEx is paying for computing resources as you use them, while OpEx requires a large upfront investment in hardware", "CapEx requires an upfront investment in physical infrastructure, while OpEx involves paying for services as you consume them over time", "CapEx and OpEx both require upfront payment but differ only in tax treatment", "CapEx applies only to cloud spending, while OpEx applies only to on-premises spending"],
+        "correctIndex": 1,
+        "explanation": "Capital expenditure (CapEx) is an upfront cost for physical infrastructure that is typically depreciated over time, whereas operational expenditure (OpEx) is spent as you go for services you consume, which is how cloud computing is usually billed. The first option reverses the two definitions."
+      },
+      {
+        "id": "cc-7",
+        "question": "A team increases the number of CPU cores and memory on an existing virtual machine to handle more load. Which term describes this action?",
+        "options": ["Horizontal scaling (scaling out)", "Vertical scaling (scaling up)", "Elasticity", "High availability"],
+        "correctIndex": 1,
+        "explanation": "Vertical scaling (scaling up or down) means changing the capacity of a single existing resource, such as adding CPU or RAM. Horizontal scaling instead adds or removes instances, and elasticity refers to automatically adjusting capacity to match demand rather than a manual resize."
+      },
+      {
+        "id": "cc-8",
+        "question": "Which of the following best describes 'agility' as a benefit of cloud computing?",
+        "options": ["The ability to physically relocate datacenters closer to customers", "The ability to rapidly develop, test, deploy, and scale solutions in response to changing business needs", "The guarantee that a service will never experience downtime", "The practice of using only a single cloud provider to reduce complexity"],
+        "correctIndex": 1,
+        "explanation": "Agility refers to the speed and flexibility with which organizations can provision resources and build or adjust solutions to respond to changing requirements. It is not about uptime guarantees, which relate to high availability, or datacenter placement, which relates to global reach."
+      },
+      {
+        "id": "cc-9",
+        "question": "What is the key difference between fault tolerance and disaster recovery?",
+        "options": ["Fault tolerance is the ability of a system to keep running, often without noticeable impact, when a component fails, while disaster recovery is the process of restoring functionality after a major outage", "Fault tolerance only applies to networking hardware, while disaster recovery only applies to storage", "They are two names for the exact same concept", "Disaster recovery happens automatically, while fault tolerance always requires manual intervention"],
+        "correctIndex": 0,
+        "explanation": "Fault tolerance describes a system's built-in ability to continue operating despite the failure of one or more components, whereas disaster recovery is the strategy and set of processes used to restore operations after a significant disruption. Either can involve automation, so they are not interchangeable terms."
+      },
+      {
+        "id": "cc-10",
+        "question": "Which of the following is a defining characteristic of the public cloud model?",
+        "options": ["Computing resources are owned and operated by a third-party provider and shared among multiple organizations over the internet", "Computing resources are dedicated to a single organization and hosted in its own datacenter", "Computing resources are split between an organization's datacenter and a third-party provider", "Computing resources can only be accessed through a private, dedicated network connection"],
+        "correctIndex": 0,
+        "explanation": "In the public cloud model, a third-party provider owns and operates the infrastructure and makes it available to multiple customers over the public internet. The second option describes private cloud, and the third describes hybrid cloud."
+      },
+      {
+        "id": "cc-11",
+        "question": "A hospital wants full control over its infrastructure to meet strict regulatory requirements, so it runs its own datacenter exclusively for its own use with no shared tenancy. Which cloud model is this?",
+        "options": ["Public cloud", "Private cloud", "Multi-cloud", "Hybrid cloud"],
+        "correctIndex": 1,
+        "explanation": "Private cloud provides computing resources exclusively for a single organization, giving it greater control over security, compliance, and customization than a shared, multi-tenant public cloud. Hybrid cloud would additionally involve public cloud resources, which is not described here."
+      },
+      {
+        "id": "cc-12",
+        "question": "An organization uses Azure for its primary workloads but also runs some services on another provider's cloud to avoid depending on a single vendor. What is this approach called?",
+        "options": ["Hybrid cloud", "Multi-cloud", "Private cloud", "Community cloud"],
+        "correctIndex": 1,
+        "explanation": "Multi-cloud refers to using services from two or more public cloud providers, often to avoid vendor lock-in or take advantage of specific capabilities. Hybrid cloud instead describes combining public cloud with on-premises or private infrastructure, not multiple public cloud vendors."
+      },
+      {
+        "id": "cc-13",
+        "question": "Under the shared responsibility model, which of the following does the customer always remain responsible for, regardless of whether they use IaaS, PaaS, or SaaS?",
+        "options": ["The physical datacenter security", "Their data and access management, such as identities and permissions", "The underlying host operating system patching", "The physical network hardware"],
+        "correctIndex": 1,
+        "explanation": "No matter which service model is used, the customer always retains responsibility for their data and for managing identities and access. Physical security, host operating system patching, and network hardware are increasingly handled by the provider as you move from IaaS toward SaaS."
+      },
+      {
+        "id": "cc-14",
+        "question": "How does 'economies of scale' benefit customers of large cloud providers like Azure?",
+        "options": ["By allowing customers to negotiate individual hardware purchase discounts", "By spreading the cost of large-scale infrastructure across many customers, generally lowering the per-unit cost of computing resources", "By guaranteeing that every customer gets a dedicated physical server", "By eliminating the need for any billing or metering of usage"],
+        "correctIndex": 1,
+        "explanation": "Because cloud providers build and operate infrastructure at massive scale, they can spread the cost across a large customer base, which typically lowers the price of compute, storage, and networking compared to smaller-scale, on-premises operations."
+      },
+      {
+        "id": "cc-15",
+        "question": "What is a key characteristic of serverless computing?",
+        "options": ["The developer must provision and manage the virtual machines that run the code", "Applications run without the developer needing to manage the underlying servers, and compute resources are allocated dynamically as needed", "It refers to running applications entirely without any physical servers anywhere in the world", "It is only available for storage services, not application code"],
+        "correctIndex": 1,
+        "explanation": "Serverless computing lets developers focus on application code while the cloud provider automatically manages provisioning and scaling; servers still exist, but they are abstracted away from the developer, which makes the third option a common misconception."
       }
     ]
   },
@@ -94,6 +164,83 @@
         ],
         "correctIndex": 1,
         "explanation": "Azure pairs regions within the same geography and coordinates platform updates and recovery efforts between them, reducing the chance both regions are affected at once."
+      },
+      {
+        "id": "aa-5",
+        "question": "What is the primary purpose of Azure management groups?",
+        "options": ["To provide a logical container for organizing resources within a single subscription", "To organize one or more subscriptions and apply governance conditions like policies and access controls across all of them at once", "To serve as the top-level container for billing a single resource", "To group virtual machines within an availability set"],
+        "correctIndex": 1,
+        "explanation": "Management groups sit above subscriptions in the Azure hierarchy and let you apply policies, role-based access control, and other governance settings to multiple subscriptions at once. Resource groups, not management groups, organize resources within a single subscription."
+      },
+      {
+        "id": "aa-6",
+        "question": "What role does Azure Resource Manager (ARM) play in Azure?",
+        "options": ["It is a physical load balancer that distributes traffic between regions", "It is the deployment and management service that provides a consistent management layer for creating, updating, and deleting resources through the portal, CLI, PowerShell, or APIs", "It is a monitoring tool that tracks resource costs only", "It is a virtual network security appliance"],
+        "correctIndex": 1,
+        "explanation": "Azure Resource Manager is the management layer that every Azure tool goes through to create, update, and delete resources, ensuring consistent and secure resource management. It is not itself a networking or monitoring product."
+      },
+      {
+        "id": "aa-7",
+        "question": "What is the main benefit of using an ARM template to deploy Azure resources?",
+        "options": ["It allows infrastructure to be defined declaratively in a JSON or Bicep file, enabling consistent, repeatable deployments", "It automatically reduces the cost of every resource deployed", "It replaces the need for a subscription", "It is the only way to create a resource group in Azure"],
+        "correctIndex": 0,
+        "explanation": "ARM templates let you describe infrastructure as code in a declarative JSON or Bicep file, making deployments repeatable and consistent across environments. They do not inherently reduce cost, and resource groups can still be created through other tools."
+      },
+      {
+        "id": "aa-8",
+        "question": "What best describes Azure sovereign (national) clouds such as Azure Government or Azure China, operated by 21Vianet?",
+        "options": ["They are simply additional regions within the standard global Azure cloud", "They are physically and logically isolated instances of Azure intended to meet specific compliance, legal, or geopolitical requirements", "They are free tiers of Azure offered only to government employees", "They are backup datacenters used only for disaster recovery"],
+        "correctIndex": 1,
+        "explanation": "Sovereign clouds like Azure Government and Azure China are isolated instances, separate from global public Azure, designed to meet specific national security, compliance, or regulatory requirements. They are not merely extra regions in the standard public cloud."
+      },
+      {
+        "id": "aa-9",
+        "question": "When Azure pairs two regions together within the same geography, how many regions typically make up a region pair?",
+        "options": ["Exactly two regions", "Exactly three regions", "A minimum of four regions", "It varies with no fixed pairing between regions"],
+        "correctIndex": 0,
+        "explanation": "Azure typically pairs regions in sets of two within the same geography, such as East US and West US, which helps preserve data residency while supporting coordinated updates and recovery. Region pairs are not sets of three or four regions."
+      },
+      {
+        "id": "aa-10",
+        "question": "What is an Azure 'geography'?",
+        "options": ["A single physical datacenter building", "A defined area of the world containing one or more regions that preserves data residency and compliance boundaries", "A synonym for an availability zone", "A grouping of resource groups within a subscription"],
+        "correctIndex": 1,
+        "explanation": "An Azure geography is a discrete market, typically containing two or more regions, that preserves data residency, sovereignty, and compliance boundaries within that area of the world. It is a broader concept than a single datacenter or availability zone."
+      },
+      {
+        "id": "aa-11",
+        "question": "What do availability sets protect virtual machines against within a single Azure datacenter?",
+        "options": ["Regional outages caused by natural disasters", "Planned maintenance and unplanned hardware failures, by distributing VMs across fault domains and update domains", "Internet connectivity issues between regions", "Application-level bugs in the deployed code"],
+        "correctIndex": 1,
+        "explanation": "Availability sets distribute VMs across multiple fault domains and update domains within a single datacenter, protecting against localized hardware failures and planned maintenance. Regional-level outages are instead addressed by availability zones or region pairs."
+      },
+      {
+        "id": "aa-12",
+        "question": "What is an Azure availability zone?",
+        "options": ["A logical grouping of VMs within the same server rack", "A physically separate datacenter within an Azure region, with independent power, cooling, and networking", "A backup copy of a resource group stored in a different subscription", "Another name for a management group"],
+        "correctIndex": 1,
+        "explanation": "An availability zone is a physically separate datacenter, or set of datacenters, within an Azure region, each with independent power, cooling, and networking, so a failure in one zone is unlikely to affect the others. This provides stronger, facility-level resiliency than availability sets offer within a single datacenter."
+      },
+      {
+        "id": "aa-13",
+        "question": "What is a fault domain in the context of Azure availability sets?",
+        "options": ["A logical grouping of hardware that shares a common power source and network switch, so a failure in one fault domain does not affect others", "A schedule that determines when Azure performs planned maintenance", "A billing boundary used to separate subscription costs", "A security boundary that isolates virtual networks"],
+        "correctIndex": 0,
+        "explanation": "A fault domain groups underlying hardware, such as a server rack, that shares a common power source and network switch; spreading VMs across fault domains reduces the chance that a single hardware failure takes down all instances. Planned maintenance scheduling instead relates to update domains."
+      },
+      {
+        "id": "aa-14",
+        "question": "What is the purpose of an update domain in an availability set?",
+        "options": ["To group VMs so that they can be rebooted or undergo planned maintenance together, ensuring not all instances go down for maintenance simultaneously", "To group VMs that share the same physical power supply", "To define which region a virtual machine is deployed in", "To control which users can access a virtual machine"],
+        "correctIndex": 0,
+        "explanation": "Update domains group VMs so Azure can perform planned maintenance, such as host operating system updates, on one group at a time rather than rebooting every instance of an application simultaneously. Sharing a physical power supply instead describes a fault domain."
+      },
+      {
+        "id": "aa-15",
+        "question": "What is the correct order of the Azure resource hierarchy, from the top-level container down to individual resources?",
+        "options": ["Resource group > Subscription > Management group > Resource", "Subscription > Management group > Resource group > Resource", "Management group > Subscription > Resource group > Resource", "Resource > Resource group > Subscription > Management group"],
+        "correctIndex": 2,
+        "explanation": "The Azure hierarchy flows from management groups, which organize subscriptions, down to subscriptions, which act as billing and access boundaries, then resource groups, which are logical containers, and finally individual resources. Governance settings applied at a higher level, such as a management group, are inherited by everything below it."
       }
     ]
   },
@@ -149,6 +296,76 @@
         ],
         "correctIndex": 1,
         "explanation": "Scale sets let you create and manage a group of identical VMs, automatically increasing or decreasing the count based on demand or a defined schedule."
+      },
+      {
+        "id": "co-6",
+        "question": "A team wants to run short-lived, on-demand containerized tasks (such as a CI/CD build agent) that start quickly and are billed by the second, without deploying or managing a container orchestration cluster. Which Azure service is purpose-built for this?",
+        "options": ["Azure Container Instances (ACI)", "Azure Kubernetes Service (AKS)", "Azure App Service", "Virtual Machine Scale Sets"],
+        "correctIndex": 0,
+        "explanation": "ACI is designed for fast, per-second-billed container startup for isolated, short-lived workloads without provisioning or managing any cluster infrastructure. AKS adds full orchestration (scaling, self-healing, service discovery) but requires managing a cluster, which is unnecessary overhead for simple one-off tasks."
+      },
+      {
+        "id": "co-7",
+        "question": "Which Azure service is designed to run large-scale parallel and high-performance computing (HPC) batch jobs by automatically provisioning, scaling, and managing a pool of virtual machines to execute the work?",
+        "options": ["Azure Batch", "Azure Functions", "Azure Container Instances", "Azure Virtual Desktop"],
+        "correctIndex": 0,
+        "explanation": "Azure Batch schedules compute-intensive work across a managed pool of VMs that it creates, scales, and deletes automatically, making it well suited for parallel and HPC-style workloads. The other services are not designed for managing large VM pools for batch processing."
+      },
+      {
+        "id": "co-8",
+        "question": "Which Azure service provides desktop and application virtualization, letting users access a full Windows desktop experience hosted in the cloud from nearly any device?",
+        "options": ["Azure Virtual Desktop", "Azure App Service", "Azure Batch", "Azure Container Instances"],
+        "correctIndex": 0,
+        "explanation": "Azure Virtual Desktop (formerly Windows Virtual Desktop) delivers virtualized Windows desktops and applications hosted in Azure to end-user devices. None of the other listed services provide desktop/VDI functionality."
+      },
+      {
+        "id": "co-9",
+        "question": "A company wants to migrate an existing on-premises application to Azure with minimal code changes while retaining full control over the operating system and installed software. Which cloud service model best fits this requirement?",
+        "options": ["Infrastructure as a Service (IaaS)", "Platform as a Service (PaaS)", "Software as a Service (SaaS)", "Function as a Service (serverless)"],
+        "correctIndex": 0,
+        "explanation": "IaaS provides virtual machines where the customer manages the OS and software stack, making it the best fit for a lift-and-shift migration with minimal changes. PaaS and serverless abstract away OS management, which would require reworking the application."
+      },
+      {
+        "id": "co-10",
+        "question": "In Azure App Service, what is the primary purpose of using deployment slots?",
+        "options": ["To stage a new version of an app and swap it into production with near-zero downtime and an easy rollback path", "To automatically replicate the app across multiple Azure regions", "To encrypt application data at rest", "To assign a dedicated virtual network to the app"],
+        "correctIndex": 0,
+        "explanation": "Deployment slots let you warm up and validate a new version in a separate environment, then swap it into production, with the option to swap back quickly if something goes wrong. They are unrelated to multi-region replication, encryption, or networking."
+      },
+      {
+        "id": "co-11",
+        "question": "When creating an Azure App Service plan or virtual machine, what does selecting a pricing tier (SKU) primarily determine?",
+        "options": ["The amount of compute resources, such as CPU and memory, and available features, along with the resulting cost", "The Azure region where the resource can be deployed", "The identity provider used for authentication", "The programming language the app is allowed to run"],
+        "correctIndex": 0,
+        "explanation": "A pricing tier or SKU defines the hardware capacity and feature set available to a resource, which in turn drives its cost. It does not control the deployment region, identity provider, or supported programming language."
+      },
+      {
+        "id": "co-12",
+        "question": "A customer has strict compliance requirements stating that their VMs must not share the underlying physical server with VMs belonging to other Azure customers. Which feature should they use?",
+        "options": ["Azure Dedicated Host", "Virtual Machine Scale Sets", "Availability Zones", "Azure Container Instances"],
+        "correctIndex": 0,
+        "explanation": "Azure Dedicated Host provisions physical servers dedicated entirely to a single subscription, guaranteeing that no other customer's VMs run on the same hardware. Scale sets and Availability Zones address scaling and resiliency, not hardware isolation."
+      },
+      {
+        "id": "co-13",
+        "question": "What is the purpose of placing virtual machines into an availability set?",
+        "options": ["To distribute the VMs across multiple fault domains and update domains within a datacenter, reducing the impact of hardware failures or planned maintenance", "To automatically add or remove VM instances based on demand", "To provide a private, dedicated connection to an on-premises network", "To take advantage of unused Azure capacity at a reduced price"],
+        "correctIndex": 0,
+        "explanation": "Availability sets spread VMs across separate fault domains (racks, power, network) and update domains (maintenance groups), so a single hardware failure or planned update doesn't take down every instance at once. Autoscaling, private connectivity, and discounted capacity are handled by other features entirely."
+      },
+      {
+        "id": "co-14",
+        "question": "In general terms, what does Azure Spot Virtual Machines pricing allow customers to do?",
+        "options": ["Take advantage of Azure's unused compute capacity at a significantly reduced price, in exchange for the VM potentially being evicted when Azure needs that capacity back", "Reserve compute capacity for one or three years at a fixed discounted rate", "Pay only for the exact number of seconds a serverless function executes", "Receive a discount for committing to a minimum monthly spend across all Azure services"],
+        "correctIndex": 0,
+        "explanation": "Spot VMs draw on Azure's surplus capacity at a steep discount, but Azure can evict them with little notice when that capacity is needed elsewhere, so they suit interruptible workloads. Reserved capacity and consumption-based function billing are different pricing mechanisms."
+      },
+      {
+        "id": "co-15",
+        "question": "A web application is experiencing high traffic, so the team adds more VM instances behind a load balancer instead of upgrading the existing VMs to a larger size. What is this approach called?",
+        "options": ["Scaling out (horizontal scaling)", "Scaling up (vertical scaling)", "Failover clustering", "Geo-replication"],
+        "correctIndex": 0,
+        "explanation": "Adding more instances of the same size to handle load is horizontal scaling, or scaling out. Scaling up (vertical scaling) instead means increasing the size or power of existing resources."
       }
     ]
   },
@@ -209,6 +426,76 @@
         ],
         "correctIndex": 0,
         "explanation": "A Load Balancer distributes incoming traffic among healthy VMs in the backend pool, helping ensure high availability and even resource utilization."
+      },
+      {
+        "id": "net-6",
+        "question": "What is the primary function of Azure DNS?",
+        "options": ["To host DNS domains and provide name resolution using Microsoft's global network of DNS servers", "To encrypt traffic between an on-premises network and Azure", "To filter and inspect inbound and outbound network traffic", "To distribute HTTP traffic across multiple web servers based on URL path"],
+        "correctIndex": 0,
+        "explanation": "Azure DNS hosts DNS domains and resolves domain names to IP addresses using Microsoft's global DNS infrastructure. Encryption, traffic filtering, and URL-based routing are handled by VPN Gateway, Azure Firewall, and Application Gateway respectively, not Azure DNS."
+      },
+      {
+        "id": "net-7",
+        "question": "A company wants to let individual remote employees' laptops securely connect to the corporate Azure virtual network, without connecting an entire branch office network. Which VPN Gateway connection type fits this scenario?",
+        "options": ["Point-to-site VPN", "Site-to-site VPN", "ExpressRoute", "VNet peering"],
+        "correctIndex": 0,
+        "explanation": "Point-to-site VPN creates a secure connection from an individual client device to the VNet, which is ideal for remote workers. Site-to-site connects two entire networks, while ExpressRoute and VNet peering are not designed for individual client connectivity."
+      },
+      {
+        "id": "net-8",
+        "question": "Which Azure service operates at Layer 7 and can make routing decisions based on the URL path or host header of incoming HTTP requests?",
+        "options": ["Azure Application Gateway", "Azure Load Balancer", "Azure ExpressRoute", "Network Security Group"],
+        "correctIndex": 0,
+        "explanation": "Application Gateway is a Layer 7 (application layer) load balancer that can route based on URL path and host headers, and it also offers SSL termination and a web application firewall. Azure Load Balancer works at Layer 4 and only considers IP address and port."
+      },
+      {
+        "id": "net-9",
+        "question": "What is Azure Firewall?",
+        "options": ["A managed, cloud-based network security service that centrally filters inbound and outbound traffic for Azure Virtual Network resources", "A service that distributes incoming traffic across multiple VMs for high availability", "A content delivery network that caches static content at edge locations", "A tool that visualizes and diagnoses network topology and traffic issues"],
+        "correctIndex": 0,
+        "explanation": "Azure Firewall is a fully managed, stateful firewall-as-a-service that enforces centralized network and application-level rules across virtual networks. The other descriptions refer to Load Balancer, CDN, and Network Watcher."
+      },
+      {
+        "id": "net-10",
+        "question": "A company's website serves large images and video to users worldwide and wants to reduce latency by caching that content on servers physically closer to users. Which Azure service should they use?",
+        "options": ["Azure Content Delivery Network (CDN)", "Azure Traffic Manager", "Azure Virtual Network", "Azure Bastion"],
+        "correctIndex": 0,
+        "explanation": "Azure CDN caches static content at points of presence located around the world, reducing latency by serving users from a nearby edge node. Traffic Manager routes traffic at the DNS level between endpoints but does not cache content."
+      },
+      {
+        "id": "net-11",
+        "question": "Which Azure service provides global, application-layer load balancing across multiple regions, including features like SSL offloading, path-based routing, and automatic failover for web applications?",
+        "options": ["Azure Front Door", "Azure Load Balancer", "Virtual Network Gateway", "Network Security Group"],
+        "correctIndex": 0,
+        "explanation": "Azure Front Door is a global Layer 7 entry point that load balances and routes traffic across backend regions with built-in failover and acceleration. Azure Load Balancer operates at Layer 4 and only within or across a single region, not globally at the application layer."
+      },
+      {
+        "id": "net-12",
+        "question": "What is the purpose of dividing an Azure virtual network into multiple subnets?",
+        "options": ["To segment the VNet's address space so different groups of resources can be organized and secured separately", "To increase the total number of IP addresses available to the VNet", "To establish a private connection to an on-premises datacenter", "To automatically load balance traffic between resources in the VNet"],
+        "correctIndex": 0,
+        "explanation": "Subnets divide a VNet's address range into smaller sections so resources can be grouped logically and secured with different network security group rules. They do not add IP address space, provide on-premises connectivity, or perform load balancing."
+      },
+      {
+        "id": "net-13",
+        "question": "Which statement correctly describes the difference between a public IP address and a private IP address in Azure?",
+        "options": ["A public IP address is reachable from the internet, while a private IP address is only reachable within a virtual network or connected network", "A public IP address is used only for outbound traffic, while a private IP address is used only for inbound traffic", "A public IP address is assigned automatically, while a private IP address must always be configured manually", "Private IP addresses provide higher network throughput than public IP addresses"],
+        "correctIndex": 0,
+        "explanation": "Public IP addresses let a resource be reached from, or communicate with, the internet, while private IP addresses are used for communication within a VNet or over a connected private network such as a VPN. The claims about traffic direction, assignment, and throughput are not accurate distinctions between the two."
+      },
+      {
+        "id": "net-14",
+        "question": "A company wants to secure access to an Azure Storage account so traffic from their VNet reaches it over the Microsoft backbone network using a private IP address, rather than traversing the public internet. Which feature should they use?",
+        "options": ["Private Endpoint", "Network Security Group", "Azure Load Balancer", "Azure DNS"],
+        "correctIndex": 0,
+        "explanation": "A private endpoint assigns a private IP address from the VNet to an Azure PaaS resource such as a storage account, keeping traffic on the Microsoft backbone instead of the public internet. NSGs filter traffic but don't change the connection path, and Load Balancer and DNS serve different purposes."
+      },
+      {
+        "id": "net-15",
+        "question": "Which Azure service provides tools to monitor, diagnose, and gain insight into network performance and health, such as capturing packet data and checking effective security rules?",
+        "options": ["Azure Network Watcher", "Azure Monitor", "Azure Firewall", "Azure Traffic Manager"],
+        "correctIndex": 0,
+        "explanation": "Network Watcher offers network-specific diagnostic tools such as packet capture, IP flow verify, and effective security rules. Azure Monitor is a broader monitoring platform, while Firewall and Traffic Manager are not diagnostic tools."
       }
     ]
   },
@@ -264,6 +551,76 @@
         "options": ["Azure Blob Storage", "Azure Files", "Azure Table Storage", "Azure Queue Storage"],
         "correctIndex": 1,
         "explanation": "Azure Files provides managed file shares that can be mounted concurrently by cloud or on-premises deployments, using standard SMB or NFS protocols."
+      },
+      {
+        "id": "st-6",
+        "question": "A company needs high-performance, low-latency storage for a production SQL Server VM disk. Which managed disk type should they choose?",
+        "options": ["Standard HDD", "Standard SSD", "Premium SSD", "Blob Storage Archive tier"],
+        "correctIndex": 2,
+        "explanation": "Premium SSD managed disks are backed by SSD-based storage and are designed for I/O-intensive workloads like production databases, offering high throughput and low latency. Standard HDD and Standard SSD suit less demanding or cost-sensitive workloads, and Archive tier is for blobs, not VM disks."
+      },
+      {
+        "id": "st-7",
+        "question": "Which Azure Storage service is designed to store massive amounts of structured, non-relational data using a NoSQL key-value model?",
+        "options": ["Table Storage", "Queue Storage", "Blob Storage", "Azure Files"],
+        "correctIndex": 0,
+        "explanation": "Table Storage is a NoSQL key-value store ideal for storing large volumes of structured, non-relational data that can be accessed quickly using a partition key and row key. Queue Storage handles messaging, Blob Storage handles unstructured data, and Azure Files provides managed file shares."
+      },
+      {
+        "id": "st-8",
+        "question": "An application needs to reliably pass messages between two decoupled application components so they can process work asynchronously. Which Azure Storage service fits this need?",
+        "options": ["Queue Storage", "Table Storage", "Disk Storage", "Blob Storage"],
+        "correctIndex": 0,
+        "explanation": "Queue Storage is designed for storing large numbers of messages that can be accessed asynchronously, making it ideal for decoupling application components. The other services are designed for structured data, VM disks, or unstructured files rather than message passing."
+      },
+      {
+        "id": "st-9",
+        "question": "Which replication option synchronously copies data across three availability zones within a single region, protecting against a datacenter-level failure while keeping all copies in the same region?",
+        "options": ["LRS", "ZRS", "GRS", "RA-GRS"],
+        "correctIndex": 1,
+        "explanation": "Zone-redundant storage (ZRS) synchronously replicates data across three availability zones in the primary region, so it survives a datacenter outage without the data leaving the region. LRS keeps all copies in one datacenter, while GRS and RA-GRS replicate to a secondary, geographically distant region."
+      },
+      {
+        "id": "st-10",
+        "question": "A company wants their data replicated across availability zones in the primary region AND asynchronously copied to a secondary region for maximum resilience. Which replication option should they choose?",
+        "options": ["LRS", "ZRS", "GZRS", "Standard HDD"],
+        "correctIndex": 2,
+        "explanation": "Geo-zone-redundant storage (GZRS) combines the high availability of zone redundancy in the primary region with the protection of asynchronous replication to a secondary region. LRS and ZRS don't replicate outside the primary region, and Standard HDD refers to a disk performance tier, not a replication option."
+      },
+      {
+        "id": "st-11",
+        "question": "Which tool is a command-line utility commonly used to script and automate the migration of large volumes of data into or out of an Azure Storage account?",
+        "options": ["Azure Storage Explorer", "AzCopy", "Azure Migrate", "Azure Data Box"],
+        "correctIndex": 1,
+        "explanation": "AzCopy is a command-line tool optimized for high-performance copying of data to and from Azure Storage, and it can be scripted for automation. Storage Explorer offers a similar function but through a GUI, Azure Migrate targets workload migration to Azure VMs, and Azure Data Box is for offline bulk transfer using physical devices."
+      },
+      {
+        "id": "st-12",
+        "question": "Which free, standalone tool provides a graphical interface for managing Azure Storage accounts, letting users browse and manage blobs, queues, tables, and files without writing code?",
+        "options": ["AzCopy", "Azure Storage Explorer", "Azure Portal only", "Azure CLI"],
+        "correctIndex": 1,
+        "explanation": "Azure Storage Explorer is a standalone GUI application (available on Windows, macOS, and Linux) purpose-built for browsing and managing content across Azure Storage accounts. AzCopy and Azure CLI are command-line tools, and while the Azure Portal can manage storage too, it isn't a dedicated standalone tool."
+      },
+      {
+        "id": "st-13",
+        "question": "A company wants to automatically move blobs to the Cool tier after 30 days and delete them after one year, without writing custom code. What Azure Storage feature should they configure?",
+        "options": ["Soft delete", "Lifecycle management policy", "Shared access signature", "Immutable storage"],
+        "correctIndex": 1,
+        "explanation": "Lifecycle management policies let you define rule-based actions, such as tiering or deleting blobs after a certain number of days, to automatically optimize storage costs over time. Soft delete protects against accidental deletion, SAS controls access, and immutable storage prevents changes rather than automating tiering."
+      },
+      {
+        "id": "st-14",
+        "question": "A financial services company must ensure certain blobs cannot be modified or deleted for a fixed retention period to meet regulatory requirements. Which Azure Storage capability should they use?",
+        "options": ["Lifecycle management", "Immutable blob storage", "Azure Files snapshots", "Cool access tier"],
+        "correctIndex": 1,
+        "explanation": "Immutable blob storage lets you store data in a write-once, read-many (WORM) state, so blobs cannot be changed or deleted during a specified retention period, which supports regulatory and compliance needs. Lifecycle management automates tiering/deletion rather than preventing it, and the other options don't provide WORM protection."
+      },
+      {
+        "id": "st-15",
+        "question": "What is the purpose of a shared access signature (SAS) in Azure Storage?",
+        "options": ["It encrypts data at rest automatically", "It grants time-limited, permission-scoped access to storage resources without sharing the account key", "It replicates storage data to a secondary region", "It converts blob storage into a relational database"],
+        "correctIndex": 1,
+        "explanation": "A SAS is a URI that grants delegated, time-limited access with specific permissions to storage resources, allowing controlled access without exposing the storage account's access keys. It has nothing to do with encryption at rest, replication, or data structure conversion."
       }
     ]
   },
@@ -329,6 +686,76 @@
         ],
         "correctIndex": 0,
         "explanation": "Azure AD Connect synchronizes identity information between an on-premises Active Directory and Azure AD, allowing users to use the same credentials in both environments."
+      },
+      {
+        "id": "id-6",
+        "question": "Which Azure AD feature lets an organization enforce rules such as 'require MFA when a user signs in from an untrusted location' based on signals like user, device, and location?",
+        "options": ["Self-Service Password Reset", "Conditional Access", "Azure AD Connect", "Single Sign-On"],
+        "correctIndex": 1,
+        "explanation": "Conditional Access evaluates signals such as user, location, device, and application to enforce policy-based access decisions, like requiring MFA under certain conditions. SSPR handles password resets, AD Connect handles hybrid sync, and SSO simply reduces the number of sign-ins required."
+      },
+      {
+        "id": "id-7",
+        "question": "What is the key difference between Azure AD roles and Azure RBAC roles?",
+        "options": ["They are the same thing with different names", "Azure AD roles control access to directory resources like users and groups, while Azure RBAC controls access to Azure resources like VMs and storage accounts", "Azure AD roles only apply to guest users", "Azure RBAC roles can only be assigned by a Global Administrator"],
+        "correctIndex": 1,
+        "explanation": "Azure AD roles (such as Global Administrator or User Administrator) govern administrative access to Azure AD directory objects, while Azure RBAC roles (such as Owner or Contributor) govern access to Azure resources like subscriptions and resource groups. They operate at different scopes and are managed independently."
+      },
+      {
+        "id": "id-8",
+        "question": "A company wants to allow an external partner to sign in with their own existing credentials to collaborate on internal projects, without creating a new managed identity for them. Which Azure AD feature enables this?",
+        "options": ["Azure AD B2C", "Azure AD B2B", "Azure AD Connect", "Conditional Access"],
+        "correctIndex": 1,
+        "explanation": "Azure AD B2B (Business-to-Business) collaboration lets you invite external users as guests who sign in using their own existing credentials from their home organization. Azure AD B2C is intended for customer-facing applications, not internal partner collaboration."
+      },
+      {
+        "id": "id-9",
+        "question": "A company is building a customer-facing retail app and wants shoppers to sign in using their Facebook or Google account. Which Azure AD offering is designed for this scenario?",
+        "options": ["Azure AD B2B", "Azure AD Domain Services", "Azure AD B2C", "Azure AD Connect"],
+        "correctIndex": 2,
+        "explanation": "Azure AD B2C (Business-to-Customer) is designed for customer-facing applications, providing identity and access management that supports sign-in with social identity providers like Facebook or Google. Azure AD B2B is for internal collaboration with partners, not consumer apps."
+      },
+      {
+        "id": "id-10",
+        "question": "Which of the following is an example of passwordless authentication supported by Azure AD?",
+        "options": ["Requiring a longer, more complex password", "FIDO2 security keys", "Self-Service Password Reset", "Federation with an on-premises identity provider"],
+        "correctIndex": 1,
+        "explanation": "FIDO2 security keys let users sign in without entering a password at all, using a physical key along with a PIN or biometric. The other options either still rely on passwords or address different identity scenarios entirely."
+      },
+      {
+        "id": "id-11",
+        "question": "Which Azure AD feature allows end users to reset their own forgotten password without contacting the help desk?",
+        "options": ["Conditional Access", "Self-Service Password Reset (SSPR)", "Privileged Identity Management", "Federation"],
+        "correctIndex": 1,
+        "explanation": "Self-Service Password Reset (SSPR) lets users unblock themselves by resetting or changing their own password using verification methods they registered in advance, reducing help desk workload. The other features address access policies, privileged role management, and trust relationships, not password resets."
+      },
+      {
+        "id": "id-12",
+        "question": "In the context of Azure AD, what is a 'tenant'?",
+        "options": ["A virtual machine used to host Azure AD Connect", "A dedicated and isolated instance of Azure AD representing a single organization", "A licensed user account within a subscription", "A resource group that contains identity-related resources"],
+        "correctIndex": 1,
+        "explanation": "An Azure AD tenant is a dedicated, isolated instance of Azure AD that an organization receives when it signs up for a Microsoft cloud service, representing that organization's identity boundary. It is not a VM, a single user account, or a resource group."
+      },
+      {
+        "id": "id-13",
+        "question": "Why is identity often described as the 'new security perimeter' in modern cloud environments?",
+        "options": ["Because firewalls are no longer needed once identity is configured", "Because with users and devices accessing resources from anywhere, verifying identity becomes the primary control point instead of relying solely on a network boundary", "Because Azure AD replaces the need for encryption", "Because identity only matters for on-premises networks"],
+        "correctIndex": 1,
+        "explanation": "As users, devices, and applications increasingly connect from outside a traditional corporate network, a fixed network boundary is no longer sufficient to secure access, so verifying identity becomes the primary control point, an idea central to Zero Trust security. Identity doesn't eliminate the need for firewalls or encryption."
+      },
+      {
+        "id": "id-14",
+        "question": "What does federation with an on-premises identity provider allow an organization to achieve?",
+        "options": ["It copies all on-premises passwords into Azure AD", "It establishes a trust relationship so users can be authenticated by their on-premises identity provider for single sign-on to cloud resources, without their password hash being stored in the cloud", "It automatically resets user passwords on a schedule", "It replaces the need for a tenant entirely"],
+        "correctIndex": 1,
+        "explanation": "Federation (for example, using AD FS) establishes a trust relationship between on-premises identity infrastructure and Azure AD so that authentication requests are redirected to the on-premises provider, enabling SSO without syncing password hashes to the cloud. This differs from password hash sync, which does copy a hash of the password to Azure AD."
+      },
+      {
+        "id": "id-15",
+        "question": "What is a managed identity in Azure AD used for?",
+        "options": ["Letting an Azure resource, such as a VM or function app, authenticate to other Azure services without storing credentials in code", "Granting external guest users access to collaborate", "Allowing consumers to sign in with social accounts", "Resetting passwords automatically for privileged accounts"],
+        "correctIndex": 0,
+        "explanation": "A managed identity provides an Azure resource with an automatically managed identity in Azure AD, allowing it to authenticate to services that support Azure AD authentication without developers having to manage or store credentials in code. Guest access, social sign-in, and password resets are handled by other features (B2B, B2C, and SSPR respectively)."
       }
     ]
   },
@@ -394,6 +821,76 @@
         ],
         "correctIndex": 1,
         "explanation": "Zero Trust assumes no request should be automatically trusted, even from inside the corporate network — every access request is authenticated, authorized, and encrypted based on all available signals."
+      },
+      {
+        "id": "sec-6",
+        "question": "A company wants to ensure that data stored on Azure managed disks and in Azure Storage cannot be read even if the physical media were stolen. Which security concept addresses this requirement?",
+        "options": ["Encryption at rest", "Encryption in transit", "Azure Firewall", "Network Security Groups"],
+        "correctIndex": 0,
+        "explanation": "Encryption at rest protects data while it is stored, using technologies such as Azure Storage Service Encryption and Azure Disk Encryption, so stolen media reveals nothing without the encryption keys. Encryption in transit instead protects data as it moves over a network."
+      },
+      {
+        "id": "sec-7",
+        "question": "Which security measure protects data as it travels between a client and an Azure service over the network, typically implemented using protocols such as TLS/SSL?",
+        "options": ["Encryption in transit", "Encryption at rest", "Azure DDoS Protection", "Resource locks"],
+        "correctIndex": 0,
+        "explanation": "Encryption in transit (for example, HTTPS/TLS) protects data while it moves across networks so it cannot be intercepted and read, complementing encryption at rest, which protects data while it is stored."
+      },
+      {
+        "id": "sec-8",
+        "question": "In the shared responsibility model, when a company runs virtual machines in Azure (IaaS), who is responsible for patching the guest operating system?",
+        "options": ["The customer", "Microsoft", "Both are jointly and equally responsible with no distinction", "Neither party, since patching is automatic in all Azure services"],
+        "correctIndex": 0,
+        "explanation": "In IaaS, Microsoft secures the physical infrastructure, host, and virtualization layer, but the customer remains responsible for managing and patching the guest OS, applications, and data. As services move toward SaaS, more of this responsibility shifts to Microsoft."
+      },
+      {
+        "id": "sec-9",
+        "question": "Which Azure service provides cloud-native security information and event management (SIEM) combined with security orchestration, automation, and response (SOAR) capabilities?",
+        "options": ["Microsoft Sentinel", "Microsoft Defender for Cloud", "Azure Key Vault", "Azure Firewall"],
+        "correctIndex": 0,
+        "explanation": "Microsoft Sentinel is a cloud-native SIEM/SOAR solution that collects security data across an organization, uses analytics to detect threats, and enables automated investigation and response. Defender for Cloud focuses on posture management and threat protection for Azure resources rather than broad, cross-source SIEM analytics."
+      },
+      {
+        "id": "sec-10",
+        "question": "Which service is a managed, cloud-based network security service that filters traffic at the perimeter of a virtual network using centrally created and enforced rules?",
+        "options": ["Azure Firewall", "Network Security Group", "Azure Bastion", "Microsoft Defender for Cloud"],
+        "correctIndex": 0,
+        "explanation": "Azure Firewall is a stateful, fully managed firewall service that inspects and filters traffic entering and leaving a virtual network based on centrally managed rules, with built-in high availability and scalability, unlike NSGs which filter traffic at the subnet or network interface level."
+      },
+      {
+        "id": "sec-11",
+        "question": "As part of a defense-in-depth strategy, at which layer does a Network Security Group (NSG) primarily add a security control?",
+        "options": ["The network layer, by filtering inbound and outbound traffic to subnets and network interfaces", "The application layer, by validating user credentials", "The physical layer, by restricting datacenter access", "The identity layer, by enforcing multi-factor authentication"],
+        "correctIndex": 0,
+        "explanation": "NSGs contribute to defense in depth at the networking layer by allowing or denying traffic based on rules for source, destination, port, and protocol, forming one ring of protection alongside identity, application, and physical controls at other layers."
+      },
+      {
+        "id": "sec-12",
+        "question": "In Microsoft Defender for Cloud, what does the Secure Score represent?",
+        "options": ["A measurement of an organization's security posture based on completed security recommendations", "The number of active threats currently being blocked", "The total cost of security services enabled on a subscription", "The uptime percentage guaranteed by the Azure SLA"],
+        "correctIndex": 0,
+        "explanation": "Secure Score aggregates security recommendations across resources into a single score, giving an at-a-glance view of an organization's overall security posture and highlighting which actions would improve it most."
+      },
+      {
+        "id": "sec-13",
+        "question": "Which Microsoft Defender for Cloud feature reduces exposure to attacks by locking down inbound traffic to VM management ports and opening them only for a limited time when access is genuinely needed?",
+        "options": ["Just-in-time VM access", "Azure Bastion", "Resource locks", "Azure Policy"],
+        "correctIndex": 0,
+        "explanation": "Just-in-time VM access keeps management ports such as RDP (3389) and SSH (22) closed by default and opens them temporarily, only for approved IP ranges, when a legitimate access request is approved, shrinking the attack surface."
+      },
+      {
+        "id": "sec-14",
+        "question": "Which service lets administrators securely connect to a VM via RDP or SSH directly through the Azure portal, without exposing the VM through a public IP address?",
+        "options": ["Azure Bastion", "Just-in-time VM access", "Azure Firewall", "Network Security Group"],
+        "correctIndex": 0,
+        "explanation": "Azure Bastion is a fully managed PaaS service that provides secure RDP and SSH connectivity to VMs over TLS directly from the Azure portal, so VMs never need a public IP address or an exposed management port."
+      },
+      {
+        "id": "sec-15",
+        "question": "Which layer of Microsoft's security approach includes measures such as perimeter fencing, security guards, and multi-factor access controls to physically enter an Azure datacenter?",
+        "options": ["Physical security", "Identity and access security", "Application security", "Data security"],
+        "correctIndex": 0,
+        "explanation": "Physical security is the outermost layer of Microsoft's defense-in-depth approach and includes controls such as perimeter fencing, seismic bracing, security guards, and biometric or badge-based access restricting who can physically enter a datacenter facility."
       }
     ]
   },
@@ -459,6 +956,76 @@
         ],
         "correctIndex": 0,
         "explanation": "Tags are name/value pairs you attach to resources, commonly used to organize resources by department, project, or environment — especially useful for cost reporting."
+      },
+      {
+        "id": "gov-6",
+        "question": "Which Azure service allows organizations to define a repeatable set of resources, policies, and role assignments that can be deployed together to quickly stand up compliant environments?",
+        "options": ["Azure Blueprints", "Azure Policy", "Management Groups", "Resource Locks"],
+        "correctIndex": 0,
+        "explanation": "Azure Blueprints packages artifacts such as ARM templates, policy assignments, and RBAC role assignments into a single blueprint definition, letting teams repeatedly deploy environments that meet organizational standards. Azure Policy alone enforces rules but does not bundle resource deployment and role assignments together."
+      },
+      {
+        "id": "gov-7",
+        "question": "Which Microsoft solution helps organizations discover, classify, and govern sensitive data across on-premises, multicloud, and SaaS sources?",
+        "options": ["Microsoft Purview", "Microsoft Sentinel", "Azure Policy", "Azure Advisor"],
+        "correctIndex": 0,
+        "explanation": "Microsoft Purview provides a unified set of data governance, discovery, and compliance capabilities, helping organizations map, classify, and protect sensitive data wherever it resides. Sentinel is a SIEM/SOAR tool for security monitoring, not data governance."
+      },
+      {
+        "id": "gov-8",
+        "question": "In the Azure governance hierarchy of management groups, subscriptions, resource groups, and resources, how do Azure Policy assignments and RBAC role assignments typically behave?",
+        "options": ["They are inherited from higher levels down to lower levels in the hierarchy", "They apply only to the exact level at which they are assigned and never inherit", "They apply only to resource groups and never to subscriptions or management groups", "They must be reassigned manually at every resource before they take effect"],
+        "correctIndex": 0,
+        "explanation": "Azure's governance hierarchy is designed so that policies and role assignments applied at a higher scope, such as a management group, flow down and apply to all subscriptions, resource groups, and resources beneath it, reducing the need to configure governance at every level individually."
+      },
+      {
+        "id": "gov-9",
+        "question": "Azure Policy includes hundreds of built-in policy definitions for common scenarios. When should an organization create a custom policy definition instead?",
+        "options": ["When no built-in policy definition meets a specific organizational requirement", "Built-in policies cannot be assigned to management groups, only custom ones can", "Custom policies are required before Azure Policy can be enabled on a subscription", "Built-in policies can only report compliance and can never deny non-compliant resources"],
+        "correctIndex": 0,
+        "explanation": "Microsoft provides many built-in policy definitions covering common compliance and configuration scenarios, but organizations can author custom policy definitions in JSON when they have unique requirements the built-ins don't address."
+      },
+      {
+        "id": "gov-10",
+        "question": "What is an Azure Policy initiative?",
+        "options": ["A grouping of multiple related policy definitions that are assigned and tracked together as a single set", "A temporary policy that automatically expires after 30 days", "A request submitted to Microsoft to change a subscription's spending limit", "A built-in role that grants permission to create new policies"],
+        "correctIndex": 0,
+        "explanation": "An initiative, also called a policy set, bundles related individual policy definitions into one object, making it easier to assign, manage, and track compliance for a group of related requirements, such as all controls needed for a specific regulatory standard."
+      },
+      {
+        "id": "gov-11",
+        "question": "When assigning Azure RBAC roles, which principle recommends giving users only the permissions necessary to perform their job, and no more?",
+        "options": ["Principle of least privilege", "Principle of defense in depth", "Principle of shared responsibility", "Principle of subscription separation"],
+        "correctIndex": 0,
+        "explanation": "The principle of least privilege means granting the minimum level of access needed for a task, which limits the potential damage from compromised accounts or mistakes and is a key reason Azure RBAC supports narrowly scoped, granular role assignments."
+      },
+      {
+        "id": "gov-12",
+        "question": "Establishing a standardized naming convention for Azure resources, such as including environment, region, and resource type in each name, is primarily a governance practice used to achieve which benefit?",
+        "options": ["Making resources easier to identify, manage, and report on at scale", "Automatically encrypting all resources that follow the convention", "Granting resources additional RBAC permissions", "Removing the need to apply resource tags"],
+        "correctIndex": 0,
+        "explanation": "Consistent naming conventions are a governance best practice that make it easier for teams to identify a resource's purpose, environment, and owner at a glance, supporting management, automation, and cost reporting at scale; they complement tags rather than replace them."
+      },
+      {
+        "id": "gov-13",
+        "question": "A resource lock is set to CanNotDelete. What effect does this have, compared to a lock set to ReadOnly?",
+        "options": ["Authorized users can still edit the resource but cannot delete it, whereas ReadOnly also blocks any modification", "It blocks all modifications and deletions, while ReadOnly only blocks deletions", "It only applies to resource groups, while ReadOnly only applies to individual resources", "It prevents Azure Policy from evaluating the resource, while ReadOnly has no such effect"],
+        "correctIndex": 0,
+        "explanation": "A CanNotDelete lock still allows authorized users to read and modify a resource but blocks deletion, while a ReadOnly lock is stricter and prevents any modification as well as deletion, effectively freezing the resource's current configuration."
+      },
+      {
+        "id": "gov-14",
+        "question": "Which Microsoft resource provides documentation, best practices, and tools to guide organizations through strategy, planning, and governance decisions when adopting Azure?",
+        "options": ["Cloud Adoption Framework for Azure", "Azure Service Health", "Azure Advisor", "Microsoft Trust Center"],
+        "correctIndex": 0,
+        "explanation": "The Cloud Adoption Framework for Azure is a collection of documentation, guidance, and best practices that helps organizations build and implement business and technology strategies for adopting Azure, including a methodology for governance. Azure Advisor instead gives resource-specific recommendations, not overall adoption strategy."
+      },
+      {
+        "id": "gov-15",
+        "question": "Which free Azure service analyzes a customer's resource configuration and usage to provide personalized recommendations across cost, security, reliability, operational excellence, and performance?",
+        "options": ["Azure Advisor", "Azure Policy", "Azure Blueprints", "Microsoft Purview"],
+        "correctIndex": 0,
+        "explanation": "Azure Advisor continuously evaluates deployed resources and offers tailored best-practice recommendations across five pillars, helping organizations improve their environment, whereas Azure Policy enforces rules rather than offering advisory recommendations."
       }
     ]
   },
@@ -524,6 +1091,76 @@
         ],
         "correctIndex": 0,
         "explanation": "Alerts let you define conditions (like CPU usage exceeding a threshold) and automatically notify a person or trigger actions such as scaling resources or running a script."
+      },
+      {
+        "id": "mon-6",
+        "question": "What is a Log Analytics workspace used for in Azure Monitor?",
+        "options": ["A central repository where collected log data is stored and queried using the Kusto Query Language (KQL)", "A dashboard for displaying real-time billing charges", "A backup vault for storing virtual machine snapshots", "A network security boundary for isolating resources"],
+        "correctIndex": 0,
+        "explanation": "A Log Analytics workspace is the environment where Azure Monitor stores collected log data, and it's the place you write KQL queries to search, filter, and analyze that data. It has no relation to billing, VM backups, or network isolation."
+      },
+      {
+        "id": "mon-7",
+        "question": "Which statement best describes the difference between Azure Monitor Metrics and Azure Monitor Logs?",
+        "options": ["Metrics are lightweight numerical values captured at regular intervals, good for near real-time analysis, while Logs contain structured or unstructured records queried with KQL for deeper investigation", "Metrics and Logs are two names for the exact same underlying data store", "Logs only capture numeric performance counters while Metrics store free-text event records", "Metrics require a Log Analytics workspace, but Logs do not need any storage location"],
+        "correctIndex": 0,
+        "explanation": "Metrics data is numerical and time-stamped, suited to fast, lightweight monitoring and alerting, whereas Logs data (events, traces, etc.) is richer and requires querying with KQL for detailed analysis. The two are distinct data types within Azure Monitor, not interchangeable."
+      },
+      {
+        "id": "mon-8",
+        "question": "Which Azure service provides tools to diagnose, monitor, and gain insight into the health and performance of your virtual network?",
+        "options": ["Network Watcher", "Azure Firewall", "Application Insights", "Azure Advisor"],
+        "correctIndex": 0,
+        "explanation": "Network Watcher provides network diagnostic and monitoring tools such as topology views, connection troubleshooting, and traffic diagnostics. Azure Firewall is a security service, Application Insights monitors applications, and Advisor gives general best-practice recommendations."
+      },
+      {
+        "id": "mon-9",
+        "question": "How does the public Azure Status page differ from Azure Service Health?",
+        "options": ["Azure Status shows the global health of all Azure services across regions for anyone to view, while Service Health gives a personalized view of outages and events affecting your specific subscription's resources", "Azure Status is personalized per subscription, while Service Health is a public page anyone can view", "They show identical information and exist only for redundancy", "Azure Status only reports planned maintenance, while Service Health only reports unplanned outages"],
+        "correctIndex": 0,
+        "explanation": "Azure Status is a public page reporting the current health of Azure services worldwide, with no sign-in required. Service Health, by contrast, is accessed within the Azure portal and is tailored to show only the health events relevant to the resources in your subscription."
+      },
+      {
+        "id": "mon-10",
+        "question": "What is the purpose of dashboards in the Azure portal?",
+        "options": ["They provide a customizable canvas where you can combine metrics, logs, and other data into a single view for at-a-glance monitoring", "They automatically remediate any detected performance issues", "They replace the need to collect metrics or logs entirely", "They generate monthly invoices for resource usage"],
+        "correctIndex": 0,
+        "explanation": "Azure portal dashboards let you pin and arrange tiles showing metrics, logs, and other visualizations onto one customizable screen for quick monitoring. They are purely a visualization surface, not a remediation, data-collection, or billing tool."
+      },
+      {
+        "id": "mon-11",
+        "question": "What are Azure Monitor workbooks primarily used for?",
+        "options": ["Combining text, log and metric queries, and visualizations into a single interactive report for rich analysis", "Enforcing consistent resource tagging across a subscription", "Automatically scaling virtual machines based on load", "Storing raw telemetry data for long-term retention"],
+        "correctIndex": 0,
+        "explanation": "Workbooks let you author interactive reports that mix narrative text with live query results and charts, making them useful for troubleshooting guides and analysis. Tagging, autoscaling, and long-term telemetry storage are handled by other Azure features."
+      },
+      {
+        "id": "mon-12",
+        "question": "In Azure Monitor, what is an action group used for?",
+        "options": ["Defining a reusable set of notification methods (email, SMS, webhook) and automated actions (such as running a runbook) to trigger when an alert fires", "Grouping virtual machines together for a single monitoring dashboard", "Setting a monthly spending threshold for a subscription", "Defining role-based access control (RBAC) permissions for a resource group"],
+        "correctIndex": 0,
+        "explanation": "An action group is a reusable collection of notification preferences and automated responses that alert rules invoke when triggered. It has nothing to do with grouping VMs for display, budgets, or RBAC permissions."
+      },
+      {
+        "id": "mon-13",
+        "question": "What is the purpose of diagnostic settings on an Azure resource?",
+        "options": ["To configure how the resource's logs and metrics are collected and routed to a destination such as a Log Analytics workspace, storage account, or event hub", "To configure the alert thresholds that trigger notifications", "To assign role-based access control permissions to the resource", "To enable automatic backup of the resource's data"],
+        "correctIndex": 0,
+        "explanation": "Diagnostic settings define which logs and metrics a resource emits and where that data is sent for storage or further analysis, such as Log Analytics, a storage account, or Event Hubs. Setting alert thresholds, RBAC, and backups are separate, unrelated configurations."
+      },
+      {
+        "id": "mon-14",
+        "question": "Which query language is used to search and analyze data stored in a Log Analytics workspace?",
+        "options": ["Kusto Query Language (KQL)", "Transact-SQL (T-SQL)", "PowerShell scripting syntax", "Azure Resource Manager (ARM) template JSON"],
+        "correctIndex": 0,
+        "explanation": "Log Analytics workspaces are queried using KQL, a language designed for exploring large volumes of log and telemetry data. T-SQL, PowerShell, and ARM template syntax serve different purposes and are not used to query Log Analytics data."
+      },
+      {
+        "id": "mon-15",
+        "question": "Which Azure Monitor feature provides monitoring of virtual machine performance and health, including discovery of dependencies between VMs and other processes?",
+        "options": ["VM insights", "Application Insights", "Network Watcher", "Azure Advisor"],
+        "correctIndex": 0,
+        "explanation": "VM insights monitors the performance and health of virtual machines and can map dependencies between VMs and running processes. Application Insights focuses on application-level telemetry, Network Watcher focuses on network diagnostics, and Advisor gives general recommendations."
       }
     ]
   },
@@ -589,6 +1226,76 @@
         ],
         "correctIndex": 1,
         "explanation": "Azure generally does not charge for data moving into a region (inbound), but does charge for data leaving Azure to the internet (outbound), depending on the service and volume."
+      },
+      {
+        "id": "pr-6",
+        "question": "What does the Azure free account offer to new customers?",
+        "options": ["A short-term credit to spend on any Azure service, 12 months of popular services free up to certain limits, and a set of services that remain free forever up to certain limits", "Unlimited free usage of every Azure service indefinitely", "A one-time discount code that can only be applied under an Enterprise Agreement", "Free access limited exclusively to virtual machine usage"],
+        "correctIndex": 0,
+        "explanation": "The Azure free account combines a time-limited credit, 12 months of selected services free within usage limits, and a longer list of services that are always free within limits. It does not provide unlimited free usage of all services or restrict free access to only VMs."
+      },
+      {
+        "id": "pr-7",
+        "question": "Where can a customer find the published price for a specific Azure service, such as the per-GB rate for Blob Storage?",
+        "options": ["On the public Azure pricing pages for that service, published by Microsoft for anyone to view", "Only by contacting a Microsoft sales representative directly", "Only after signing an Enterprise Agreement with Microsoft", "Pricing is not published anywhere and is negotiated individually for every customer"],
+        "correctIndex": 0,
+        "explanation": "Microsoft publishes transparent, per-service pricing pages on the Azure website that anyone can view without needing to contact sales or sign a special agreement. This transparency is a core part of how Azure pricing is communicated to customers."
+      },
+      {
+        "id": "pr-8",
+        "question": "What does License Mobility through Software Assurance primarily allow an organization to do?",
+        "options": ["Move eligible existing on-premises server application licenses, such as Exchange Server or SharePoint Server, to Azure virtual machines without purchasing new licenses", "Automatically convert Azure Reservations into Spot VM discounts", "Receive a discount on the Azure support plan tier", "Transfer unused Azure credits between separate subscriptions"],
+        "correctIndex": 0,
+        "explanation": "License Mobility through Software Assurance lets customers bring certain already-licensed server applications to Azure without buying new licenses, lowering the total cost of running those workloads in the cloud. It is unrelated to Reservations, support plans, or transferring credits."
+      },
+      {
+        "id": "pr-9",
+        "question": "Many Azure services offer multiple pricing tiers, or SKUs, for the same service. What is the main purpose of these tiers?",
+        "options": ["To let customers select a level of performance, capacity, or feature set that matches their needs and budget", "To determine which Azure region the resource is allowed to be deployed in", "To restrict which type of subscription can use the service at all", "To automatically set the support plan associated with the subscription"],
+        "correctIndex": 0,
+        "explanation": "Pricing tiers or SKUs exist so customers can choose the right balance of features, performance, and capacity for their workload and budget, rather than being forced into a single fixed offering. They are not tied to region availability, subscription type restrictions, or support plans."
+      },
+      {
+        "id": "pr-10",
+        "question": "How do Azure support plan tiers (such as Basic, Developer, Standard, and Professional Direct) typically affect overall Azure costs?",
+        "options": ["Higher support tiers offer faster response times and more support channels but add their own monthly fee, increasing total spend", "Support plans are always free no matter which tier is chosen", "The support plan tier determines the discount percentage applied to compute resources", "Support plan costs are automatically factored into the Total Cost of Ownership (TCO) calculator's estimate"],
+        "correctIndex": 0,
+        "explanation": "Azure support plans range from a free Basic tier to paid tiers with progressively faster response times and broader support channels, and choosing a higher tier adds its own recurring cost on top of resource spending. Support tier selection does not affect compute discounts or automatically appear in TCO estimates."
+      },
+      {
+        "id": "pr-11",
+        "question": "Which statement best describes how Azure Reservations affect pricing compared to pay-as-you-go?",
+        "options": ["You commit to using a resource for a 1- or 3-year term and pay in advance (or monthly) to receive a significant discount over pay-as-you-go rates", "Reservations automatically discount any resource regardless of how long it has been running", "Reservations remove the need to use the Pricing Calculator when estimating costs", "Reservations apply only to storage accounts and cannot be used for compute"],
+        "correctIndex": 0,
+        "explanation": "Azure Reservations let customers commit to a specific amount of resource usage for one or three years, which can significantly lower the cost compared to pay-as-you-go pricing. They still require estimating usage upfront and apply across several resource types, not just storage."
+      },
+      {
+        "id": "pr-12",
+        "question": "What is an Azure Savings Plan for compute?",
+        "options": ["A commitment to spend a fixed hourly amount on eligible compute services for one or three years in exchange for reduced rates, applied flexibly across VM sizes, regions, and compute services", "A reservation that locks in a specific VM size and region for one year", "A free monthly allowance of compute hours included with every Azure subscription", "A discount that only applies to Azure Spot Virtual Machines"],
+        "correctIndex": 0,
+        "explanation": "A Savings Plan for compute is based on committing to a consistent hourly spend rather than a specific VM SKU or region, giving more flexibility than a Reservation while still reducing pay-as-you-go rates. Reservations, by contrast, are tied to a specific resource configuration."
+      },
+      {
+        "id": "pr-13",
+        "question": "Why might the published price for the same Azure service differ when viewed from different countries on the Azure pricing pages?",
+        "options": ["Prices are published per region and currency, and billing zone or local market factors can cause the listed price to vary by country", "Azure always charges an identical global flat rate, so any difference shown is a website display error", "Only optional support plan costs vary by country; the underlying resource costs are always identical worldwide", "Country-based pricing differences apply exclusively to Azure Marketplace third-party offers, never to core Azure services"],
+        "correctIndex": 0,
+        "explanation": "Azure publishes pricing per region, and the currency and pricing shown can vary depending on billing zone and local market conditions, which is why the same service can show different prices in different countries. This is a normal part of Azure's published pricing model, not an error."
+      },
+      {
+        "id": "pr-14",
+        "question": "Which of the following best describes how usage-based Azure services, such as virtual machines, are typically metered for billing purposes?",
+        "options": ["Usage is tracked and billed in small time increments, such as per second or per minute, while the resource is actively running", "Usage is billed as a single flat charge once per calendar month no matter how long the resource ran", "Billing only occurs when the resource is stopped or deallocated", "Usage is billed based on the amount of RAM installed on the host, not the time the resource was used"],
+        "correctIndex": 0,
+        "explanation": "Consumption-based Azure services are typically metered at a fine granularity, such as per second or per minute, so customers pay only for the time a resource is actually running. This fine-grained metering is part of what makes the consumption-based model cost-efficient."
+      },
+      {
+        "id": "pr-15",
+        "question": "A company wants to compare the estimated monthly cost of hosting a web application on Azure App Service versus a set of virtual machines behind a load balancer, before deciding which to deploy. Which tool should they use?",
+        "options": ["The Azure Pricing Calculator, creating a separate estimate for each deployment option and comparing the totals", "The Total Cost of Ownership (TCO) Calculator, since it is designed to compare different Azure deployment options against each other", "Azure Cost Management budgets, since budgets can forecast the cost of infrastructure that has not yet been deployed", "Azure Advisor, since it is designed to compare hypothetical architectures before they exist"],
+        "correctIndex": 0,
+        "explanation": "The Pricing Calculator is built for exactly this scenario: modeling and comparing the estimated cost of different Azure configurations before anything is provisioned. The TCO Calculator instead compares on-premises costs to Azure, and Cost Management/Advisor work with existing deployed resources, not hypothetical ones."
       }
     ]
   },
@@ -654,6 +1361,76 @@
         ],
         "correctIndex": 0,
         "explanation": "Spot VMs let you take advantage of Azure's unused capacity at a much lower price, but Azure can reclaim that capacity with short notice, making Spot VMs best suited for interruptible workloads."
+      },
+      {
+        "id": "cm-6",
+        "question": "What is the relationship between budgets and cost alerts in Azure Cost Management?",
+        "options": ["A budget defines a spending threshold, and a cost alert is a notification automatically triggered when actual or forecasted spending reaches a defined percentage of that budget", "Cost alerts and budgets are unrelated features that operate independently of each other", "Cost alerts automatically stop or delete resources once a budget is exceeded", "Budgets only track historical spending and cannot generate any notifications"],
+        "correctIndex": 0,
+        "explanation": "Budgets set a spending limit you want to track, and cost alerts fire automatically when actual or forecasted costs cross a percentage threshold of that budget. Neither budgets nor their alerts automatically stop or delete resources; they only notify you."
+      },
+      {
+        "id": "cm-7",
+        "question": "How can resource tags support cost management in Azure?",
+        "options": ["Tags let you label resources by attributes like department, project, or environment so spending can be filtered and grouped in cost reports for showback or chargeback", "Tags automatically apply Reserved Instance pricing discounts to matching resources", "Tags restrict which users are permitted to view billing information", "Tags determine the billing currency used for a subscription"],
+        "correctIndex": 0,
+        "explanation": "Tags are metadata you attach to resources, and Cost Management can group or filter costs by tag values, making it possible to allocate spending to specific teams, projects, or environments. Tags have no effect on Reservation discounts, billing access permissions, or currency settings."
+      },
+      {
+        "id": "cm-8",
+        "question": "What does the Cost analysis feature in Azure Cost Management + Billing provide?",
+        "options": ["Interactive views for exploring accumulated spending broken down by dimensions such as service, resource group, location, or tag", "Automatic recommendations for resizing underused virtual machines", "A workflow for purchasing Reserved Instances or Savings Plans", "Real-time performance metrics for running applications"],
+        "correctIndex": 0,
+        "explanation": "Cost analysis is a reporting view within Cost Management + Billing that lets you break down and visualize spending across various dimensions like service, resource group, or tag. VM rightsizing recommendations come from Azure Advisor, purchasing Reservations is a separate workflow, and application performance metrics come from Application Insights."
+      },
+      {
+        "id": "cm-9",
+        "question": "In cloud cost management, what does the term 'chargeback' mean?",
+        "options": ["Actually billing internal departments or business units for their proportional share of cloud costs, as opposed to showback, which only reports usage without billing", "Reporting departmental usage for informational purposes without any actual billing taking place", "A discount Microsoft applies for paying an Azure invoice early", "An automatic process that scales resource costs up or down based on demand"],
+        "correctIndex": 0,
+        "explanation": "Chargeback means actually billing internal teams for the costs they incur, holding them financially accountable, whereas showback simply reports usage and cost for visibility without transferring the charge. Early-payment discounts and automatic cost scaling are unrelated concepts."
+      },
+      {
+        "id": "cm-10",
+        "question": "What does 'rightsizing' refer to as a cost optimization practice in Azure?",
+        "options": ["Adjusting the size or type of a resource, such as a VM SKU, to match its actual usage so you avoid paying for unused capacity", "Converting on-demand virtual machines into Reserved Instances", "Applying Azure Hybrid Benefit to reduce licensing costs", "Migrating workloads from standard VMs to Spot VMs"],
+        "correctIndex": 0,
+        "explanation": "Rightsizing means matching a resource's configuration, such as VM size, to its real workload demand so you aren't overpaying for capacity you don't use. Reservations, Hybrid Benefit, and Spot VMs are distinct cost-saving mechanisms rather than the practice of rightsizing itself."
+      },
+      {
+        "id": "cm-11",
+        "question": "An organization wants a file of their daily Azure costs automatically delivered to a storage account every week so it can be loaded into an external BI tool. Which Cost Management capability should they configure?",
+        "options": ["Scheduled exports, which automatically write cost and usage data to a storage account on a recurring basis", "Cost alerts, since alerts can deliver data files as well as email notifications", "Azure Advisor recommendations, since Advisor focuses on delivering cost data exports", "Azure Reservations, since reservations include built-in reporting exports"],
+        "correctIndex": 0,
+        "explanation": "Cost Management supports scheduled exports that automatically write cost and usage data to a storage account on a daily, weekly, or monthly basis, making it suitable for feeding external reporting tools. Alerts only send notifications and do not deliver data files."
+      },
+      {
+        "id": "cm-12",
+        "question": "At which of the following scopes can an Azure Budget be created in Cost Management?",
+        "options": ["At multiple scopes, including a subscription, a resource group, or a management group", "Only at the subscription level; individual resource groups cannot have their own budgets", "Only at the level of a single resource, such as one virtual machine", "Only at the Azure AD tenant level, covering every subscription at once with no finer granularity"],
+        "correctIndex": 0,
+        "explanation": "Budgets in Cost Management can be scoped at several levels, including management groups, subscriptions, and resource groups, giving teams flexibility to track spending at the granularity that matters to them. They are not restricted to only the subscription level."
+      },
+      {
+        "id": "cm-13",
+        "question": "Which Azure role-based access control (RBAC) role allows a user to view cost and billing data without granting permission to modify budgets or exports?",
+        "options": ["Cost Management Reader", "Owner", "Cost Management Contributor", "Virtual Machine Contributor"],
+        "correctIndex": 0,
+        "explanation": "The Cost Management Reader role grants read-only access to cost and billing information, which is useful for stakeholders who need visibility without the ability to change budgets or configuration. Owner and Cost Management Contributor both include write permissions, and Virtual Machine Contributor is unrelated to cost data."
+      },
+      {
+        "id": "cm-14",
+        "question": "Which Azure service analyzes resource utilization and recommends actions, such as resizing or shutting down underutilized virtual machines, to help reduce cost?",
+        "options": ["Azure Advisor", "Azure Monitor Alerts", "Azure Policy", "Azure Blueprints"],
+        "correctIndex": 0,
+        "explanation": "Azure Advisor reviews resource configuration and usage telemetry and provides personalized recommendations, including cost recommendations for resizing or eliminating idle or underutilized resources. Monitor Alerts notify on metrics, while Policy and Blueprints focus on governance and compliance, not cost optimization recommendations."
+      },
+      {
+        "id": "cm-15",
+        "question": "When configuring alert thresholds on an Azure budget, what is the key difference between an alert based on actual cost and one based on forecasted cost?",
+        "options": ["An actual cost alert triggers once real spending reaches the threshold, while a forecasted cost alert triggers when projected spending is expected to reach the threshold before the budget period ends", "There is no practical difference; both alert types use exactly the same calculation and timing", "Actual cost alerts only apply to reserved instances, while forecasted cost alerts only apply to pay-as-you-go resources", "Forecasted cost alerts require an upgraded support plan, while actual cost alerts are available on every plan"],
+        "correctIndex": 0,
+        "explanation": "An actual cost alert fires based on spending that has already occurred, whereas a forecasted cost alert uses Cost Management's projection of future spending to warn before the threshold is actually reached. This lets teams react proactively rather than only after the money has already been spent."
       }
     ]
   }
